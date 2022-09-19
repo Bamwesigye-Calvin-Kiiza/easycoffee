@@ -8,6 +8,24 @@ import 'package:flutter_google_places/flutter_google_places.dart';
 import 'package:google_maps_webservice/places.dart';
 import 'package:google_api_headers/google_api_headers.dart';
 
+// void main() {
+//   runApp(MyApp());
+// }
+
+// class MyApp extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       title: 'Flutter Google Maps',
+//       debugShowCheckedModeBanner: false,
+//       theme: ThemeData(
+//         primaryColor: Colors.white,
+//       ),
+//       home: MapScreen(),
+//     );
+//   }
+// }
+
 class MapScreen extends StatefulWidget {
   @override
   _MapScreenState createState() => _MapScreenState();
