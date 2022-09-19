@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:easy_coffee_copy_1/map.dart';
 class NavBar extends StatefulWidget {
   @override
   _NavBarState createState() => _NavBarState();
@@ -31,7 +31,9 @@ class _NavBarState extends State<NavBar> {
               ListTile(
                 leading: Icon(Icons.location_on),
                 title: Text('Your Location'),
-                onTap: () => null,
+                onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context){
+                  return MapScreen();
+                }),),
               ),
               ListTile(
                 leading: Icon(Icons.share),

@@ -7,7 +7,7 @@ class itemcard extends StatelessWidget {
   final Product product;
   final Function press;
   const itemcard({
-    Key? key, required this.product, required this.press ,
+    Key key, this.product, this.press ,
   }) : super(key: key);
 
   @override

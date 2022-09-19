@@ -5,12 +5,12 @@ class Product {
   final int size, id;
   final Color colour;
   Product({
-    required this.id,
-    required this.image,
-    required this.description,
-    required this.size,
-    required this.title,
-    required this.colour,
+    this.id,
+    this.image,
+    this.description,
+    this.size,
+    this.title,
+    this.colour,
   });
 }
 

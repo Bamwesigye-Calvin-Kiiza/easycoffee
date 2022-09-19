@@ -1,4 +1,3 @@
-import 'package:easy_coffee_copy_1/components/item_card.dart';
 import 'package:easy_coffee_copy_1/models/products.dart';
 import 'package:flutter/material.dart';
 
@@ -7,7 +6,7 @@ import '../details/details_screen.dart';
 class CustomSearchDelegate extends SearchDelegate {
   List<Product> searchTerms = products;
   @override
-  List<Widget>? buildActions(BuildContext context) {
+  List<Widget> buildActions(BuildContext context) {
     return [
       IconButton(
           onPressed: () {
@@ -18,7 +17,7 @@ class CustomSearchDelegate extends SearchDelegate {
   }
 
   @override
-  Widget? buildLeading(BuildContext context) {
+  Widget buildLeading(BuildContext context) {
     return IconButton(
         onPressed: () {
           close(context, null);
