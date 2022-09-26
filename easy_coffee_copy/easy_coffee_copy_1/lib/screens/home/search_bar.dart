@@ -1,7 +1,7 @@
 import 'package:easy_coffee_copy_1/models/products.dart';
 import 'package:flutter/material.dart';
 
-import '../details/details_screen.dart';
+import '../../components/body2.dart';
 
 class CustomSearchDelegate extends SearchDelegate {
   List<Product> searchTerms = products;

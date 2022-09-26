@@ -1,6 +1,4 @@
-import 'dart:ui';
-
-import 'package:easy_coffee_copy_1/components/body.dart';
+import 'package:easy_coffee_copy_1/components/body1.dart';
 import 'package:easy_coffee_copy_1/screens/home/menu_bar.dart';
 import 'package:easy_coffee_copy_1/screens/home/search_bar.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +17,7 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(60),
         child: Container(
-          color: Color.fromARGB(255, 113, 251, 117),
+          color: Colors.brown[400],
           padding: EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 10),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -53,8 +51,10 @@ class _HomeScreenState extends State<HomeScreen> {
     ));
   }
 }
-//class HomeScreen extends StatelessWidget {
 
+//home screen code
+
+//class HomeScreen extends StatelessWidget {
  // @override
  // Widget build(BuildContext context) {
 //    return Scaffold(
