@@ -23,7 +23,7 @@ class Body extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) =>
-                        DetailsScreen(product: products[index]), //in body2.dart
+                        finalScreen(product: products[index]), //in body2.dart
                   )),
               product: products[index],
             ),
@@ -47,13 +47,14 @@ class _CategoriesState extends State<Categories> {
   //list of words in the category section
   List<String> categories = [
     'Home',
-    'Fresh coffee',
+    'Farmers',
+    'coffeebean',
     'Dry seeds',
-    'Farm health',
-    'Farm tips ',
+    'Readycoffee',
+    'Farm tips ', //url
+    'Fertilizers', //destributors
     'Processed coffee',
-    'Price Starts',
-    'Fertilizers',
+    'Price Fructuations',
     'Coffee well being'
   ];
 //positioning the black bar to starting category
