@@ -9,7 +9,7 @@ class DetailsScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: product.colour,
       appBar: buildappbar(context),
-      body: Body2(product: product),
+      body: finalScreen(product: product),
     );
   }
 
@@ -72,9 +72,9 @@ class FinalproductsDetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //backgroundColor: product.colour,
+      backgroundColor: product.colour,
       appBar: buildappbar(context),
-      //body: ProductDetailsScreen(),
+      body: finalScreen(),
     );
   }
 
@@ -96,6 +96,77 @@ class FinalproductsDetailsScreen extends StatelessWidget {
             width: 5,
           )
         ]);
+  }
+}
+
+class finalScreen extends StatelessWidget {
+  final Product product;
+  const finalScreen({key, this.product});
+  @override
+  Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+    return SingleChildScrollView(
+      child: Column(children: [
+        SizedBox(
+          height: size.height,
+          child: Stack(
+            children: [
+              Container(
+                padding: EdgeInsets.all(0),
+                decoration:
+                    BoxDecoration(borderRadius: BorderRadius.circular(50)),
+                child: Container(
+                  height: 250,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      image: DecorationImage(
+                          image: AssetImage(product.image), fit: BoxFit.cover)),
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(top: size.height * 0.12),
+                height: 100000,
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    //curving at the top
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(10),
+                        topRight: Radius.circular(10))),
+
+                //contents of the white background
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(''),
+                    Text(product.title,
+                        style: Theme.of(context).textTheme.headline4?.copyWith(
+                            color: Colors.white, fontWeight: FontWeight.bold)),
+                    Row(
+                      children: [
+                        RichText(
+                            text: TextSpan(children: [
+                          TextSpan(
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .headline4
+                                  ?.copyWith(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold))
+                        ])),
+                      ],
+                    ) //headlining word
+                  ],
+                ),
+              )
+            ],
+          ),
+        ),
+        DetailContentMenu()
+      ]),
+    );
   }
 }
 
