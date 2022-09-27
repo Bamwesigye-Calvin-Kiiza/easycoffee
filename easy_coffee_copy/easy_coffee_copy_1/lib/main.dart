@@ -1,9 +1,13 @@
+import 'package:easy_coffee_copy_1/profiles/login.dart';
 import 'package:easy_coffee_copy_1/screens/home/home_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-
-void main() {
-  runApp( MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -16,12 +20,13 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        textTheme: Theme.of(context).textTheme.apply(bodyColor: Color.fromARGB(255, 62, 62, 63)),
+        textTheme: Theme.of(context)
+            .textTheme
+            .apply(bodyColor: Color.fromARGB(255, 62, 62, 63)),
         visualDensity: VisualDensity.adaptivePlatformDensity,
         primarySwatch: Colors.blue,
       ),
-      home: HomeScreen(),
+      home: LogIn(),
     );
   }
 }
-

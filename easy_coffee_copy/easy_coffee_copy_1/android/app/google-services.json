@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "945536128443",
+    "project_id": "easy-coffee-6fd12",
+    "storage_bucket": "easy-coffee-6fd12.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:945536128443:android:b2f15f506b43c1a215609e",
+        "android_client_info": {
+          "package_name": "com.example.easy_coffee_copy_1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "945536128443-0rg53cbgdgiv9513l30molb1bscua6ql.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.easy_coffee_copy_1",
+            "certificate_hash": "6e16819c6e4be01f01d9ad78edc54353dabf4869"
+          }
+        },
+        {
+          "client_id": "945536128443-vt701olgimvvddpa409dha1cenoo1moh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLQBYAX-hMMBqKNJjhD0pcTc0B4IIktQc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "945536128443-vt701olgimvvddpa409dha1cenoo1moh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
