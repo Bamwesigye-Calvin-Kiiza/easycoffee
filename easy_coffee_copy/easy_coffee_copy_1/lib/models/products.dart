@@ -17,14 +17,14 @@ class Product {
 List<Product> products = [
   Product(
       id: 1,
-      image: 'assets/images/Mrs Nakajugo.jpeg',
+      image: 'assets/images/landhealth.webp',
       description: 'etfdyetdajy',
       size: 5,
       title: 'Farmers',
       colour: Colors.brown),
   Product(
     id: 2,
-    image: 'assets/images/coffeeplant.jpg',
+    image: 'assets/images/coffee_space.jpg',
     description: 'etfdyetdajy',
     size: 5,
     title: 'coffeebean',
@@ -39,7 +39,7 @@ List<Product> products = [
       colour: Colors.orangeAccent),
   Product(
       id: 4,
-      image: 'assets/images/fresh_coffee.jpg',
+      image: 'assets/images/coffee_scratch.jpg',
       description: 'etfdyetdajy',
       size: 5,
       title: 'Freshness ',
@@ -53,24 +53,24 @@ List<Product> products = [
       colour: Colors.grey),
   Product(
       id: 6,
-      image: 'assets/images/analysis.png',
+      image: 'assets/images/coffee_well_being.webp',
       description: 'etfdyetdajy',
       size: 5,
-      title: 'Price Fructuations',
+      title: 'Coffee well being',
       colour: Colors.white),
   Product(
       id: 7,
-      image: 'assets/images/Readycoffee.jpg',
+      image: 'assets/images/farmstore.webp',
       description: 'etfdyetdajy',
       size: 5,
       colour: Colors.brown,
       title: 'Proccessed coffee'),
   Product(
       id: 8,
-      image: 'assets/images/hands.jpeg',
+      image: 'assets/images/graph.jpg',
       description: 'etfdyetdajy',
       size: 5,
-      title: 'Coffee well being',
+      title: 'Price Fructuation',
       colour: Colors.grey),
 ];
 

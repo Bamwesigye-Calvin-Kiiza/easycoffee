@@ -1,3 +1,4 @@
+import 'package:easy_coffee_copy_1/farm_locations_list.dart';
 import 'package:flutter/material.dart';
 import 'package:easy_coffee_copy_1/directions_model.dart';
 import 'package:easy_coffee_copy_1/directions_repository.dart';
@@ -7,7 +8,6 @@ import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:flutter_google_places/flutter_google_places.dart';
 import 'package:google_maps_webservice/places.dart';
 import 'package:google_api_headers/google_api_headers.dart';
-
 // void main() {
 //   runApp(MyApp());
 // }
@@ -37,7 +37,7 @@ final homeScaffoldKey = GlobalKey<ScaffoldState>();
 class _MapScreenState extends State<MapScreen> {
   static const _initialCameraPosition = CameraPosition(
     target: LatLng(0.3023972, 32.58247),
-    zoom: 11.5,
+    zoom: 13.5,
   );
 
   GoogleMapController _googleMapController;
@@ -58,7 +58,7 @@ class _MapScreenState extends State<MapScreen> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        backgroundColor: Color.fromARGB(255, 204, 250, 205),
+        backgroundColor: Color.fromARGB(255, 112, 253, 114),
         title: const Text('search places'),
         leading: IconButton(
             onPressed: _handlePressButton,
@@ -80,7 +80,7 @@ class _MapScreenState extends State<MapScreen> {
                 ),
               ),
               style: TextButton.styleFrom(
-                primary: Colors.green,
+                foregroundColor: Colors.green,
                 textStyle: const TextStyle(fontWeight: FontWeight.w600),
               ),
               child: const Text('ORIGIN'),
@@ -97,7 +97,7 @@ class _MapScreenState extends State<MapScreen> {
                 ),
               ),
               style: TextButton.styleFrom(
-                primary: Colors.blue,
+                foregroundColor: Colors.blue,
                 textStyle: const TextStyle(fontWeight: FontWeight.w600),
               ),
               child: const Text('DEST'),
@@ -111,10 +111,14 @@ class _MapScreenState extends State<MapScreen> {
             myLocationButtonEnabled: true,
             myLocationEnabled: true,
             zoomControlsEnabled: false,
-            mapType: MapType.normal,
+            mapType: MapType.hybrid,
             initialCameraPosition: _initialCameraPosition,
             onMapCreated: (controller) => _googleMapController = controller,
             markers: {
+              lumumba,
+              Riis_Coffee_farm,
+              kabalagala_farm,
+              mbarara_farm,
               if (_origin != null) _origin,
               if (_destination != null) _destination,
             },
@@ -171,7 +175,7 @@ class _MapScreenState extends State<MapScreen> {
               _googleMapController.animateCamera(CameraUpdate.newCameraPosition(
                   CameraPosition(
                       target: LatLng(_position.latitude, _position.longitude),
-                      zoom: 14)));
+                      zoom: 18)));
 
               _markers.clear();
 
@@ -191,6 +195,17 @@ class _MapScreenState extends State<MapScreen> {
       ),
     );
   }
+
+  // _location() {
+  //   for (int i = 0; i < farmlocation.length; i++) {
+      
+  //   }
+  // }
+  // Marker lumumba = Marker(
+  //       markerId: MarkerId('test1'),
+  //       position: LatLng(0.331944600617,32.5659497926, ),
+  //       infoWindow: InfoWindow(title: 'lumumba 2'),
+  //       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen));
 
   Future<void> _handlePressButton() async {
     Prediction p = await PlacesAutocomplete.show(
@@ -306,25 +321,22 @@ class _MapScreenState extends State<MapScreen> {
         // Reset info
         _info = null;
       });
+    } else {
+      // Origin is already set
+      // Set destination
+      setState(() {
+        _destination = Marker(
+          markerId: const MarkerId('destination'),
+          infoWindow: const InfoWindow(title: 'Destination'),
+          icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue),
+          position: pos,
+        );
+      });
 
-      }else {
-        // Origin is already set
-        // Set destination
-        setState(() {
-          _destination = Marker(
-            markerId: const MarkerId('destination'),
-            infoWindow: const InfoWindow(title: 'Destination'),
-            icon:
-                BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue),
-            position: pos,
-          );
-        });
-
-        // Get directions
-        final directions = await DirectionsRepository()
-            .getDirections(origin: _origin.position, destination: pos);
-        setState(() => _info = directions);
-      }
+      // Get directions
+      final directions = await DirectionsRepository()
+          .getDirections(origin: _origin.position, destination: pos);
+      setState(() => _info = directions);
     }
   }
-
+}

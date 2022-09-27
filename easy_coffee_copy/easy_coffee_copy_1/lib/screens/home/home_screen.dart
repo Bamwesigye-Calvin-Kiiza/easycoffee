@@ -1,10 +1,16 @@
-import 'package:easy_coffee_copy_1/components/body1.dart';
 import 'package:easy_coffee_copy_1/screens/home/menu_bar.dart';
 import 'package:easy_coffee_copy_1/screens/home/search_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import '../../components/body1.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
+  Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+        statusBarColor: Color.fromARGB(255, 124, 223, 128)));
+  }
+
   _HomeScreenState createState() => _HomeScreenState();
 }
 
@@ -17,7 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(60),
         child: Container(
-          color: Colors.brown[400],
+          color: Color.fromARGB(255, 62, 243, 68),
           padding: EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 10),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,

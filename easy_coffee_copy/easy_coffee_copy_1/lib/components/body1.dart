@@ -7,29 +7,32 @@ import 'item_card.dart';
 class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        Categories(),
-        Expanded(
-            child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 10),
-          child: GridView.builder(
-            itemCount: products.length,
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2, childAspectRatio: 0.75),
-            itemBuilder: (context, index) => itemcard(
-              press: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) =>
-                        finalScreen(product: products[index]), //in body2.dart
-                  )),
-              product: products[index],
+    return Container(
+      decoration: new BoxDecoration(color: Color.fromARGB(255, 250, 243, 239)),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Categories(),
+          Expanded(
+              child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 10),
+            child: GridView.builder(
+              itemCount: products.length,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2, childAspectRatio: 0.75),
+              itemBuilder: (context, index) => itemcard(
+                press: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          finalScreen(product: products[index]), //in body2.dart
+                    )),
+                product: products[index],
+              ),
             ),
-          ),
-        ))
-      ],
+          ))
+        ],
+      ),
     );
   }
 }
