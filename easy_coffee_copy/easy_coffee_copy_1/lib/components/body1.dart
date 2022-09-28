@@ -8,7 +8,7 @@ class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: new BoxDecoration(color: Color.fromARGB(255, 250, 243, 239)),
+      decoration: new BoxDecoration(color: Color.fromARGB(255, 252, 234, 224)),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
