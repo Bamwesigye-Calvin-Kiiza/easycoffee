@@ -1,7 +1,6 @@
 import 'package:easy_coffee_copy_1/models/products.dart';
 import 'package:flutter/material.dart';
-
-import '../../components/body2.dart';
+import '../../components/farmers.dart';
 
 class CustomSearchDelegate extends SearchDelegate {
   List<Product> searchTerms = products;
@@ -44,7 +43,7 @@ class CustomSearchDelegate extends SearchDelegate {
           onTap: () => Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => DetailsScreen(product: products[index]),
+                builder: (context) => farmersScreen(),
               )),
         );
       },
