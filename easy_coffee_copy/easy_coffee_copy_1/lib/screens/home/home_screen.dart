@@ -17,10 +17,9 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-        child: Scaffold(
+    return Scaffold(
       endDrawer: NavBar(),
-      appBar: PreferredSize(
+      /*appBar: PreferredSize(
         preferredSize: Size.fromHeight(60),
         child: Container(
           color: Color.fromARGB(255, 62, 243, 68),
@@ -52,8 +51,40 @@ class _HomeScreenState extends State<HomeScreen> {
             ],
           ),
         ),
-      ),
+      ),*/
+      appBar: buildappbar(context),
       body: Body(),
-    ));
+    );
+  }
+
+  AppBar buildappbar(BuildContext context) {
+    return AppBar(
+        backgroundColor: Color.fromARGB(255, 62, 243, 68),
+        elevation: 0,
+        leading: IconButton(
+          onPressed: (() {
+            showSearch(context: context, delegate: CustomSearchDelegate());
+          }),
+          icon: Icon(
+            Icons.search,
+            color: Colors.black,
+          ),
+        ),
+        actions: [
+          Builder(
+            builder: (context) => GestureDetector(
+              onTap: () {
+                Scaffold.of(context).openEndDrawer();
+              },
+              child: Icon(
+                Icons.menu,
+                color: Colors.black,
+              ),
+            ),
+          ),
+          SizedBox(
+            width: 10,
+          )
+        ]);
   }
 }
