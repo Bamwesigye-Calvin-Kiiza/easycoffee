@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 import '../../components/farmers.dart';
 
 class CustomSearchDelegate extends SearchDelegate {
+
   List<Product> searchTerms = products;
   @override
   List<Widget> buildActions(BuildContext context) {
     return [
+      
       IconButton(
           onPressed: () {
             query = '';
@@ -37,6 +39,7 @@ class CustomSearchDelegate extends SearchDelegate {
       itemBuilder: (context, index) {
         var result = matchQuery[index];
         return ListTile(
+          
           contentPadding: EdgeInsets.all(8.0),
           leading: Image.asset(result.image),
           title: Text(result.title),
