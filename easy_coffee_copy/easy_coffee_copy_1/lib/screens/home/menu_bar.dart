@@ -14,7 +14,7 @@ class _NavBarState extends State<NavBar> {
           canvasColor: Colors.brown[50],
         ),
         child: Padding(
-          padding: EdgeInsets.only(top: 40, bottom: 350),
+          padding: EdgeInsets.only(top: 40, bottom: 200),
           child: Drawer(
             backgroundColor: Color.fromARGB(255, 245, 217, 206),
             width: MediaQuery.of(context).size.width - 150,
