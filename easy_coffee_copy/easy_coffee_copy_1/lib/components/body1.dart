@@ -22,7 +22,6 @@ class Body extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: 10),
               child: GridView(
-                
                 children: [
                   InkWell(
                     onTap: () {
@@ -44,13 +43,13 @@ class Body extends StatelessWidget {
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(30),
                                     image: DecorationImage(
-                                        image: AssetImage(
-                                            'assets/images/landhealth.webp'),
-                                        fit: BoxFit.cover,
-                                        )),
+                                      image: AssetImage(
+                                          'assets/images/landhealth.webp'),
+                                      fit: BoxFit.cover,
+                                    )),
                               )),
                         ),
-          // out putting required information
+                        // out putting required information
                         Padding(
                           padding: const EdgeInsets.symmetric(vertical: 20),
                           child: Center(
@@ -68,7 +67,8 @@ class Body extends StatelessWidget {
                     onTap: () {
                       Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => Dry_seeds() //HomePage()
+                          MaterialPageRoute(
+                              builder: (context) => Dry_seeds() //HomePage()
                               ));
                     },
                     child: Column(
@@ -88,7 +88,7 @@ class Body extends StatelessWidget {
                                         fit: BoxFit.cover)),
                               )),
                         ),
-          // out putting required information
+                        // out putting required information
                         Padding(
                           padding: const EdgeInsets.symmetric(vertical: 20),
                           child: Center(
@@ -106,7 +106,8 @@ class Body extends StatelessWidget {
                     onTap: () {
                       Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => farms() //HomePage()
+                          MaterialPageRoute(
+                              builder: (context) => farms() //HomePage()
                               ));
                     },
                     child: Column(
@@ -121,12 +122,12 @@ class Body extends StatelessWidget {
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(30),
                                     image: DecorationImage(
-                                        image:
-                                            AssetImage('assets/images/fields.webp'),
+                                        image: AssetImage(
+                                            'assets/images/fields.webp'),
                                         fit: BoxFit.cover)),
                               )),
                         ),
-          // out putting required information
+                        // out putting required information
                         Padding(
                           padding: const EdgeInsets.symmetric(vertical: 20),
                           child: Center(
@@ -144,7 +145,9 @@ class Body extends StatelessWidget {
                     onTap: () {
                       Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => coffee_well_being() //HomePage()
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  coffee_well_being() //HomePage()
                               ));
                     },
                     child: Column(
@@ -164,7 +167,7 @@ class Body extends StatelessWidget {
                                         fit: BoxFit.cover)),
                               )),
                         ),
-          // out putting required information
+                        // out putting required information
                         Padding(
                           padding: const EdgeInsets.symmetric(vertical: 20),
                           child: Center(
@@ -182,7 +185,9 @@ class Body extends StatelessWidget {
                     onTap: () {
                       Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => proccessed_coffee() //HomePage()
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  proccessed_coffee() //HomePage()
                               ));
                     },
                     child: Column(
@@ -202,7 +207,7 @@ class Body extends StatelessWidget {
                                         fit: BoxFit.cover)),
                               )),
                         ),
-          // out putting required information
+                        // out putting required information
                         Padding(
                           padding: const EdgeInsets.symmetric(vertical: 20),
                           child: Center(
@@ -220,7 +225,9 @@ class Body extends StatelessWidget {
                     onTap: () {
                       Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => price_fructuatations() //HomePage()
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  price_fructuatations() //HomePage()
                               ));
                     },
                     child: Column(
@@ -235,11 +242,12 @@ class Body extends StatelessWidget {
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(30),
                                     image: DecorationImage(
-                                        image: AssetImage('assets/images/graph.jpg'),
+                                        image: AssetImage(
+                                            'assets/images/graph.jpg'),
                                         fit: BoxFit.cover)),
                               )),
                         ),
-          // out putting required information
+                        // out putting required information
                         Padding(
                           padding: const EdgeInsets.symmetric(vertical: 20),
                           child: Center(
@@ -253,11 +261,12 @@ class Body extends StatelessWidget {
                       ],
                     ),
                   ),
-                   InkWell(
+                  InkWell(
                     onTap: () {
                       Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => start_up() //HomePage()
+                          MaterialPageRoute(
+                              builder: (context) => start_up() //HomePage()
                               ));
                     },
                     child: Column(
@@ -272,11 +281,12 @@ class Body extends StatelessWidget {
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(30),
                                     image: DecorationImage(
-                                        image: AssetImage('assets/images/start_up.webp'),
+                                        image: AssetImage(
+                                            'assets/images/start_up.webp'),
                                         fit: BoxFit.cover)),
                               )),
                         ),
-          // out putting required information
+                        // out putting required information
                         Padding(
                           padding: const EdgeInsets.symmetric(vertical: 20),
                           child: Center(
@@ -290,11 +300,12 @@ class Body extends StatelessWidget {
                       ],
                     ),
                   ),
-                    InkWell(
+                  InkWell(
                     onTap: () {
                       Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => farm_tools() //HomePage()
+                          MaterialPageRoute(
+                              builder: (context) => farm_tools() //HomePage()
                               ));
                     },
                     child: Column(
@@ -309,11 +320,12 @@ class Body extends StatelessWidget {
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(30),
                                     image: DecorationImage(
-                                        image: AssetImage('assets/images/farmtools.jpg'),
+                                        image: AssetImage(
+                                            'assets/images/farmtools.jpg'),
                                         fit: BoxFit.cover)),
                               )),
                         ),
-          // out putting required information
+                        // out putting required information
                         Padding(
                           padding: const EdgeInsets.symmetric(vertical: 20),
                           child: Center(
@@ -329,7 +341,9 @@ class Body extends StatelessWidget {
                   ),
                 ],
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2, mainAxisSpacing: 10, crossAxisSpacing: 10),
+                    crossAxisCount: 2,
+                    mainAxisSpacing: 10,
+                    crossAxisSpacing: 10),
               ),
             ),
           ),
@@ -366,9 +380,9 @@ class _CategoriesState extends State<Categories> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 20),
+      padding: EdgeInsets.symmetric(vertical: 10),
       child: SizedBox(
-        height: 25,
+        height: 27,
         child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: categories.length,
