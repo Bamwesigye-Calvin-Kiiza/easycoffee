@@ -88,7 +88,8 @@ class finalScreen extends StatelessWidget {
                                   );
                                 }
                                 return Container(
-                                  height: MediaQuery.of(context).size.height,
+                                  height:
+                                      MediaQuery.of(context).size.height / 1.5,
                                   width: MediaQuery.of(context).size.width,
                                   child: ListView(
                                     children: snapshot.data.docs.map((snap) {
@@ -98,7 +99,7 @@ class finalScreen extends StatelessWidget {
                                           title: Text(snap['email'].toString()),
                                           subtitle: Column(children: <Widget>[
                                             // Text(snap['District'].toString()),
-                                            Text(snap['Location'].toString()),
+                                            Text(snap['District'].toString()),
                                           ]),
                                           //  trailing: Text(snap['image']),
                                         ),

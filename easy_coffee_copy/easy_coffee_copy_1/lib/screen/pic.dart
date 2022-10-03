@@ -128,7 +128,7 @@ class _UserProfileState extends State<UserProfile> {
     CollectionReference collectionReference =
         FirebaseFirestore.instance.collection('users');
 
-    addProf() async {
+    addProf() {
       // final postId = DateTime.now().microsecondsSinceEpoch.toString();
       // Reference firebaseStorageRef = FirebaseStorage.instance
       //     .ref()
@@ -141,7 +141,7 @@ class _UserProfileState extends State<UserProfile> {
         'Phone': PhoneController.text,
         'District': DistrictController.text,
         'Type': TypeController.text,
-        'Url': Url
+        // 'Url': Url
       };
       collectionReference.add(addProfile).whenComplete(() => print('greate'));
     }
@@ -237,7 +237,7 @@ class _UserProfileState extends State<UserProfile> {
                                 child: Text('Update profile'),
                                 onPressed: (() {
                                   addProf();
-                                  UploadPic(context);
+                                  // UploadPic(context);
                                 }))
                           ],
                         ))
