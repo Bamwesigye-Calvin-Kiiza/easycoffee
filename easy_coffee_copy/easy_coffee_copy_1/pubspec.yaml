@@ -23,7 +23,8 @@ dependencies:
   firebase_auth: ^3.8.0
   font_awesome_flutter: ^8.8.1
   path_provider: ^2.0.11
-
+  flutterwave: ^1.0.3
+  
   image_picker: ^0.8.5+3
   cloud_firestore: ^3.4.8
   firebase_storage: ^10.3.8
@@ -36,3 +37,13 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/
+    - assets/icons/
+  fonts:
+    - family: gilroy
+      fonts:
+        - asset: assets/fonts/Gilroy-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Gilroy-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Gilroy-Medium.ttf
+          weight: 500
