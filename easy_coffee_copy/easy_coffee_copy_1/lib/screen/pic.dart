@@ -157,7 +157,7 @@ class _UserProfileState extends State<UserProfile> {
                 height: MediaQuery.of(context).size.height,
                 width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
-                    color: Color(0xffeeff41),
+                    color: Colors.black12,
                     borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(40),
                         topRight: Radius.circular(40))),
@@ -250,7 +250,7 @@ class _UserProfileState extends State<UserProfile> {
                     ClipOval(
                         child: (image == null)
                             ? Image.asset(
-                                'assets/images/coffee_type.jpg',
+                                'assets/images/Adongo.jpeg',
                                 width: 150,
                                 height: 150,
                                 fit: BoxFit.cover,
