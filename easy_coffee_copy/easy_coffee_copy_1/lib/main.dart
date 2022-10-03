@@ -1,4 +1,4 @@
-import 'package:easy_coffee_copy_1/profiles/login.dart';
+import 'package:easy_coffee_copy_1/screen/login_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
         primarySwatch: Colors.blue,
       ),
-      home: LogIn(),
+      home: LoginScreen(),
     );
   }
 }
