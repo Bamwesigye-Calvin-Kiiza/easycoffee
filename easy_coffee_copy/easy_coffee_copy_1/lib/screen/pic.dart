@@ -99,11 +99,11 @@ class _UserProfileState extends State<UserProfile> {
     UploadTask uploadTask = firebaseStorageRef.putFile(image);
     TaskSnapshot taskSnapshot = await uploadTask;
     Url = await firebaseStorageRef.getDownloadURL();
-    // await FirebaseFirestore.instance
-    //     .collection('users')
-    //     .doc(widget.Userid)
-    //     .collection('image')
-    //     .add({'Url': Url});
+    await FirebaseFirestore.instance
+        .collection('users')
+        .doc(widget.Userid)
+        .collection('image')
+        .add({'Url': Url});
     // .whenComplete(() =>
     //     showSnackBar('Image Uploaded', Duration(seconds: 2)));
 
@@ -128,13 +128,13 @@ class _UserProfileState extends State<UserProfile> {
     CollectionReference collectionReference =
         FirebaseFirestore.instance.collection('users');
 
-    addProf() {
-      final postId = DateTime.now().microsecondsSinceEpoch.toString();
-      Reference firebaseStorageRef = FirebaseStorage.instance
-          .ref()
-          .child('${widget.Userid}/image')
-          .child('post_$postId');
-      Url = firebaseStorageRef.getDownloadURL() as String;
+    addProf() async {
+      // final postId = DateTime.now().microsecondsSinceEpoch.toString();
+      // Reference firebaseStorageRef = FirebaseStorage.instance
+      //     .ref()
+      //     .child('${widget.Userid}/image')
+      //     .child('post_$postId');
+      // Url = firebaseStorageRef.getDownloadURL() as String;
       addProfile = {
         'name': NameController.text,
         'email': EmailController.text,
@@ -195,6 +195,7 @@ class _UserProfileState extends State<UserProfile> {
                             ),
                             TextField(
                               controller: PhoneController,
+                              keyboardType: TextInputType.name,
                               decoration: InputDecoration(
                                 labelText: 'Phone.no',
                                 prefixIcon: Icon(Icons.phone),
