@@ -1,5 +1,10 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:easy_coffee_copy_1/map.dart';
+
+import '../../models/user_model.dart';
+import '../../screen/pic.dart';
 
 class NavBar extends StatefulWidget {
   @override
@@ -7,6 +12,20 @@ class NavBar extends StatefulWidget {
 }
 
 class _NavBarState extends State<NavBar> {
+  User user = FirebaseAuth.instance.currentUser;
+  UserModel loggedInUser = UserModel();
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    FirebaseFirestore.instance
+        .collection('users')
+        .doc(user.uid)
+        .get()
+        .then((value) => this.loggedInUser = UserModel.fromMap(value.data()));
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Theme(
@@ -14,7 +33,7 @@ class _NavBarState extends State<NavBar> {
           canvasColor: Colors.brown[50],
         ),
         child: Padding(
-          padding: EdgeInsets.only(top: 40, bottom: 350),
+          padding: EdgeInsets.only(top: 40, bottom: 200),
           child: Drawer(
             backgroundColor: Color.fromARGB(255, 245, 217, 206),
             width: MediaQuery.of(context).size.width - 150,
@@ -60,8 +79,14 @@ class _NavBarState extends State<NavBar> {
                 ),
                 ListTile(
                   leading: Icon(Icons.description),
-                  title: Text('Policies'),
-                  onTap: () => null,
+                  title: Text('Profile'),
+                  onTap: () => Navigator.of(context).push(
+                    MaterialPageRoute(builder: (BuildContext context) {
+                      return UserProfile(
+                        Userid: loggedInUser.uid,
+                      );
+                    }),
+                  ),
                 ),
                 Divider(),
                 ListTile(

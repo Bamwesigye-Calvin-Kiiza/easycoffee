@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class farmersScreen extends StatelessWidget {
@@ -75,7 +76,38 @@ class finalScreen extends StatelessWidget {
                     children: [
                       Padding(
                           padding: EdgeInsets.all(20),
-                          child: (Text('fgfdfd'))) //code here
+                          child: StreamBuilder(
+                              stream: FirebaseFirestore.instance
+                                  .collection('users')
+                                  .snapshots(),
+                              builder: (BuildContext context,
+                                  AsyncSnapshot<QuerySnapshot> snapshot) {
+                                if (!snapshot.hasData) {
+                                  return Center(
+                                    child: CircularProgressIndicator(),
+                                  );
+                                }
+                                return Container(
+                                  height:
+                                      MediaQuery.of(context).size.height / 1.5,
+                                  width: MediaQuery.of(context).size.width,
+                                  child: ListView(
+                                    children: snapshot.data.docs.map((snap) {
+                                      return Card(
+                                        child: ListTile(
+                                          leading: Text(snap['name']),
+                                          title: Text(snap['email'].toString()),
+                                          subtitle: Column(children: <Widget>[
+                                            // Text(snap['District'].toString()),
+                                            Text(snap['District'].toString()),
+                                          ]),
+                                          //  trailing: Text(snap['image']),
+                                        ),
+                                      );
+                                    }).toList(),
+                                  ),
+                                );
+                              })) //code here
                     ],
                   )
 

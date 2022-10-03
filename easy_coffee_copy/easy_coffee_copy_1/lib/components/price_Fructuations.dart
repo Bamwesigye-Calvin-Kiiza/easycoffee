@@ -61,23 +61,124 @@ class finalScreen extends StatelessWidget {
               ),
               Container(
                   margin: EdgeInsets.only(top: size.height * 0.12),
-                  height: 1000,
+                  height: 4500,
                   decoration: BoxDecoration(
                       color: Color.fromARGB(255, 252, 231, 223),
                       //curving at the top
                       borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(50),
                           topRight: Radius.circular(50))),
-
+                  child: ListView(children: <Widget>[
+                    Center(
+                        child: Text(
+                      'In Uganda shillings per Kg',
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    )),
+                    DataTable(
+                      columns: [
+                        DataColumn(
+                            label: Text('Locality',
+                                style: TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold))),
+                        DataColumn(
+                            label: Text('Price in UGX',
+                                style: TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold))),
+                      ],
+                      rows: [
+                        DataRow(cells: [
+                          DataCell(Text('Kiboko')),
+                          DataCell(Text('2,500/= -\n3,000/=')),
+                        ]),
+                        DataRow(cells: [
+                          DataCell(Text('Arabica Parchment')),
+                          DataCell(Text('11,000/= - 12,000/=')),
+                        ]),
+                        DataRow(cells: [
+                          DataCell(Text('Drugar Coffee (Clean)')),
+                          DataCell(Text('10,000/= - 11,000/=')),
+                        ]),
+                        DataRow(cells: [
+                          DataCell(Text('FAQ')),
+                          DataCell(Text('6,800/= -\n7,300/=')),
+                        ]),
+                      ],
+                    ),
+                    Center(
+                        child: Text(
+                      // 'MARKET PRICES\n'
+                      'In US Cents per lb',
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    )),
+                    DataTable(
+                      columns: [
+                        DataColumn(
+                            label: Text('Locality',
+                                style: TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold))),
+                        DataColumn(
+                            label: Text("Price in USD",
+                                style: TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold))),
+                      ],
+                      rows: [
+                        DataRow(cells: [
+                          DataCell(Text('Robusta –\n Screen 18')),
+                          DataCell(Text('\$117.90')),
+                        ]),
+                        DataRow(cells: [
+                          DataCell(Text('Robusta –\n Screen 15')),
+                          DataCell(Text('\$112.90')),
+                        ]),
+                        DataRow(cells: [
+                          DataCell(Text('Robusta –\n Screen 12')),
+                          DataCell(Text('\$109.90')),
+                        ]),
+                        DataRow(cells: [
+                          DataCell(Text('Arabica –\n Bugisu AA')),
+                          DataCell(Text('\$215.70')),
+                        ]),
+                        DataRow(cells: [
+                          DataCell(Text('Arabica –\n Bugisu A')),
+                          DataCell(Text('\$214.70')),
+                        ]),
+                        DataRow(cells: [
+                          DataCell(Text('Arabica –\n Bugisu PB')),
+                          DataCell(Text('\$214.70')),
+                        ]),
+                        DataRow(cells: [
+                          DataCell(Text('Arabica –\n Bugisu B')),
+                          DataCell(Text('\$212.70')),
+                        ]),
+                        DataRow(cells: [
+                          DataCell(Text('Arabica –\n  Wugar')),
+                          DataCell(Text('\$213.70')),
+                        ]),
+                        DataRow(cells: [
+                          DataCell(Text('Arabica –  Drugar')),
+                          DataCell(Text('\$194.70')),
+                        ]),
+                      ],
+                    ),
+                  ])
                   //content of the card_0n tap ui
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      Padding(
-                          padding: EdgeInsets.all(20),
-                          child: (Text('dhggfhgfjhhghgf'))) //code here
-                    ],
-                  )
+                  // child: Column(
+                  //   crossAxisAlignment: CrossAxisAlignment.stretch,
+
+                  // children: [
+
+                  //   Padding(
+                  //       padding: EdgeInsets.all(20),
+                  //       child: (Text('dhggfhgfjhhghgf')
+                  //       )) //code here
+                  //],
+                  //)
 
                   //desighn of the background
                   ),
@@ -180,5 +281,165 @@ class DetailContentMenu extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+// //price bar and chart code
+// class BarChartModel {
+//   String year;
+//   int financial;
+//   final color;
+
+//   BarChartModel({
+//     this.year,
+//     this.financial,
+//     this.color,
+//   });
+// }
+
+// class Prices extends StatelessWidget {
+//   Prices({Key key}) : super(key: key);
+//   final List<BarChartModel> data = [
+//     BarChartModel(
+//       year: "2014",
+//       financial: 250,
+//       color: (Colors.blueGrey),
+//     ),
+//     BarChartModel(
+//       year: "2015",
+//       financial: 300,
+//       color: (Colors.red),
+//     ),
+//     BarChartModel(
+//       year: "2016",
+//       financial: 100,
+//       color: (Colors.green),
+//     ),
+//     BarChartModel(
+//       year: "2017",
+//       financial: 450,
+//       color: (Colors.yellow),
+//     ),
+//     BarChartModel(
+//       year: "2018",
+//       financial: 630,
+//       color: (Colors.lightBlueAccent),
+//     ),
+//     BarChartModel(
+//       year: "2019",
+//       financial: 950,
+//       color: (Colors.pink),
+//     ),
+//     BarChartModel(
+//       year: "2020",
+//       financial: 400,
+//       color: (Colors.purple),
+//     ),
+//   ];
+
+class PriceFlautuation extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+        home: //Scaffold(
+            // appBar: AppBar(
+            //   title: Text('MARKET PRICES'),
+            // ),
+            //body:
+            ListView(children: <Widget>[
+      Center(
+          child: Text(
+        'MARKET PRICES\n'
+        'In US Cents per lb',
+        style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+      )),
+      DataTable(
+        columns: [
+          DataColumn(
+              label: Text('Locality',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold))),
+          DataColumn(
+              label: Text('Price',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold))),
+        ],
+        rows: [
+          DataRow(cells: [
+            DataCell(Text('Robusta – Screen 18')),
+            DataCell(Text('117.90')),
+          ]),
+          DataRow(cells: [
+            DataCell(Text('Robusta – Screen 15')),
+            DataCell(Text('112.90')),
+          ]),
+          DataRow(cells: [
+            DataCell(Text('Robusta – Screen 12')),
+            DataCell(Text('109.90')),
+          ]),
+          DataRow(cells: [
+            DataCell(Text('Arabica – Bugisu AA')),
+            DataCell(Text('215.70')),
+          ]),
+          DataRow(cells: [
+            DataCell(Text('Arabica – Bugisu A')),
+            DataCell(Text('214.70')),
+          ]),
+          DataRow(cells: [
+            DataCell(Text('Arabica – Bugisu PB')),
+            DataCell(Text('214.70')),
+          ]),
+          DataRow(cells: [
+            DataCell(Text('Arabica – Bugisu B')),
+            DataCell(Text('212.70')),
+          ]),
+          DataRow(cells: [
+            DataCell(Text('Arabica –  Wugar')),
+            DataCell(Text('213.70')),
+          ]),
+          DataRow(cells: [
+            DataCell(Text('Arabica –  Drugar')),
+            DataCell(Text('194.70')),
+          ]),
+        ],
+      ),
+      Center(
+          child: Text(
+        'In Uganda shillings per Kg',
+        style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+      )),
+      DataTable(
+        columns: [
+          DataColumn(
+              label: Text('Locality',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold))),
+          DataColumn(
+              label: Text('Price',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold))),
+        ],
+        rows: [
+          DataRow(cells: [
+            DataCell(Text('Kiboko')),
+            DataCell(Text('2,500/= - 3,000/=')),
+          ]),
+          DataRow(cells: [
+            DataCell(Text('FAQ')),
+            DataCell(Text('6,800/= - 7,300/=')),
+          ]),
+          DataRow(cells: [
+            DataCell(Text('Arabica Parchment')),
+            DataCell(Text('11,000/= - 12,000/=')),
+          ]),
+          DataRow(cells: [
+            DataCell(Text('Drugar Coffee (Clean)')),
+            DataCell(Text('10,000/= to 11,000/=')),
+          ]),
+          DataRow(cells: [
+            DataCell(Text('Arabica –  Drugar')),
+            DataCell(Text('194.70')),
+          ]),
+        ],
+      ),
+    ])
+        // ),
+        );
   }
 }
