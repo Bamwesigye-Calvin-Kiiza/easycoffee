@@ -66,8 +66,8 @@ class finalScreen extends StatelessWidget {
                       color: Color.fromARGB(255, 252, 231, 223),
                       //curving at the top
                       borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(50),
-                          topRight: Radius.circular(50))),
+                          topLeft: Radius.circular(20),
+                          topRight: Radius.circular(20))),
                   child: ListView(children: <Widget>[
                     Center(
                         child: Text(

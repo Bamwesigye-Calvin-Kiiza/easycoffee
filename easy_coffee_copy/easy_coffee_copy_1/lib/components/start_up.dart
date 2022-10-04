@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'farms.dart';
+
 class start_up extends StatelessWidget {
   // final Product product;
   // const DetailsScreen({key, this.product});
@@ -66,18 +68,11 @@ class finalScreen extends StatelessWidget {
                       color: Color.fromARGB(255, 255, 238, 232),
                       //curving at the top
                       borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(50),
-                          topRight: Radius.circular(50))),
+                          topLeft: Radius.circular(20),
+                          topRight: Radius.circular(20))),
 
                   //content of the card_0n tap ui
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      Padding(
-                          padding: EdgeInsets.all(20),
-                          child: (Text('dhggfhgfjhhghgf'))) //code here
-                    ],
-                  )
+                  child: startup()
 
                   //desighn of the background
                   ),
@@ -87,7 +82,7 @@ class finalScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(''),
-                    Text('Start Up',
+                    Text('Start Ups',
                         style: Theme.of(context).textTheme.headline4?.copyWith(
                             color: Colors.brown, fontWeight: FontWeight.bold)),
                     Row(
@@ -116,69 +111,98 @@ class finalScreen extends StatelessWidget {
   }
 }
 
-//copyright code and social media handles
-class DetailContentMenu extends StatelessWidget {
+class startup extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        children: [
-          Text(
-            "© All rights reserved. e_coffee Limited",
+    return ListView(
+      padding: EdgeInsets.all(20),
+      children: <Widget>[
+        // CircleAvatar(
+        //   maxRadius: 50,
+        //   backgroundColor: Colors.black,
+        //   child: Icon(Icons.person, color: Colors.white, size: 50),
+        // ),
+
+        Image.asset('assets/images/Bizzy-Coffee-logo.webp'),
+
+        Center(
+          child: Text(
+            "The Idea ",
+            textAlign: TextAlign.center,
             style: TextStyle(
-                fontSize: 15.0,
-                color: Colors.black87,
-                fontWeight: FontWeight.w400,
-                height: 1.50),
-            textAlign: TextAlign.justify,
+              fontWeight: FontWeight.w600,
+              fontSize: 20,
+            ),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(6.0),
-                child: IconButton(
-                  onPressed: null,
-                  icon: Icon(
-                    Icons.facebook,
-                    color: Colors.black,
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(6.0),
-                child: IconButton(
-                  onPressed: null,
-                  icon: Icon(
-                    Icons.whatsapp,
-                    color: Colors.black,
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(6.0),
-                child: IconButton(
-                  onPressed: null,
-                  icon: Icon(
-                    Icons.telegram,
-                    color: Colors.black,
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(6.0),
-                child: IconButton(
-                  onPressed: null,
-                  icon: Icon(
-                    Icons.tiktok,
-                    color: Colors.black,
-                  ),
-                ),
-              ),
-            ],
+        ),
+        Text(
+          "Bizzy Coffee was created by friends Alec French and Andrew Healy who bonded over their shared passion for cold brew coffee. To spread their passion, Bizzy provides cold brew coffee made with organic beans from sustainable growers. They aim to provide cold coffee that is sweet, flavorful, and creamy like no other. ",
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontSize: 16,
           ),
-        ],
-      ),
+        ),
+        Center(
+          child: Text(
+            "The Details ",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontWeight: FontWeight.w600,
+              fontSize: 20,
+            ),
+          ),
+        ),
+        Text(
+          "Alex and Andrew developed a close friendship due to their love of cold brew coffee. Nicknamed ”The Bizzy Boys”, their natural affinity for a challenge led them to develop a roasting company that would supply beans for cold brew. Like many startups, they began with the ingredients they had on hand. The goal was to make a cold coffee that was not bitter. Instead, Alex and Andrew were on a mission to create a creamy, rich, and non-bitter brew. After many trials and tests with different roasting profiles, grind sizes, brewing temperatures, etc, Bizzy Boys found a unique blend that worked. The trick to maintaining flavor without bitterness, they found, was to boil the beans first.",
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontSize: 16,
+          ),
+        ),
+        Divider(),
+        Divider(),
+        Divider(),
+
+        /// the first idea stops here
+        ///
+
+        Image.asset('assets/images/Cometeer-logo.webp'),
+        Center(
+          child: Text(
+            "The Idea ",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontWeight: FontWeight.w600,
+              fontSize: 20,
+            ),
+          ),
+        ),
+        Text(
+          "Known for saying, “we’re the coffee nerds so you don’t have to be,” Cometeer has pioneered the coffee game. The founders developed a new extraction system that preserves nutrients in coffee while still maintaining the bold flavor people want.",
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontSize: 16,
+          ),
+        ),
+        Center(
+          child: Text(
+            "The Details ",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontWeight: FontWeight.w600,
+              fontSize: 20,
+            ),
+          ),
+        ),
+
+        Text(
+          "Cometeer was founded by Matthew Roberts in 2015 in Gloucester Massachusetts. The innovative new company developed a ground-breaking yet simple solution to preserving nutrients in ground coffee.When coffee beans are ground, they lose a lot of their natural nutrients. Cometeer found that by flash freezing it, nothing was lost in the process. Interestingly enough, freezing the coffee grounds not only preserved its antioxidants and vitamins, but the process also made the beans ten times stronger. To maintain freshness, Cometeer designed their coffee in single servings. It comes in small, round capsules that melt away when dropped into hot water. The grounds also stay good in the freezer for up to three years. Along the way, Cometeer has found innovative ways to inject flavor into its pods. That, along with their long-standing relationships with roasters and coffee farmers, has ensured consistency in Cometeer coffee.",
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontSize: 16,
+          ),
+        )
+      ],
     );
   }
 }
