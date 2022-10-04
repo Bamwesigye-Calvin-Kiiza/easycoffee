@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'farm_tools.dart';
+
 class proccessed_coffee extends StatelessWidget {
   // final Product product;
   // const DetailsScreen({key, this.product});
@@ -66,18 +68,11 @@ class finalScreen extends StatelessWidget {
                       color: Color.fromARGB(255, 255, 238, 232),
                       //curving at the top
                       borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(50),
-                          topRight: Radius.circular(50))),
+                          topLeft: Radius.circular(20),
+                          topRight: Radius.circular(20))),
 
                   //content of the card_0n tap ui
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      Padding(
-                          padding: EdgeInsets.all(20),
-                          child: (Text('dhggfhgfjhhghgf'))) //code here
-                    ],
-                  )
+                  child: ProcessedcoffeedListScreen()
 
                   //desighn of the background
                   ),
@@ -88,7 +83,7 @@ class finalScreen extends StatelessWidget {
                   children: [
                     Text(''),
                     Text('Proccessed coffee',
-                        style: Theme.of(context).textTheme.headline4?.copyWith(
+                        style: Theme.of(context).textTheme.titleLarge.copyWith(
                             color: Colors.brown, fontWeight: FontWeight.bold)),
                     Row(
                       children: [
@@ -116,69 +111,40 @@ class finalScreen extends StatelessWidget {
   }
 }
 
-//copyright code and social media handles
-class DetailContentMenu extends StatelessWidget {
+class ProcessedcoffeedListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        children: [
-          Text(
-            "© All rights reserved. e_coffee Limited",
-            style: TextStyle(
-                fontSize: 15.0,
-                color: Colors.black87,
-                fontWeight: FontWeight.w400,
-                height: 1.50),
-            textAlign: TextAlign.justify,
+    return ListView(
+      children: <Widget>[
+        Divider(),
+        // Ink(
+        //   color: Colors.blueGrey[50],
+        //   child: ListTile(
+        //     title: Text("How To Dry"),
+        //     trailing: Icon(Icons.arrow_forward_rounded),
+        //     onTap: () {},
+        //   ),
+        // ),
+        Divider(),
+        Ink(
+          color: Colors.blueGrey[100],
+          child: ListTile(
+            title: Text('Prices'),
+            trailing: Icon(Icons.arrow_forward_rounded),
+            onTap: () {},
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(6.0),
-                child: IconButton(
-                  onPressed: null,
-                  icon: Icon(
-                    Icons.facebook,
-                    color: Colors.black,
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(6.0),
-                child: IconButton(
-                  onPressed: null,
-                  icon: Icon(
-                    Icons.whatsapp,
-                    color: Colors.black,
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(6.0),
-                child: IconButton(
-                  onPressed: null,
-                  icon: Icon(
-                    Icons.telegram,
-                    color: Colors.black,
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(6.0),
-                child: IconButton(
-                  onPressed: null,
-                  icon: Icon(
-                    Icons.tiktok,
-                    color: Colors.black,
-                  ),
-                ),
-              ),
-            ],
+        ),
+        Divider(),
+        Ink(
+          color: Colors.blueGrey[150],
+          child: ListTile(
+            title: Text('Locations'),
+            trailing: Icon(Icons.arrow_forward_rounded),
+            onTap: () {},
           ),
-        ],
-      ),
+        ),
+        Divider(),
+      ],
     );
   }
 }
