@@ -74,8 +74,8 @@ class _MapScreenState extends State<MapScreen> {
                 CameraUpdate.newCameraPosition(
                   CameraPosition(
                     target: _origin.position,
-                    zoom: 14.5,
-                    tilt: 50.0,
+                    zoom: 20.5,
+                    tilt: 55.0,
                   ),
                 ),
               ),
@@ -91,8 +91,8 @@ class _MapScreenState extends State<MapScreen> {
                 CameraUpdate.newCameraPosition(
                   CameraPosition(
                     target: _destination.position,
-                    zoom: 14.5,
-                    tilt: 50.0,
+                    zoom: 21.5,
+                    tilt: 55.0,
                   ),
                 ),
               ),
@@ -111,7 +111,7 @@ class _MapScreenState extends State<MapScreen> {
             myLocationButtonEnabled: true,
             myLocationEnabled: true,
             zoomControlsEnabled: false,
-            mapType: MapType.hybrid,
+            mapType: MapType.normal,
             initialCameraPosition: _initialCameraPosition,
             onMapCreated: (controller) => _googleMapController = controller,
             markers: {

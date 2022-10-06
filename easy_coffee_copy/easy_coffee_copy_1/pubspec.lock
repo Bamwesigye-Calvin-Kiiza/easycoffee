@@ -205,15 +205,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-<<<<<<< HEAD
-  flutterwave:
-    dependency: "direct main"
-    description:
-      name: flutterwave
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.0.3"
-=======
   fluttertoast:
     dependency: "direct main"
     description:
@@ -221,7 +212,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "8.0.9"
->>>>>>> 4aea16352256f91db08d9199044e2971c37fc158
+  flutterwave:
+    dependency: "direct main"
+    description:
+      name: flutterwave
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.3"
   font_awesome_flutter:
     dependency: "direct main"
     description:

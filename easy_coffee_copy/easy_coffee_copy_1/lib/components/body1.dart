@@ -366,14 +366,24 @@ class _CategoriesState extends State<Categories> {
   List<String> categories = [
     'Home',
     'Farmers',
-    'coffeebean',
     'Dry seeds',
-    'Readycoffee',
-    'Farm tips ', //url
-    'Fertilizers', //destributors
+    'farms',
+    'Coffee well being',
     'Processed coffee',
-    'Price Fructuations',
-    'Coffee well being'
+    'Prices', 
+    'start up', 
+    'farmtools', 
+  ];
+  List<Widget> route = [
+    Body(),
+    farmersScreen(),
+    Dry_seeds(),
+    farms(),
+    coffee_well_being(),
+    proccessed_coffee(),
+    price_fructuatations(),
+    start_up(),
+    farm_tools()   
   ];
 //positioning the black bar to starting category
   int selectedIndex = 0;
@@ -395,6 +405,7 @@ class _CategoriesState extends State<Categories> {
   Widget buildcategory(int index) {
     return GestureDetector(
       onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context)=>route[index]));
         setState(() {
           selectedIndex = index;
         });

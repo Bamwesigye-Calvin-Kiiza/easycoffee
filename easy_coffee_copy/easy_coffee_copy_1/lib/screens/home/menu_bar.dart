@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:easy_coffee_copy_1/screen/login_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:easy_coffee_copy_1/map.dart';
@@ -33,7 +34,7 @@ class _NavBarState extends State<NavBar> {
           canvasColor: Colors.brown[50],
         ),
         child: Padding(
-          padding: EdgeInsets.only(top: 40, bottom: 200),
+          padding: EdgeInsets.only(top: 40, bottom: 420),
           child: Drawer(
             backgroundColor: Color.fromARGB(255, 245, 217, 206),
             width: MediaQuery.of(context).size.width - 150,
@@ -54,32 +55,27 @@ class _NavBarState extends State<NavBar> {
                 ),
                 ListTile(
                   leading: Icon(Icons.location_on),
-                  title: Text('Your Location'),
+                  title: Text('Locate farms'),
                   onTap: () => Navigator.of(context).push(
                     MaterialPageRoute(builder: (BuildContext context) {
                       return MapScreen();
                     }),
                   ),
                 ),
-                ListTile(
-                  leading: Icon(Icons.share),
-                  title: Text('Share'),
-                  onTap: () => null,
-                ),
-                ListTile(
-                  leading: Icon(Icons.info),
-                  title: Text('About us'),
-                  onTap: () => null,
-                ),
-                Divider(),
-                ListTile(
-                  leading: Icon(Icons.settings),
-                  title: Text('Settings'),
-                  onTap: () => null,
-                ),
+                // ListTile(
+                //   leading: Icon(Icons.share),
+                //   title: Text(''),
+                //   onTap: () => null,
+                // ),
+                // Divider(),
+                // ListTile(
+                //   leading: Icon(Icons.settings),
+                //   title: Text('Settings'),
+                //   onTap: () => null,
+                // ),
                 ListTile(
                   leading: Icon(Icons.description),
-                  title: Text('Profile'),
+                  title: Text('Create Profile'),
                   onTap: () => Navigator.of(context).push(
                     MaterialPageRoute(builder: (BuildContext context) {
                       return UserProfile(
@@ -88,12 +84,21 @@ class _NavBarState extends State<NavBar> {
                     }),
                   ),
                 ),
+                ListTile(
+                  leading: Icon(Icons.info),
+                  title: Text('About us'),
+                  onTap: () => null,
+                ),
                 Divider(),
                 ListTile(
                   leading: Icon(Icons.exit_to_app),
-                  title: Text('Exit'),
-                  onTap: () => null,
-                ),
+                  title: Text('Log out'),
+                  onTap: () => Navigator.of(context).push(
+                    MaterialPageRoute(builder: (BuildContext context) {
+                      return LoginScreen();
+                    }),
+                  ),
+                )
               ],
             ),
           ),

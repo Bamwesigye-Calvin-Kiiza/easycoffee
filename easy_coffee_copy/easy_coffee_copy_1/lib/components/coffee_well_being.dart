@@ -1,3 +1,4 @@
+import 'package:easy_coffee_copy_1/components/coffee_well_being_body.dart';
 import 'package:flutter/material.dart';
 
 class coffee_well_being extends StatelessWidget {
@@ -70,14 +71,7 @@ class finalScreen extends StatelessWidget {
                           topRight: Radius.circular(50))),
 
                   //content of the card_0n tap ui
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      Padding(
-                          padding: EdgeInsets.all(20),
-                          child: (Text('dhggfhgfjhhghgf'))) //code here
-                    ],
-                  )
+                  child: coffee_well_being_body()
 
                   //desighn of the background
                   ),

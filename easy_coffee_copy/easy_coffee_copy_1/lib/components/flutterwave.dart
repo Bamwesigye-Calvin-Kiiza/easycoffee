@@ -31,6 +31,9 @@ class farm_tools_screen extends StatefulWidget {
 class _farm_tools_screenState extends State<farm_tools_screen> {
   TextEditingController _email = TextEditingController();
   TextEditingController _amount = TextEditingController();
+  TextEditingController _currency = TextEditingController();
+  TextEditingController _fullname = TextEditingController();
+  TextEditingController _contact = TextEditingController();
 
   String _ref;
 
@@ -58,104 +61,131 @@ class _farm_tools_screenState extends State<farm_tools_screen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.green.shade300,
-        title: Text('Flutter wave'),
+        backgroundColor: Colors.orange.shade500,
+        title: Text('Purchase form'),
+        centerTitle: true,
       ),
-      body: Stack(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
-              children: [
-                Container(
-                  margin: EdgeInsets.only(bottom: 10),
-                  child: TextFormField(
-                    controller: _email,
-                    decoration: InputDecoration(labelText: 'Enter email'),
+      body: Container(
+        color: Color.fromARGB(255, 253, 238, 233),
+        child: Stack(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                children: [
+                  Container(
+                      margin: EdgeInsets.only(bottom: 10),
+                      child: TextFormField(
+                        controller: _fullname,
+                        decoration: InputDecoration(labelText: 'Full name'),
+                      )),
+                  Container(
+                      margin: EdgeInsets.only(bottom: 10),
+                      child: TextFormField(
+                        controller: _contact,
+                        decoration: InputDecoration(labelText: 'Phone Number'),
+                      )),
+                  Container(
+                    margin: EdgeInsets.only(bottom: 10),
+                    child: TextFormField(
+                      controller: _email,
+                      decoration: InputDecoration(labelText: 'Enter email'),
+                    ),
                   ),
-                ),
-                Container(
-                  margin: EdgeInsets.only(bottom: 10),
-                  child: TextFormField(
-                    controller: _amount,
-                    decoration: InputDecoration(labelText: 'Enter Amount'),
+                  Container(
+                      margin: EdgeInsets.only(bottom: 10),
+                      child: TextFormField(
+                        controller: _currency,
+                        decoration: InputDecoration(
+                            labelText: 'Enter currency (UGX,USD,NGN)'),
+                      )),
+                  Container(
+                    margin: EdgeInsets.only(bottom: 10),
+                    child: TextFormField(
+                      controller: _amount,
+                      decoration: InputDecoration(labelText: 'Enter Amount'),
+                    ),
                   ),
-                )
-              ],
-            ),
-          ),
-          //button
-          Positioned(
-            bottom: 0,
-            child: GestureDetector(
-              onTap: () {
-                final email = _email.text;
-                final amount = _amount.text;
-
-                if (email.isEmpty || amount.isEmpty) {
-                  ScaffoldMessenger.of(context).showSnackBar( 
-                      SnackBar(content: Text('Fields are empty')));
-                } else {
-                  //proceed to flutterwave payment
-                  _makepayment(context,email.trim(),amount.trim());
-                }
-              },
-              child: Container(
-                padding: EdgeInsets.all(20),
-                width: MediaQuery.of(context).size.width,
-                color: Colors.orange.shade300,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Icon(Icons.payment),
-                    Text(
-                      'Make payement',
-                      style: TextStyle(fontSize: 20),
-                    )
-                  ],
-                ),
+                ],
               ),
             ),
-          )
-        ],
+            //button
+            Positioned(
+              bottom: 0,
+              child: GestureDetector(
+                onTap: () {
+                  final email = _email.text;
+                  final amount = _amount.text;
+                  final currency = _currency.text;
+                  final fullname = _fullname.text;
+                  final phone_number = _contact.text;
+
+                  if (email.isEmpty || amount.isEmpty||currency.isEmpty||phone_number.isEmpty||fullname.isEmpty) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text('Please fill all fields')));
+                  } else {
+                    //proceed to flutterwave payment
+                    _makepayment(context, email.trim(), amount.trim(),
+                        currency.trim(), fullname, phone_number.trim());
+                  }
+                },
+                child: Container(
+                  padding: EdgeInsets.all(20),
+                  width: MediaQuery.of(context).size.width,
+                  color: Colors.orange.shade300,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Icon(Icons.payment),
+                      Text(
+                        'Make payement',
+                        style: TextStyle(fontSize: 20),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
 
-  Future<void> _makepayment(
-      BuildContext context, String email, String amount) async {
+  Future<void> _makepayment(BuildContext context, String email, String amount,
+      String currency, String fullname, String phone_number) async {
     try {
       Flutterwave flutterwave = Flutterwave.forUIPayment(
           context: this.context,
           encryptionKey: "FLWSECK_TEST446c4063b52a",
           publicKey: "FLWPUBK_TEST-e472e6cf586e3dde1dc7749b38fdbd39-X",
-          currency: "ugx",
+          currency: currency,
           amount: amount,
           email: email,
-          fullName: "Bamwesigye",
+          fullName: fullname,
           txRef: _ref,
           isDebugMode: true,
-          phoneNumber: "+256000000",
+          phoneNumber: phone_number,
           acceptCardPayment: false,
-          acceptUSSDPayment: false,
+          acceptUSSDPayment: true,
           acceptAccountPayment: false,
           acceptFrancophoneMobileMoney: false,
           acceptGhanaPayment: false,
-          acceptMpesaPayment: false,
-          acceptRwandaMoneyPayment: false,
+          acceptMpesaPayment: true,
+          acceptRwandaMoneyPayment: true,
           acceptUgandaPayment: true,
+          acceptBankTransfer: false,
           acceptZambiaPayment: false);
 
       final ChargeResponse response =
           await flutterwave.initializeForUiPayments();
-     if (response == null) {
+      if (response == null) {
         print("Transaction Failed");
       } else {
         ///
         if (response.status == "success") {
           print(response.data);
           print(response.message);
-
         } else {
           print(response.message);
         }
@@ -165,4 +195,3 @@ class _farm_tools_screenState extends State<farm_tools_screen> {
     }
   }
 }
-
