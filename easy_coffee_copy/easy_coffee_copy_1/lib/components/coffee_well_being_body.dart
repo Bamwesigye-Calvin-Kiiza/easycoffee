@@ -42,7 +42,9 @@ class _coffee_well_being_bodyState extends State<coffee_well_being_body> {
                         Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Container()
+                          Container(
+                            child: Text('gshdgh'),
+                          )
                         ],
                         )
                       ],

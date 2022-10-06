@@ -367,7 +367,6 @@ class _CategoriesState extends State<Categories> {
     'Home',
     'Farmers',
     'Dry seeds',
-<<<<<<< HEAD
     'farms',
     'Coffee well being',
     'Processed coffee',
@@ -385,16 +384,6 @@ class _CategoriesState extends State<Categories> {
     price_fructuatations(),
     start_up(),
     farm_tools()   
-=======
-    'Farms',
-    'Coffee well being',
-    'Processed coffee',
-    'Price Fructuations',
-    'Start up',
-    'Farm tools ',
-    'Readycoffee',
-    'Fertilizers',
->>>>>>> 3377e7f625e03f0cf2692dce421f98b973ab2830
   ];
 //positioning the black bar to starting category
   int selectedIndex = 0;

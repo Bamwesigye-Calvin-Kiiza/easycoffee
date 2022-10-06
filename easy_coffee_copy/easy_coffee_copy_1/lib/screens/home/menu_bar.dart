@@ -1,15 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-<<<<<<< HEAD
-import 'package:easy_coffee_copy_1/screen/login_screen.dart';
-=======
 import 'package:easy_coffee_copy_1/screen/FarmsN.dart';
-import 'package:easy_coffee_copy_1/screen/beFarmer.dart';
->>>>>>> 3377e7f625e03f0cf2692dce421f98b973ab2830
+import 'package:easy_coffee_copy_1/screen/login_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:easy_coffee_copy_1/map.dart';
 
 import '../../models/user_model.dart';
+import '../../screen/beFarmer.dart';
 import '../../screen/pic.dart';
 
 class NavBar extends StatefulWidget {
@@ -55,7 +52,7 @@ class _NavBarState extends State<NavBar> {
                 ),
                 ListTile(
                   leading: Icon(Icons.notifications),
-                  title: Text('Notifications'),
+                  title: Text('Develop farmer card'),
                   onTap: () => Navigator.of(context).push(
                     MaterialPageRoute(builder: (BuildContext context) {
                       return BeFarmer();
@@ -71,40 +68,21 @@ class _NavBarState extends State<NavBar> {
                     }),
                   ),
                 ),
-<<<<<<< HEAD
                 // ListTile(
                 //   leading: Icon(Icons.share),
                 //   title: Text(''),
                 //   onTap: () => null,
                 // ),
-                // Divider(),
-                // ListTile(
-                //   leading: Icon(Icons.settings),
-                //   title: Text('Settings'),
-                //   onTap: () => null,
-                // ),
-=======
-                ListTile(
-                  leading: Icon(Icons.share),
-                  title: Text('Share'),
-                  onTap: () => null,
-                ),
-                ListTile(
-                  leading: Icon(Icons.info),
-                  title: Text('About us'),
-                  onTap: () => null,
-                ),
                 Divider(),
                 ListTile(
                   leading: Icon(Icons.settings),
-                  title: Text('Settings'),
+                  title: Text('Develope farm card'),
                   onTap: () => Navigator.of(context).push(
                     MaterialPageRoute(builder: (BuildContext context) {
                       return BeFarm();
                     }),
                   ),
                 ),
->>>>>>> 3377e7f625e03f0cf2692dce421f98b973ab2830
                 ListTile(
                   leading: Icon(Icons.description),
                   title: Text('Create Profile'),
