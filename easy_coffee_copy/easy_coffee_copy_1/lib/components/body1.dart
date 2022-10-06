@@ -366,14 +366,15 @@ class _CategoriesState extends State<Categories> {
   List<String> categories = [
     'Home',
     'Farmers',
-    'coffeebean',
     'Dry seeds',
-    'Readycoffee',
-    'Farm tips ', //url
-    'Fertilizers', //destributors
+    'Farms',
+    'Coffee well being',
     'Processed coffee',
     'Price Fructuations',
-    'Coffee well being'
+    'Start up',
+    'Farm tools ',
+    'Readycoffee',
+    'Fertilizers',
   ];
 //positioning the black bar to starting category
   int selectedIndex = 0;
