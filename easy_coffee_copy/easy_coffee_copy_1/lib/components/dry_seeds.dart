@@ -1,4 +1,3 @@
-import 'package:easy_coffee_copy_1/models/coffee_model.dart';
 import 'package:flutter/material.dart';
 import '../core/color.dart';
 import 'farm_tools.dart';
@@ -72,9 +71,16 @@ class finalScreen extends StatelessWidget {
                         borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(20),
                             topRight: Radius.circular(20))),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        Padding(
+                            padding: EdgeInsets.all(20),
+                            child: (Text('dhggfhgfjhhghgf'))) //code here
+                      ],
+                    )),
+                //content of the card_0n tap ui
 
-                    //content of the card_0n tap ui
-                    
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: Column(
