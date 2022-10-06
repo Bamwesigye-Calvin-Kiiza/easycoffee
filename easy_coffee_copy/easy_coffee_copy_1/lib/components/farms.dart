@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class farms extends StatelessWidget {
@@ -71,11 +72,130 @@ class finalScreen extends StatelessWidget {
 
                   //content of the card_0n tap ui
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      Padding(
-                          padding: EdgeInsets.all(20),
-                          child: (Text('dhggfhgfjhhghgf'))) //code here
+                    // crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: <Widget>[
+                      Expanded(
+                          child: Padding(
+                        padding: EdgeInsets.all(10),
+                        child: StreamBuilder(
+                            stream: FirebaseFirestore.instance
+                                .collection('farms')
+                                .snapshots(),
+                            builder: (BuildContext context,
+                                AsyncSnapshot<QuerySnapshot> snapshot) {
+                              if (!snapshot.hasData) {
+                                return Center(
+                                  child: CircularProgressIndicator(),
+                                );
+                              }
+                              return Container(
+                                height: 730,
+                                width: MediaQuery.of(context).size.width,
+                                child: ListView(
+                                  children: snapshot.data.docs.map((snap) {
+                                    return Card(
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(30)),
+                                      child: SizedBox(
+                                        height: 270,
+                                        child: Column(
+                                          children: [
+                                            ListTile(
+                                              title: Container(
+                                                height: 150,
+                                                decoration: BoxDecoration(
+                                                  borderRadius:
+                                                      BorderRadius.circular(30),
+                                                  image: DecorationImage(
+                                                      image: NetworkImage(
+                                                        snap['Url'],
+                                                      ),
+                                                      fit: BoxFit.fill
+
+                                                      // height: 250,
+                                                      ), // width: 100,
+                                                ),
+                                              ),
+                                            ),
+                                            // title: Center(
+                                            //   child: Text(snap['farmerName']
+                                            //       .toString()),
+                                            // ),
+
+                                            // subtitle: Center(
+                                            //   child:
+                                            //       Column(children: <Widget>[
+                                            //     // Text(snap['District'].toString()),
+                                            //     Text(snap['location']
+                                            //         .toString()),
+                                            //   ]),
+                                            // ),
+
+                                            //  trailing: Text(snap['image']),
+
+                                            SizedBox(
+                                              height: 100,
+                                              child: Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceEvenly,
+                                                children: [
+                                                  Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceEvenly,
+                                                    children: [
+                                                      Text(
+                                                        'Farm Name: ',
+                                                        style: TextStyle(
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .bold),
+                                                      ),
+                                                      Text(
+                                                          snap['Farm_Name']
+                                                              .toString(),
+                                                          style: TextStyle(
+                                                              color:
+                                                                  Colors.green,
+                                                              fontSize: 16))
+                                                    ],
+                                                  ),
+                                                  Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
+                                                    children: [
+                                                      Text(
+                                                        'Location: ',
+                                                        style: TextStyle(
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .bold),
+                                                      ),
+                                                      Text(
+                                                          snap['location']
+                                                              .toString(),
+                                                          style: TextStyle(
+                                                              color:
+                                                                  Colors.green,
+                                                              fontSize: 16)),
+                                                    ],
+                                                  )
+                                                ],
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    );
+                                  }).toList(),
+                                ),
+                              );
+                            }),
+                      ))
+                      //code here
                     ],
                   )
 

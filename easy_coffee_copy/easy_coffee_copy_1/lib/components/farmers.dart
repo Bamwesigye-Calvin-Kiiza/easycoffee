@@ -78,7 +78,7 @@ class finalScreen extends StatelessWidget {
                           padding: EdgeInsets.all(20),
                           child: StreamBuilder(
                               stream: FirebaseFirestore.instance
-                                  .collection('users')
+                                  .collection('farmers')
                                   .snapshots(),
                               builder: (BuildContext context,
                                   AsyncSnapshot<QuerySnapshot> snapshot) {
@@ -88,20 +88,94 @@ class finalScreen extends StatelessWidget {
                                   );
                                 }
                                 return Container(
-                                  height:
-                                      MediaQuery.of(context).size.height / 1.5,
+                                  height: 730,
                                   width: MediaQuery.of(context).size.width,
                                   child: ListView(
                                     children: snapshot.data.docs.map((snap) {
                                       return Card(
-                                        child: ListTile(
-                                          leading: Text(snap['name']),
-                                          title: Text(snap['email'].toString()),
-                                          subtitle: Column(children: <Widget>[
-                                            // Text(snap['District'].toString()),
-                                            Text(snap['District'].toString()),
-                                          ]),
-                                          //  trailing: Text(snap['image']),
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(30)),
+                                        child: SizedBox(
+                                          height: 270,
+                                          child: Column(
+                                            children: [
+                                              ListTile(
+                                                title: Container(
+                                                  height: 150,
+                                                  decoration: BoxDecoration(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            30),
+                                                    image: DecorationImage(
+                                                        image: NetworkImage(
+                                                          snap['imgUrl'],
+                                                        ),
+                                                        fit: BoxFit.fill
+
+                                                        // height: 250,
+                                                        ), // width: 100,
+                                                  ),
+                                                ),
+                                              ),
+                                              // title: Center(
+                                              //   child: Text(snap['farmerName']
+                                              //       .toString()),
+                                              // ),
+
+                                              // subtitle: Center(
+                                              //   child:
+                                              //       Column(children: <Widget>[
+                                              //     // Text(snap['District'].toString()),
+                                              //     Text(snap['location']
+                                              //         .toString()),
+                                              //   ]),
+                                              // ),
+
+                                              //  trailing: Text(snap['image']),
+
+                                              SizedBox(
+                                                height: 100,
+                                                child: Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceEvenly,
+                                                  children: [
+                                                    Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceEvenly,
+                                                      children: [
+                                                        Text('Name: '),
+                                                        Text(
+                                                            snap['farmerName']
+                                                                .toString(),
+                                                            style: TextStyle(
+                                                                color: Colors
+                                                                    .green,
+                                                                fontSize: 19))
+                                                      ],
+                                                    ),
+                                                    Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      children: [
+                                                        Text('Address: '),
+                                                        Text(
+                                                            snap['location']
+                                                                .toString(),
+                                                            style: TextStyle(
+                                                                color: Colors
+                                                                    .green,
+                                                                fontSize: 19)),
+                                                      ],
+                                                    )
+                                                  ],
+                                                ),
+                                              ),
+                                            ],
+                                          ),
                                         ),
                                       );
                                     }).toList(),
