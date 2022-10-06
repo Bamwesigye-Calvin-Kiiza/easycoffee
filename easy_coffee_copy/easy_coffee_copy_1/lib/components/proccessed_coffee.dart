@@ -72,7 +72,14 @@ class finalScreen extends StatelessWidget {
                           topRight: Radius.circular(20))),
 
                   //content of the card_0n tap ui
-                  child: ProcessedcoffeedListScreen()
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Padding(
+                          padding: EdgeInsets.all(20),
+                          child: (Text('dhggfhgfjhhghgf'))) //code here
+                    ],
+                  )
 
                   //desighn of the background
                   ),
@@ -107,44 +114,6 @@ class finalScreen extends StatelessWidget {
         ),
         DetailContentMenu()
       ]),
-    );
-  }
-}
-
-class ProcessedcoffeedListScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return ListView(
-      children: <Widget>[
-        Divider(),
-        // Ink(
-        //   color: Colors.blueGrey[50],
-        //   child: ListTile(
-        //     title: Text("How To Dry"),
-        //     trailing: Icon(Icons.arrow_forward_rounded),
-        //     onTap: () {},
-        //   ),
-        // ),
-        Divider(),
-        Ink(
-          color: Colors.blueGrey[100],
-          child: ListTile(
-            title: Text('Prices'),
-            trailing: Icon(Icons.arrow_forward_rounded),
-            onTap: () {},
-          ),
-        ),
-        Divider(),
-        Ink(
-          color: Colors.blueGrey[150],
-          child: ListTile(
-            title: Text('Locations'),
-            trailing: Icon(Icons.arrow_forward_rounded),
-            onTap: () {},
-          ),
-        ),
-        Divider(),
-      ],
     );
   }
 }
