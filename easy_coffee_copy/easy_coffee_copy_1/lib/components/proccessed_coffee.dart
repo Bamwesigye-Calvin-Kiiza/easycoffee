@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'farm_tools.dart';
+
 class proccessed_coffee extends StatelessWidget {
   // final Product product;
   // const DetailsScreen({key, this.product});
@@ -66,8 +68,8 @@ class finalScreen extends StatelessWidget {
                       color: Color.fromARGB(255, 255, 238, 232),
                       //curving at the top
                       borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(50),
-                          topRight: Radius.circular(50))),
+                          topLeft: Radius.circular(20),
+                          topRight: Radius.circular(20))),
 
                   //content of the card_0n tap ui
                   child: Column(
@@ -88,7 +90,7 @@ class finalScreen extends StatelessWidget {
                   children: [
                     Text(''),
                     Text('Proccessed coffee',
-                        style: Theme.of(context).textTheme.headline4?.copyWith(
+                        style: Theme.of(context).textTheme.titleLarge.copyWith(
                             color: Colors.brown, fontWeight: FontWeight.bold)),
                     Row(
                       children: [
@@ -112,73 +114,6 @@ class finalScreen extends StatelessWidget {
         ),
         DetailContentMenu()
       ]),
-    );
-  }
-}
-
-//copyright code and social media handles
-class DetailContentMenu extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        children: [
-          Text(
-            "© All rights reserved. e_coffee Limited",
-            style: TextStyle(
-                fontSize: 15.0,
-                color: Colors.black87,
-                fontWeight: FontWeight.w400,
-                height: 1.50),
-            textAlign: TextAlign.justify,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(6.0),
-                child: IconButton(
-                  onPressed: null,
-                  icon: Icon(
-                    Icons.facebook,
-                    color: Colors.black,
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(6.0),
-                child: IconButton(
-                  onPressed: null,
-                  icon: Icon(
-                    Icons.whatsapp,
-                    color: Colors.black,
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(6.0),
-                child: IconButton(
-                  onPressed: null,
-                  icon: Icon(
-                    Icons.telegram,
-                    color: Colors.black,
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(6.0),
-                child: IconButton(
-                  onPressed: null,
-                  icon: Icon(
-                    Icons.tiktok,
-                    color: Colors.black,
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ],
-      ),
     );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:easy_coffee_copy_1/components/coffee_well_being_body.dart';
 import 'package:flutter/material.dart';
+import 'farm_tools.dart';
 
 class coffee_well_being extends StatelessWidget {
   // final Product product;
@@ -56,7 +57,8 @@ class finalScreen extends StatelessWidget {
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
                       image: DecorationImage(
-                          image: AssetImage('assets/images/coffee_well_being.webp'),
+                          image: AssetImage(
+                              'assets/images/coffee_well_being.webp'),
                           fit: BoxFit.cover)),
                 ),
               ),
@@ -67,8 +69,8 @@ class finalScreen extends StatelessWidget {
                       color: Color.fromARGB(255, 255, 238, 232),
                       //curving at the top
                       borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(50),
-                          topRight: Radius.circular(50))),
+                          topLeft: Radius.circular(20),
+                          topRight: Radius.circular(20))),
 
                   //content of the card_0n tap ui
                   child: coffee_well_being_body()
@@ -106,73 +108,6 @@ class finalScreen extends StatelessWidget {
         ),
         DetailContentMenu()
       ]),
-    );
-  }
-}
-
-//copyright code and social media handles
-class DetailContentMenu extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        children: [
-          Text(
-            "© All rights reserved. e_coffee Limited",
-            style: TextStyle(
-                fontSize: 15.0,
-                color: Colors.black87,
-                fontWeight: FontWeight.w400,
-                height: 1.50),
-            textAlign: TextAlign.justify,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(6.0),
-                child: IconButton(
-                  onPressed: null,
-                  icon: Icon(
-                    Icons.facebook,
-                    color: Colors.black,
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(6.0),
-                child: IconButton(
-                  onPressed: null,
-                  icon: Icon(
-                    Icons.whatsapp,
-                    color: Colors.black,
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(6.0),
-                child: IconButton(
-                  onPressed: null,
-                  icon: Icon(
-                    Icons.telegram,
-                    color: Colors.black,
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(6.0),
-                child: IconButton(
-                  onPressed: null,
-                  icon: Icon(
-                    Icons.tiktok,
-                    color: Colors.black,
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ],
-      ),
     );
   }
 }

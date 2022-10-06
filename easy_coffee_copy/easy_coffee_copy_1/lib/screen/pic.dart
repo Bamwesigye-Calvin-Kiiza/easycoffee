@@ -236,8 +236,8 @@ class _UserProfileState extends State<UserProfile> {
                             ElevatedButton(
                                 child: Text('Update profile'),
                                 onPressed: (() {
-                                  addProf();
-                                  // UploadPic(context);
+                                  // addProf();
+                                  UploadPic(context);
                                 }))
                           ],
                         ))

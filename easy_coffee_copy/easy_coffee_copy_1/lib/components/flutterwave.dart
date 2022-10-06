@@ -106,7 +106,44 @@ class _farm_tools_screenState extends State<farm_tools_screen> {
                       decoration: InputDecoration(labelText: 'Enter Amount'),
                     ),
                   ),
+<<<<<<< HEAD
                 ],
+=======
+                )
+              ],
+            ),
+          ),
+          //button
+          Positioned(
+            bottom: 0,
+            child: GestureDetector(
+              onTap: () {
+                final email = _email.text;
+                final amount = _amount.text;
+
+                if (email.isEmpty || amount.isEmpty) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text('Fields are empty')));
+                } else {
+                  //proceed to flutterwave payment
+                  _makepayment(context, email.trim(), amount.trim());
+                }
+              },
+              child: Container(
+                padding: EdgeInsets.all(20),
+                width: MediaQuery.of(context).size.width,
+                color: Colors.orange.shade300,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Icon(Icons.payment),
+                    Text(
+                      'Make payement',
+                      style: TextStyle(fontSize: 20),
+                    )
+                  ],
+                ),
+>>>>>>> 3377e7f625e03f0cf2692dce421f98b973ab2830
               ),
             ),
             //button

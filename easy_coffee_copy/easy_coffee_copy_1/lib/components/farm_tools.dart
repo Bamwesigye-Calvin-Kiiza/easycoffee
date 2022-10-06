@@ -72,8 +72,8 @@ class finalScreen extends StatelessWidget {
                           topRight: Radius.circular(50))),
 
                   //content of the card_0n tap ui
-                    child: HomePage()
- 
+                  child: HomePage()
+
                   //desighn of the background
                   ),
               Padding(
