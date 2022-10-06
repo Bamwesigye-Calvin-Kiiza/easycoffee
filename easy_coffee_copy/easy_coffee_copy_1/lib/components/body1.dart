@@ -93,7 +93,7 @@ class Body extends StatelessWidget {
                           padding: const EdgeInsets.symmetric(vertical: 20),
                           child: Center(
                             child: Text(
-                              'Dry seeds',
+                              'Harvest',
                               style: TextStyle(
                                   fontSize: 15, fontWeight: FontWeight.w600),
                             ),
@@ -366,13 +366,13 @@ class _CategoriesState extends State<Categories> {
   List<String> categories = [
     'Home',
     'Farmers',
-    'Dry seeds',
+    'Harvest ',
     'farms',
     'Coffee well being',
     'Processed coffee',
-    'Prices', 
-    'start up', 
-    'farmtools', 
+    'Prices',
+    'start up',
+    'farmtools',
   ];
   List<Widget> route = [
     Body(),
@@ -383,7 +383,7 @@ class _CategoriesState extends State<Categories> {
     proccessed_coffee(),
     price_fructuatations(),
     start_up(),
-    farm_tools()   
+    farm_tools()
   ];
 //positioning the black bar to starting category
   int selectedIndex = 0;
@@ -405,7 +405,8 @@ class _CategoriesState extends State<Categories> {
   Widget buildcategory(int index) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(context, MaterialPageRoute(builder: (context)=>route[index]));
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => route[index]));
         setState(() {
           selectedIndex = index;
         });

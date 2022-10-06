@@ -490,7 +490,7 @@ class finalScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(''),
-                      Text('Dry seeds',
+                      Text('Harvest',
                           style: Theme.of(context)
                               .textTheme
                               .headline4

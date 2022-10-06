@@ -83,7 +83,7 @@ class finalScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(''),
-                    Text('Coffe well being',
+                    Text('Coffee well being',
                         style: Theme.of(context).textTheme.headline4?.copyWith(
                             color: Colors.brown, fontWeight: FontWeight.bold)),
                     Row(
