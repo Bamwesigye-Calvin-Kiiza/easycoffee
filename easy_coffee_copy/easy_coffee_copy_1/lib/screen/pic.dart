@@ -50,6 +50,8 @@
 
 import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:easy_coffee_copy_1/screen/Profile.dart';
+import 'package:easy_coffee_copy_1/screen/crud.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 // import 'package:path/path.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -89,6 +91,13 @@ class _UserProfileState extends State<UserProfile> {
     }
   }
 
+  CrudMethodes crudMethodes = new CrudMethodes();
+  String NameController,
+      PhoneController,
+      EmailController,
+      DistrictController,
+      TypeController;
+
   Future UploadPic(BuildContext context) async {
     // String fileName = basename(image.path);
     final postId = DateTime.now().microsecondsSinceEpoch.toString();
@@ -99,11 +108,22 @@ class _UserProfileState extends State<UserProfile> {
     UploadTask uploadTask = firebaseStorageRef.putFile(image);
     TaskSnapshot taskSnapshot = await uploadTask;
     Url = await firebaseStorageRef.getDownloadURL();
-    await FirebaseFirestore.instance
-        .collection('users')
-        .doc(widget.Userid)
-        .collection('image')
-        .add({'Url': Url});
+    Map<String, String> blogMap = {
+      'imageUrl': Url,
+      'Name': NameController,
+      'District': DistrictController,
+      'Email': EmailController,
+      'Contact': PhoneController,
+      'Type_of_coffee': TypeController,
+    };
+
+    crudMethodes.addData(blogMap).then((value) => Navigator.push(
+        context, MaterialPageRoute(builder: (context) => ProfileScreen())));
+    // await FirebaseFirestore.instance
+    //     .collection('users')
+    //     .doc(widget.Userid)
+    //     .collection('image')
+    //     .add({'Url': Url,});
     // .whenComplete(() =>
     //     showSnackBar('Image Uploaded', Duration(seconds: 2)));
 
@@ -121,30 +141,30 @@ class _UserProfileState extends State<UserProfile> {
     TextEditingController EmailController = TextEditingController();
     TextEditingController DistrictController = TextEditingController();
     TextEditingController TypeController = TextEditingController();
-    TextEditingController ImageController = TextEditingController();
+    // TextEditingController ImageController = TextEditingController();
 
-    Map<String, dynamic> addProfile;
+    // Map<String, dynamic> addProfile;
 
-    CollectionReference collectionReference =
-        FirebaseFirestore.instance.collection('users');
+    // CollectionReference collectionReference =
+    //     FirebaseFirestore.instance.collection('users');
 
-    addProf() {
-      // final postId = DateTime.now().microsecondsSinceEpoch.toString();
-      // Reference firebaseStorageRef = FirebaseStorage.instance
-      //     .ref()
-      //     .child('${widget.Userid}/image')
-      //     .child('post_$postId');
-      // Url = firebaseStorageRef.getDownloadURL() as String;
-      addProfile = {
-        'name': NameController.text,
-        'email': EmailController.text,
-        'Phone': PhoneController.text,
-        'District': DistrictController.text,
-        'Type': TypeController.text,
-        // 'Url': Url
-      };
-      collectionReference.add(addProfile).whenComplete(() => print('greate'));
-    }
+    // addProf() {
+    // final postId = DateTime.now().microsecondsSinceEpoch.toString();
+    // Reference firebaseStorageRef = FirebaseStorage.instance
+    //     .ref()
+    //     .child('${widget.Userid}/image')
+    //     .child('post_$postId');
+    // Url = firebaseStorageRef.getDownloadURL() as String;
+    //   addProfile = {
+    //     'name': NameController.text,
+    //     'email': EmailController.text,
+    //     'Phone': PhoneController.text,
+    //     'District': DistrictController.text,
+    //     'Type': TypeController.text,
+    //     // 'Url': Url
+    //   };
+    //   collectionReference.add(addProfile).whenComplete(() => print('greate'));
+    // }
 
     return Scaffold(
         body: SingleChildScrollView(
@@ -233,12 +253,28 @@ class _UserProfileState extends State<UserProfile> {
                             SizedBox(
                               height: 20,
                             ),
-                            ElevatedButton(
-                                child: Text('Update profile'),
-                                onPressed: (() {
-                                  // addProf();
-                                  UploadPic(context);
-                                }))
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                ElevatedButton(
+                                  child: Text('View Profile'),
+                                  onPressed: () {
+                                    Navigator.of(context).push(
+                                      MaterialPageRoute(
+                                          builder: (BuildContext context) {
+                                        return ProfileScreen();
+                                      }),
+                                    );
+                                  },
+                                ),
+                                ElevatedButton(
+                                    child: Text('Update profile'),
+                                    onPressed: (() {
+                                      // addProf();
+                                      UploadPic(context);
+                                    })),
+                              ],
+                            )
                           ],
                         ))
                   ],

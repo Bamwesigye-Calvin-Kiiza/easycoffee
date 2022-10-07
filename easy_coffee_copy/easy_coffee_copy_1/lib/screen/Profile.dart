@@ -1,9 +1,17 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/src/foundation/key.dart';
+import 'package:flutter/src/widgets/container.dart';
+import 'package:flutter/src/widgets/framework.dart';
 
-class farmersScreen extends StatelessWidget {
-  // final Product product;
-  // const DetailsScreen({key, this.product});
+class ProfileScreen extends StatefulWidget {
+  const ProfileScreen({Key key}) : super(key: key);
+
+  @override
+  State<ProfileScreen> createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -78,7 +86,9 @@ class finalScreen extends StatelessWidget {
                           padding: EdgeInsets.all(20),
                           child: StreamBuilder(
                               stream: FirebaseFirestore.instance
-                                  .collection('farmers')
+                                  .collection('users')
+                                  .doc()
+                                  .collection('profile')
                                   .snapshots(),
                               builder: (BuildContext context,
                                   AsyncSnapshot<QuerySnapshot> snapshot) {
@@ -109,7 +119,7 @@ class finalScreen extends StatelessWidget {
                                                             30),
                                                     image: DecorationImage(
                                                         image: NetworkImage(
-                                                          snap['imgUrl'],
+                                                          snap['imageUrl'],
                                                         ),
                                                         fit: BoxFit.fill
 
@@ -136,7 +146,7 @@ class finalScreen extends StatelessWidget {
 
                                               SizedBox(
                                                 height: 100,
-                                                child: Row(
+                                                child: Column(
                                                   mainAxisAlignment:
                                                       MainAxisAlignment
                                                           .spaceEvenly,
@@ -148,7 +158,7 @@ class finalScreen extends StatelessWidget {
                                                       children: [
                                                         Text('Name: '),
                                                         Text(
-                                                            snap['farmerName']
+                                                            snap['Name']
                                                                 .toString(),
                                                             style: TextStyle(
                                                                 color: Colors
@@ -161,9 +171,9 @@ class finalScreen extends StatelessWidget {
                                                           MainAxisAlignment
                                                               .spaceBetween,
                                                       children: [
-                                                        Text('Address: '),
+                                                        Text('District: '),
                                                         Text(
-                                                            snap['location']
+                                                            snap['District']
                                                                 .toString(),
                                                             style: TextStyle(
                                                                 color: Colors
@@ -193,7 +203,7 @@ class finalScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(''),
-                    Text('Farmers',
+                    Text('Profile',
                         style: Theme.of(context).textTheme.headline4?.copyWith(
                             color: Colors.brown, fontWeight: FontWeight.bold)),
                     Row(
