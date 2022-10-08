@@ -241,12 +241,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       try {
         await _auth
             .createUserWithEmailAndPassword(email: email, password: password)
-            .then((value) => {
-                  Navigator.pushAndRemoveUntil(
-                      (context),
-                      MaterialPageRoute(builder: (context) => HomeScreen()),
-                      (route) => false)
-                })
+            .then((value) => {postDetailsToFirestore()})
             .catchError((e) {
           Fluttertoast.showToast(msg: e.message);
         });
