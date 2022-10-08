@@ -1,7 +1,4 @@
 import 'dart:io';
-
-import 'package:easy_coffee_copy_1/components/farmers.dart';
-import 'package:easy_coffee_copy_1/components/farms.dart';
 import 'package:easy_coffee_copy_1/screen/crud.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
@@ -51,7 +48,7 @@ class _BeFarmState extends State<BeFarm> {
       };
 
       cruds.addData(blogMap).then((value) => Navigator.push(
-          context, MaterialPageRoute(builder: (context) => farms())));
+          context, MaterialPageRoute(builder: (context) => null)));
     } else {}
   }
 

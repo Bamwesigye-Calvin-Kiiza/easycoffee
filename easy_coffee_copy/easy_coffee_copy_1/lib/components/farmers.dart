@@ -1,4 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:easy_coffee_copy_1/components/farmersProfile.dart';
+import 'package:easy_coffee_copy_1/components/farms.dart';
 import 'package:flutter/material.dart';
 
 class farmersScreen extends StatelessWidget {
@@ -93,89 +95,83 @@ class finalScreen extends StatelessWidget {
                                   child: ListView(
                                     shrinkWrap: true,
                                     children: snapshot.data.docs.map((snap) {
-                                      return Card(
-                                        shape: RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(30)),
-                                        child: SizedBox(
-                                          height: 270,
-                                          child: Column(
-                                            children: [
-                                              ListTile(
-                                                title: Container(
-                                                  height: 150,
-                                                  decoration: BoxDecoration(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            30),
-                                                    image: DecorationImage(
-                                                        image: NetworkImage(
-                                                          snap['imgUrl'],
-                                                        ),
-                                                        fit: BoxFit.fill
-
-                                                        // height: 250,
-                                                        ), // width: 100,
+                                      return InkWell(
+                                        onTap:(){
+                                           Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => farms() //HomePage()
+                              ));
+                                        },
+                                        child: Card(
+                                          shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(30)),
+                                          child: SizedBox(
+                                            height: 270,
+                                            child: Column(
+                                              children: [
+                                                ListTile(
+                                                  title: Container(
+                                                    height: 150,
+                                                    decoration: BoxDecoration(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              30),
+                                                      image: DecorationImage(
+                                                          image: NetworkImage(
+                                                            snap['imgUrl'],
+                                                          ),
+                                                          fit: BoxFit.fill
+                                      
+                                                          // height: 250,
+                                                          ), // width: 100,
+                                                    ),
                                                   ),
                                                 ),
-                                              ),
-                                              // title: Center(
-                                              //   child: Text(snap['farmerName']
-                                              //       .toString()),
-                                              // ),
-
-                                              // subtitle: Center(
-                                              //   child:
-                                              //       Column(children: <Widget>[
-                                              //     // Text(snap['District'].toString()),
-                                              //     Text(snap['location']
-                                              //         .toString()),
-                                              //   ]),
-                                              // ),
-
-                                              //  trailing: Text(snap['image']),
-
-                                              SizedBox(
-                                                height: 100,
-                                                child: Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceEvenly,
-                                                  children: [
-                                                    Row(
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .spaceEvenly,
-                                                      children: [
-                                                        Text('Name: '),
-                                                        Text(
-                                                            snap['farmerName']
-                                                                .toString(),
-                                                            style: TextStyle(
-                                                                color: Colors
-                                                                    .green,
-                                                                fontSize: 19))
-                                                      ],
-                                                    ),
-                                                    Row(
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .spaceBetween,
-                                                      children: [
-                                                        Text('Address: '),
-                                                        Text(
-                                                            snap['location']
-                                                                .toString(),
-                                                            style: TextStyle(
-                                                                color: Colors
-                                                                    .green,
-                                                                fontSize: 19)),
-                                                      ],
-                                                    )
-                                                  ],
+                                             
+                                                SizedBox(
+                                                  height: 100,
+                                                  child: Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceEvenly,
+                                                    children: [
+                                                      Row(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .spaceEvenly,
+                                                        children: [
+                                                          Text('Name: '),
+                                                          Text(
+                                                              snap['farmerName']
+                                                                  .toString(),
+                                                              style: TextStyle(
+                                                                  color: Colors
+                                                                      .green,
+                                                                  fontSize: 19))
+                                                        ],
+                                                      ),
+                                                      Row(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .spaceBetween,
+                                                        children: [
+                                                          Text('Address: '),
+                                                          Text(
+                                                              snap['location']
+                                                                  .toString(),
+                                                              style: TextStyle(
+                                                                  color: Colors
+                                                                      .green,
+                                                                  fontSize: 19)),
+                                                        ],
+                                                      )
+                                                    ],
+                                                  ),
                                                 ),
-                                              ),
-                                            ],
+                                              ],
+                                            ),
                                           ),
                                         ),
                                       );

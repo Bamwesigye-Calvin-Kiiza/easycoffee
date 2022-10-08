@@ -1,4 +1,3 @@
-import 'package:easy_coffee_copy_1/components/coffee_well_being_body.dart';
 import 'package:flutter/material.dart';
 import 'farm_tools.dart';
 
@@ -73,7 +72,7 @@ class finalScreen extends StatelessWidget {
                           topRight: Radius.circular(20))),
 
                   //content of the card_0n tap ui
-                  child: coffee_well_being_body()
+                  child:Text('') //coffee_well_being_body()
 
                   //desighn of the background
                   ),

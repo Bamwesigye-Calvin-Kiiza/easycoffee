@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'farms.dart';
+
 
 class start_up extends StatelessWidget {
   // final Product product;

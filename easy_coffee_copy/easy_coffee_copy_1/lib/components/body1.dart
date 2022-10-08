@@ -2,7 +2,7 @@
 import 'package:easy_coffee_copy_1/components/coffee_well_being.dart';
 import 'package:easy_coffee_copy_1/components/dry_seeds.dart';
 import 'package:easy_coffee_copy_1/components/farm_tools.dart';
-import 'package:easy_coffee_copy_1/components/farms.dart';
+import 'package:easy_coffee_copy_1/components/farmersProfile.dart';
 import 'package:easy_coffee_copy_1/components/price_Fructuations.dart';
 import 'package:easy_coffee_copy_1/components/proccessed_coffee.dart';
 import 'package:easy_coffee_copy_1/components/start_up.dart';
@@ -107,45 +107,6 @@ class Body extends StatelessWidget {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => farms() //HomePage()
-                              ));
-                    },
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Expanded(
-                          child: Container(
-                              padding: EdgeInsets.all(5),
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(50)),
-                              child: Container(
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(30),
-                                    image: DecorationImage(
-                                        image: AssetImage(
-                                            'assets/images/fields.webp'),
-                                        fit: BoxFit.cover)),
-                              )),
-                        ),
-                        // out putting required information
-                        Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 20),
-                          child: Center(
-                            child: Text(
-                              'Farms',
-                              style: TextStyle(
-                                  fontSize: 15, fontWeight: FontWeight.w600),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  InkWell(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
                               builder: (context) =>
                                   coffee_well_being() //HomePage()
                               ));
@@ -173,46 +134,6 @@ class Body extends StatelessWidget {
                           child: Center(
                             child: Text(
                               ' Coffee Well being',
-                              style: TextStyle(
-                                  fontSize: 15, fontWeight: FontWeight.w600),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  InkWell(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) =>
-                                  proccessed_coffee() //HomePage()
-                              ));
-                    },
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Expanded(
-                          child: Container(
-                              padding: EdgeInsets.all(5),
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(50)),
-                              child: Container(
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(30),
-                                    image: DecorationImage(
-                                        image: AssetImage(
-                                            'assets/images/farmstore.webp'),
-                                        fit: BoxFit.cover)),
-                              )),
-                        ),
-                        // out putting required information
-                        Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 20),
-                          child: Center(
-                            child: Text(
-                              ' Proccessed coffee',
                               style: TextStyle(
                                   fontSize: 15, fontWeight: FontWeight.w600),
                             ),
@@ -367,7 +288,6 @@ class _CategoriesState extends State<Categories> {
     'Home',
     'Farmers',
     'Harvest',
-    'farms',
     'Coffee well being',
     'Processed coffee',
     'Prices',
@@ -378,7 +298,6 @@ class _CategoriesState extends State<Categories> {
     Body(),
     farmersScreen(),
     Dry_seeds(),
-    farms(),
     coffee_well_being(),
     proccessed_coffee(),
     price_fructuatations(),

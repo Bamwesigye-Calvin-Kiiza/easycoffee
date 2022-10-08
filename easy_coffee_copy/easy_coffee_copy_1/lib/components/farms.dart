@@ -1,5 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:easy_coffee_copy_1/components/farmersProfile.dart';
 import 'package:flutter/material.dart';
+
+import '../screen/Profile.dart';
 
 class farms extends StatelessWidget {
   // final Product product;
@@ -61,178 +64,184 @@ class finalScreen extends StatelessWidget {
                 ),
               ),
               Container(
-                  margin: EdgeInsets.only(top: size.height * 0.12),
-                  height: 1000,
-                  decoration: BoxDecoration(
-                      color: Color.fromARGB(255, 255, 238, 232),
-                      //curving at the top
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(50),
-                          topRight: Radius.circular(50))),
+                margin: EdgeInsets.only(top: size.height * 0.12),
+                height: 1000,
+                decoration: BoxDecoration(
+                    color: Color.fromARGB(255, 255, 238, 232),
+                    //curving at the top
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(50),
+                        topRight: Radius.circular(50))),
+                child: farmersprofile_page(),
+                //content of the card_0n tap ui
+                // child: Column(
+                //   // crossAxisAlignment: CrossAxisAlignment.stretch,
+                //   children: <Widget>[
+                //     Expanded(
+                //         child: Padding(
+                //       padding: EdgeInsets.all(10),
+                //       child: StreamBuilder(
+                //           stream: FirebaseFirestore.instance
+                //               .collection('farms')
+                //               .snapshots(),
+                //           builder: (BuildContext context,
+                //               AsyncSnapshot<QuerySnapshot> snapshot) {
+                //             if (!snapshot.hasData) {
+                //               return Center(
+                //                 child: CircularProgressIndicator(),
+                //               );
+                //             }
+                //             return Container(
+                //               height: 730,
+                //               width: MediaQuery.of(context).size.width,
+                //               child: ListView(
+                //                 shrinkWrap: true,
+                //                 children: snapshot.data.docs.map((snap) {
+                //                   return Card(
+                //                     color: Color.fromARGB(255, 245, 249, 252),
+                //                     shape: RoundedRectangleBorder(
+                //                         borderRadius:
+                //                             BorderRadius.circular(30)),
+                //                     child: SizedBox(
+                //                       height: 270,
+                //                       child: Column(
+                //                         children: [
+                //                           ListTile(
+                //                             title: Container(
+                //                               height: 150,
+                //                               decoration: BoxDecoration(
+                //                                 borderRadius:
+                //                                     BorderRadius.circular(30),
+                //                                 image: DecorationImage(
+                //                                     image: NetworkImage(
+                //                                       snap['Url'],
+                //                                     ),
+                //                                     fit: BoxFit.fill
 
-                  //content of the card_0n tap ui
-                  child: Column(
-                    // crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: <Widget>[
-                      Expanded(
-                          child: Padding(
-                        padding: EdgeInsets.all(10),
-                        child: StreamBuilder(
-                            stream: FirebaseFirestore.instance
-                                .collection('farms')
-                                .snapshots(),
-                            builder: (BuildContext context,
-                                AsyncSnapshot<QuerySnapshot> snapshot) {
-                              if (!snapshot.hasData) {
-                                return Center(
-                                  child: CircularProgressIndicator(),
-                                );
-                              }
-                              return Container(
-                                height: 730,
-                                width: MediaQuery.of(context).size.width,
-                                child: ListView(
-                                  shrinkWrap: true,
-                                  children: snapshot.data.docs.map((snap) {
-                                    return Card(
-                                      color: Color.fromARGB(255, 245, 249, 252),
-                                      shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(30)),
-                                      child: SizedBox(
-                                        height: 270,
-                                        child: Column(
-                                          children: [
-                                            ListTile(
-                                              title: Container(
-                                                height: 150,
-                                                decoration: BoxDecoration(
-                                                  borderRadius:
-                                                      BorderRadius.circular(30),
-                                                  image: DecorationImage(
-                                                      image: NetworkImage(
-                                                        snap['Url'],
-                                                      ),
-                                                      fit: BoxFit.fill
+                //                                     // height: 250,
+                //                                     ), // width: 100,
+                //                               ),
+                //                             ),
+                //                           ),
+                //                           // title: Center(
+                //                           //   child: Text(snap['farmerName']
+                //                           //       .toString()),
+                //                           // ),
 
-                                                      // height: 250,
-                                                      ), // width: 100,
-                                                ),
-                                              ),
-                                            ),
-                                            // title: Center(
-                                            //   child: Text(snap['farmerName']
-                                            //       .toString()),
-                                            // ),
+                //                           // subtitle: Center(
+                //                           //   child:
+                //                           //       Column(children: <Widget>[
+                //                           //     // Text(snap['District'].toString()),
+                //                           //     Text(snap['location']
+                //                           //         .toString()),
+                //                           //   ]),
+                //                           // ),
 
-                                            // subtitle: Center(
-                                            //   child:
-                                            //       Column(children: <Widget>[
-                                            //     // Text(snap['District'].toString()),
-                                            //     Text(snap['location']
-                                            //         .toString()),
-                                            //   ]),
-                                            // ),
+                //                           //  trailing: Text(snap['image']),
 
-                                            //  trailing: Text(snap['image']),
+                //                           SizedBox(
+                //                             height: 100,
+                //                             child: Column(
+                //                               mainAxisAlignment:
+                //                                   MainAxisAlignment
+                //                                       .spaceEvenly,
+                //                               children: [
+                //                                 Row(
+                //                                   mainAxisAlignment:
+                //                                       MainAxisAlignment
+                //                                           .spaceAround,
+                //                                   children: [
+                //                                     Text(
+                //                                       'Farm Name: ',
+                //                                       style: TextStyle(
+                //                                           fontWeight:
+                //                                               FontWeight
+                //                                                   .bold),
+                //                                     ),
+                //                                     Text(
+                //                                         snap['Farm_Name']
+                //                                             .toString(),
+                //                                         style: TextStyle(
+                //                                             color:
+                //                                                 Colors.green,
+                //                                             fontSize: 19))
+                //                                   ],
+                //                                 ),
+                //                                 Row(
+                //                                   mainAxisAlignment:
+                //                                       MainAxisAlignment
+                //                                           .spaceAround,
+                //                                   children: [
+                //                                     Text(
+                //                                       'Type of coffee: ',
+                //                                       style: TextStyle(
+                //                                           fontWeight:
+                //                                               FontWeight
+                //                                                   .bold),
+                //                                     ),
+                //                                     Text(
+                //                                         snap['Type']
+                //                                             .toString(),
+                //                                         style: TextStyle(
+                //                                             color:
+                //                                                 Colors.green,
+                //                                             fontSize: 19))
+                //                                   ],
+                //                                 ),
+                //                                 Row(
+                //                                   mainAxisAlignment:
+                //                                       MainAxisAlignment
+                //                                           .spaceAround,
+                //                                   children: [
+                //                                     Text(
+                //                                       'Location: ',
+                //                                       style: TextStyle(
+                //                                           fontWeight:
+                //                                               FontWeight
+                //                                                   .bold),
+                //                                     ),
+                //                                     Text(
+                //                                         snap['location']
+                //                                             .toString(),
+                //                                         style: TextStyle(
+                //                                             color:
+                //                                                 Colors.green,
+                //                                             fontSize: 19)),
+                //                                   ],
+                //                                 )
+                //                               ],
+                //                             ),
+                //                           ),
+                //                         ],
+                //                       ),
+                //                     ),
+                //                   );
+                //                 }).toList(),
+                //               ),
+                //             );
+                //           }),
+                //     ))
+                //     //code here
+                //   ],
+                // )
 
-                                            SizedBox(
-                                              height: 100,
-                                              child: Column(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceEvenly,
-                                                children: [
-                                                  Row(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceAround,
-                                                    children: [
-                                                      Text(
-                                                        'Farm Name: ',
-                                                        style: TextStyle(
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .bold),
-                                                      ),
-                                                      Text(
-                                                          snap['Farm_Name']
-                                                              .toString(),
-                                                          style: TextStyle(
-                                                              color:
-                                                                  Colors.green,
-                                                              fontSize: 19))
-                                                    ],
-                                                  ),
-                                                  Row(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceAround,
-                                                    children: [
-                                                      Text(
-                                                        'Type of coffee: ',
-                                                        style: TextStyle(
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .bold),
-                                                      ),
-                                                      Text(
-                                                          snap['Type']
-                                                              .toString(),
-                                                          style: TextStyle(
-                                                              color:
-                                                                  Colors.green,
-                                                              fontSize: 19))
-                                                    ],
-                                                  ),
-                                                  Row(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceAround,
-                                                    children: [
-                                                      Text(
-                                                        'Location: ',
-                                                        style: TextStyle(
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .bold),
-                                                      ),
-                                                      Text(
-                                                          snap['location']
-                                                              .toString(),
-                                                          style: TextStyle(
-                                                              color:
-                                                                  Colors.green,
-                                                              fontSize: 19)),
-                                                    ],
-                                                  )
-                                                ],
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    );
-                                  }).toList(),
-                                ),
-                              );
-                            }),
-                      ))
-                      //code here
-                    ],
-                  )
-
-                  //desighn of the background
-                  ),
+                //desighn of the background
+              ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(''),
-                    Text('Farms',
-                        style: Theme.of(context).textTheme.headline4?.copyWith(
-                            color: Colors.brown, fontWeight: FontWeight.bold)),
+                    Center(
+                      child: Text('ABOUT FARMER',
+                          style: Theme.of(context)
+                              .textTheme
+                              .headline4
+                              ?.copyWith(
+                                  color: Colors.brown,
+                                  fontWeight: FontWeight.bold)),
+                    ),
                     Row(
                       children: [
                         RichText(
@@ -253,75 +262,74 @@ class finalScreen extends StatelessWidget {
             ],
           ),
         ),
-        DetailContentMenu()
       ]),
     );
   }
 }
 
-//copyright code and social media handles
-class DetailContentMenu extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        children: [
-          Text(
-            "© All rights reserved. e_coffee Limited",
-            style: TextStyle(
-                fontSize: 15.0,
-                color: Colors.black87,
-                fontWeight: FontWeight.w400,
-                height: 1.50),
-            textAlign: TextAlign.justify,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(6.0),
-                child: IconButton(
-                  onPressed: null,
-                  icon: Icon(
-                    Icons.facebook,
-                    color: Colors.black,
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(6.0),
-                child: IconButton(
-                  onPressed: null,
-                  icon: Icon(
-                    Icons.whatsapp,
-                    color: Colors.black,
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(6.0),
-                child: IconButton(
-                  onPressed: null,
-                  icon: Icon(
-                    Icons.telegram,
-                    color: Colors.black,
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(6.0),
-                child: IconButton(
-                  onPressed: null,
-                  icon: Icon(
-                    Icons.tiktok,
-                    color: Colors.black,
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ],
-      ),
-    );
-  }
-}
+// //copyright code and social media handles
+// class DetailContentMenu extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container(
+//       child: Column(
+//         children: [
+//           Text(
+//             "© All rights reserved. e_coffee Limited",
+//             style: TextStyle(
+//                 fontSize: 15.0,
+//                 color: Colors.black87,
+//                 fontWeight: FontWeight.w400,
+//                 height: 1.50),
+//             textAlign: TextAlign.justify,
+//           ),
+//           Row(
+//             mainAxisAlignment: MainAxisAlignment.center,
+//             children: [
+//               Padding(
+//                 padding: const EdgeInsets.all(6.0),
+//                 child: IconButton(
+//                   onPressed: null,
+//                   icon: Icon(
+//                     Icons.facebook,
+//                     color: Colors.black,
+//                   ),
+//                 ),
+//               ),
+//               Padding(
+//                 padding: const EdgeInsets.all(6.0),
+//                 child: IconButton(
+//                   onPressed: null,
+//                   icon: Icon(
+//                     Icons.whatsapp,
+//                     color: Colors.black,
+//                   ),
+//                 ),
+//               ),
+//               Padding(
+//                 padding: const EdgeInsets.all(6.0),
+//                 child: IconButton(
+//                   onPressed: null,
+//                   icon: Icon(
+//                     Icons.telegram,
+//                     color: Colors.black,
+//                   ),
+//                 ),
+//               ),
+//               Padding(
+//                 padding: const EdgeInsets.all(6.0),
+//                 child: IconButton(
+//                   onPressed: null,
+//                   icon: Icon(
+//                     Icons.tiktok,
+//                     color: Colors.black,
+//                   ),
+//                 ),
+//               ),
+//             ],
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+// }
