@@ -95,7 +95,7 @@ class finalScreen extends StatelessWidget {
                                   shrinkWrap: true,
                                   children: snapshot.data.docs.map((snap) {
                                     return Card(
-                                      color: Colors.white54,
+                                      color: Color.fromARGB(255, 245, 249, 252),
                                       shape: RoundedRectangleBorder(
                                           borderRadius:
                                               BorderRadius.circular(30)),
