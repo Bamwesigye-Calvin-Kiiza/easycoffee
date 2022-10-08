@@ -161,7 +161,7 @@ class finalScreen extends StatelessWidget {
                                                           style: TextStyle(
                                                               color:
                                                                   Colors.green,
-                                                              fontSize: 16))
+                                                              fontSize: 19))
                                                     ],
                                                   ),
                                                   Row(
@@ -182,7 +182,7 @@ class finalScreen extends StatelessWidget {
                                                           style: TextStyle(
                                                               color:
                                                                   Colors.green,
-                                                              fontSize: 16))
+                                                              fontSize: 19))
                                                     ],
                                                   ),
                                                   Row(
@@ -203,7 +203,7 @@ class finalScreen extends StatelessWidget {
                                                           style: TextStyle(
                                                               color:
                                                                   Colors.green,
-                                                              fontSize: 16)),
+                                                              fontSize: 19)),
                                                     ],
                                                   )
                                                 ],

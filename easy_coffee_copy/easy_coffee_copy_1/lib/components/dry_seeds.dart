@@ -288,7 +288,7 @@ class finalScreen extends StatelessWidget {
                                                 BorderRadius.circular(10),
                                             image: DecorationImage(
                                                 image: AssetImage(
-                                                    'assets/images/picture2.jpg'),
+                                                    'assets/images/picture0.jpeg'),
                                                 fit: BoxFit.cover)),
                                       ),
                                       Container(
