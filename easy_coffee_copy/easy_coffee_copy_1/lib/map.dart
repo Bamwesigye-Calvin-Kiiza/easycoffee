@@ -264,7 +264,7 @@ class _MapScreenState extends State<MapScreen> {
     setState(() {});
 
     _googleMapController
-        .animateCamera(CameraUpdate.newLatLngZoom(LatLng(lat, lng), 14.0));
+        .animateCamera(CameraUpdate.newLatLngZoom(LatLng(lat, lng), 10.0));
   }
 
   Future<Position> _determinePosition() async {

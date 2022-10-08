@@ -366,7 +366,7 @@ class _CategoriesState extends State<Categories> {
   List<String> categories = [
     'Home',
     'Farmers',
-    'Harvest ',
+    'Harvest',
     'farms',
     'Coffee well being',
     'Processed coffee',

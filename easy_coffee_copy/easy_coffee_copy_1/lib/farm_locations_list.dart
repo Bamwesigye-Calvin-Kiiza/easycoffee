@@ -25,5 +25,5 @@ Marker mbarara_farm = Marker(
 Marker kabalagala_farm = Marker(
     markerId: MarkerId('test4'),
     position: LatLng(0.3521169, 31.80625123),
-    infoWindow: InfoWindow(title: 'kamuli coffee ltd'),
+    infoWindow: InfoWindow(title: 'suubi coffee farm'),
     icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueViolet));
