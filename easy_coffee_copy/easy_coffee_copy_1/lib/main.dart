@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
             .textTheme
             .apply(bodyColor: Color.fromARGB(255, 62, 62, 63)),
         visualDensity: VisualDensity.adaptivePlatformDensity,
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.green,
       ),
       home: LoginScreen(),
     );

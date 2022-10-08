@@ -99,6 +99,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.0.2"
+  cupertino_icons:
+    dependency: transitive
+    description:
+      name: cupertino_icons
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.5"
+  cupertino_list_tile:
+    dependency: "direct main"
+    description:
+      name: cupertino_list_tile
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.2.1"
   dio:
     dependency: "direct main"
     description:
@@ -209,6 +223,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.3.0"
+  flutter_chat_bubble:
+    dependency: "direct main"
+    description:
+      name: flutter_chat_bubble
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.0"
   flutter_google_places:
     dependency: "direct main"
     description:
@@ -216,6 +237,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.3.0"
+  flutter_mobx:
+    dependency: "direct main"
+    description:
+      name: flutter_mobx
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.6+4"
   flutter_plugin_android_lifecycle:
     dependency: transitive
     description:
@@ -443,6 +471,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.8.0"
+  mobx:
+    dependency: "direct main"
+    description:
+      name: mobx
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.1.0"
   octo_image:
     dependency: transitive
     description:
