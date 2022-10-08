@@ -92,8 +92,10 @@ class finalScreen extends StatelessWidget {
                                 height: 730,
                                 width: MediaQuery.of(context).size.width,
                                 child: ListView(
+                                  shrinkWrap: true,
                                   children: snapshot.data.docs.map((snap) {
                                     return Card(
+                                      color: Colors.white54,
                                       shape: RoundedRectangleBorder(
                                           borderRadius:
                                               BorderRadius.circular(30)),
@@ -136,7 +138,7 @@ class finalScreen extends StatelessWidget {
 
                                             SizedBox(
                                               height: 100,
-                                              child: Row(
+                                              child: Column(
                                                 mainAxisAlignment:
                                                     MainAxisAlignment
                                                         .spaceEvenly,
@@ -144,7 +146,7 @@ class finalScreen extends StatelessWidget {
                                                   Row(
                                                     mainAxisAlignment:
                                                         MainAxisAlignment
-                                                            .spaceEvenly,
+                                                            .spaceAround,
                                                     children: [
                                                       Text(
                                                         'Farm Name: ',
@@ -165,7 +167,28 @@ class finalScreen extends StatelessWidget {
                                                   Row(
                                                     mainAxisAlignment:
                                                         MainAxisAlignment
-                                                            .spaceBetween,
+                                                            .spaceAround,
+                                                    children: [
+                                                      Text(
+                                                        'Type of coffee: ',
+                                                        style: TextStyle(
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .bold),
+                                                      ),
+                                                      Text(
+                                                          snap['Type']
+                                                              .toString(),
+                                                          style: TextStyle(
+                                                              color:
+                                                                  Colors.green,
+                                                              fontSize: 16))
+                                                    ],
+                                                  ),
+                                                  Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceAround,
                                                     children: [
                                                       Text(
                                                         'Location: ',

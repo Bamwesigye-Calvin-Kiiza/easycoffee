@@ -87,8 +87,6 @@ class finalScreen extends StatelessWidget {
                           child: StreamBuilder(
                               stream: FirebaseFirestore.instance
                                   .collection('users')
-                                  .doc()
-                                  .collection('profile')
                                   .snapshots(),
                               builder: (BuildContext context,
                                   AsyncSnapshot<QuerySnapshot> snapshot) {

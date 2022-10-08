@@ -91,6 +91,7 @@ class finalScreen extends StatelessWidget {
                                   height: 600,
                                   width: MediaQuery.of(context).size.width,
                                   child: ListView(
+                                    shrinkWrap: true,
                                     children: snapshot.data.docs.map((snap) {
                                       return Card(
                                         shape: RoundedRectangleBorder(
