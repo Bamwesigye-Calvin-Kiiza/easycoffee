@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:easy_coffee_copy_1/map.dart';
 
 import '../../models/user_model.dart';
-import '../../screen/beFarmer.dart';
 import '../../screen/pic.dart';
 
 class NavBar extends StatefulWidget {
@@ -55,7 +54,7 @@ class _NavBarState extends State<NavBar> {
                   title: Text('Develop farmer card'),
                   onTap: () => Navigator.of(context).push(
                     MaterialPageRoute(builder: (BuildContext context) {
-                      return BeFarmer();
+                      return BeFarm();
                     }),
                   ),
                 ),

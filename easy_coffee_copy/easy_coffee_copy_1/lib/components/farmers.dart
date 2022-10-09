@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_coffee_copy_1/components/farmersProfile.dart';
-import 'package:easy_coffee_copy_1/components/farms.dart';
+import 'package:easy_coffee_copy_1/components/farmersprofiledesign.dart';
 import 'package:flutter/material.dart';
 
 class farmersScreen extends StatelessWidget {
@@ -80,7 +80,7 @@ class finalScreen extends StatelessWidget {
                           padding: EdgeInsets.all(20),
                           child: StreamBuilder(
                               stream: FirebaseFirestore.instance
-                                  .collection('farmers')
+                                  .collection('users')
                                   .snapshots(),
                               builder: (BuildContext context,
                                   AsyncSnapshot<QuerySnapshot> snapshot) {
@@ -96,12 +96,13 @@ class finalScreen extends StatelessWidget {
                                     shrinkWrap: true,
                                     children: snapshot.data.docs.map((snap) {
                                       return InkWell(
-                                        onTap:(){
-                                           Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => farms() //HomePage()
-                              ));
+                                        onTap: () {
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      farms() //HomePage()
+                                                  ));
                                         },
                                         child: Card(
                                           shape: RoundedRectangleBorder(
@@ -123,13 +124,12 @@ class finalScreen extends StatelessWidget {
                                                             snap['imgUrl'],
                                                           ),
                                                           fit: BoxFit.fill
-                                      
+
                                                           // height: 250,
                                                           ), // width: 100,
                                                     ),
                                                   ),
                                                 ),
-                                             
                                                 SizedBox(
                                                   height: 100,
                                                   child: Row(
@@ -164,7 +164,8 @@ class finalScreen extends StatelessWidget {
                                                               style: TextStyle(
                                                                   color: Colors
                                                                       .green,
-                                                                  fontSize: 19)),
+                                                                  fontSize:
+                                                                      19)),
                                                         ],
                                                       )
                                                     ],
