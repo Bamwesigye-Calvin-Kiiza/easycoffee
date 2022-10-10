@@ -1,5 +1,7 @@
 import 'dart:io';
+import 'dart:ui';
 import 'package:easy_coffee_copy_1/screen/crud.dart';
+import 'package:easy_coffee_copy_1/screens/home/home_screen.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -86,7 +88,7 @@ class _BeFarmState extends State<BeFarm> {
       };
 
       cruds.addData(blogMap).then((value) => Navigator.push(
-          context, MaterialPageRoute(builder: (context) => farmersScreen())));
+          context, MaterialPageRoute(builder: (context) => HomeScreen())));
     } else {}
   }
 
@@ -280,11 +282,14 @@ class _BeFarmState extends State<BeFarm> {
                                   height: 20,
                                 ),
                                 ElevatedButton(
-                                    child: Text('Update Records'),
-                                    onPressed: (() {
-                                      Uploadpic();
-                                      UploadPic();
-                                    }))
+                                  child: Text('Update Records'),
+                                  onPressed: (() {
+                                    Uploadpic();
+                                    UploadPic();
+                                  }),
+                                  style: ElevatedButton.styleFrom(
+                                      backgroundColor: Colors.green),
+                                )
                               ],
                             ),
                           ),
