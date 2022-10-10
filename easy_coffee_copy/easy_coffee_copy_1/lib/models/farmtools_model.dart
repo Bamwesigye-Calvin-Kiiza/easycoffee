@@ -22,7 +22,7 @@ List<Farmtool> farmtool = [
   Farmtool(
     id: 0,
     name: 'wheelbarrow',
-    imagePath: 'assets/images/wheel.jpeg',
+    imagePath: 'assets/images/wheelbarrow.jpg',
     category: 'carriage',
     description:'The wheelbarrow is designed to distribute the weight of the load it is carrying between the wheel and the operator.You also need to make sure to store the wheelbarrow in standing against any wall rather than a place in the sitting condition. Should be stored in a clean dry area',
     price: 75.00,
@@ -31,7 +31,7 @@ List<Farmtool> farmtool = [
   Farmtool(
     id: 1,
     name: 'Tractor',
-    imagePath: 'assets/images/tractor.jpeg',
+    imagePath: 'assets/images/tractor.jpg',
     category: 'Land clearing',
     description:
      'Service your tractor regularly to ensure its reliable and safe operation. This includes checking the soundness of any rollover protective structure (ROPS).Should be stored in a clean dry area for more information visit "workplace-hazards/agriculture/machinery-and-equipment/tractors/tractor-safety-precautions"',
@@ -60,11 +60,21 @@ List<Farmtool> farmtool = [
   ),
   Farmtool(
     id: 4,
-    name: 'Hoe',
-    imagePath: 'assets/images/hoe.jpeg',
-    category: 'Digging',
+    name: 'axe',
+    imagePath: 'assets/images/panga.jpg',
+    category: 'choping',
     description:
-    'Farm tool used to dig or cultivate land. Should be stored in a clean dry area',
+    'Farm tool used to chop or cultivate land. Should be stored in a clean dry area',
+     price: 75.00,
+    isFavorit: true,
+  ),
+  Farmtool(
+    id: 5,
+    name: 'pruning shears',
+    imagePath: 'assets/images/pruningshears.jpeg',
+    category: 'Pruning',
+    description:
+    'Farm tool used to prune.\nShould be stored in a clean dry area',
      price: 75.00,
     isFavorit: true,
   )

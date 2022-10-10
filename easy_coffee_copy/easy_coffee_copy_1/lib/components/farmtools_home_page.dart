@@ -180,25 +180,28 @@ class _HomePageState extends State<HomePage> {
               offset: const Offset(5, 5),
             ),
           ],
-          border: Border.all(color: Color.fromARGB(255, 253, 171, 19), width: 2),
+          border:
+              Border.all(color: Color.fromARGB(255, 253, 171, 19), width: 2),
           borderRadius: BorderRadius.circular(30.0),
         ),
         child: Stack(
           children: [
-            Container(
-              decoration: BoxDecoration(
-                color: lightGreen,
-                boxShadow: [
-                  BoxShadow(
-                    color: black.withOpacity(0.05),
-                    blurRadius: 15,
-                    offset: const Offset(5, 5),
+            SizedBox(
+              child: Container(
+                decoration: BoxDecoration(
+                  color: lightGreen,
+                  boxShadow: [
+                    BoxShadow(
+                      color: black.withOpacity(0.05),
+                      blurRadius: 15,
+                      offset: const Offset(5, 5),
+                    ),
+                  ],
+                  borderRadius: BorderRadius.circular(25.0),
+                  image: DecorationImage(
+                    image: AssetImage(farmtool[index].imagePath),
+                    fit: BoxFit.cover,
                   ),
-                ],
-                borderRadius: BorderRadius.circular(25.0),
-                image: DecorationImage(
-                  image: AssetImage(farmtool[index].imagePath),
-                  fit: BoxFit.cover,
                 ),
               ),
             ),
@@ -220,7 +223,7 @@ class _HomePageState extends State<HomePage> {
               child: Padding(
                 padding: const EdgeInsets.only(bottom: 5),
                 child: Text(
-                  '${farmtool[index].name} - \$${farmtool[index].price.toStringAsFixed(0)}',
+                  '${farmtool[index].name} - \Ugx${farmtool[index].price.toStringAsFixed(0)}',
                   style: TextStyle(
                     color: black.withOpacity(0.7),
                     fontWeight: FontWeight.bold,
@@ -228,7 +231,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),
