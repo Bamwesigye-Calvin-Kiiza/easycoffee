@@ -26,12 +26,14 @@ dependencies:
   flutterwave: ^1.0.3
   fab_circular_menu: ^1.0.2
   
+  
   image_picker: ^0.8.5+3
   cloud_firestore: ^3.4.8
   firebase_storage: ^10.3.8
   fluttertoast: ^8.0.9
   random_string: ^2.3.1
   cached_network_image: ^3.2.2
+  lottie: ^1.4.3
   # get: ^4.6.5
 
 dev_dependencies:
@@ -43,6 +45,8 @@ flutter:
   assets:
     - assets/images/
     - assets/icons/
+    - assets/animassets/
+
   fonts:
     - family: gilroy
       fonts:

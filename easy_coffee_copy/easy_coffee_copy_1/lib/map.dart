@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:easy_coffee_copy_1/farm_locations_list.dart';
 import 'package:fab_circular_menu/fab_circular_menu.dart';
 import 'package:firebase_core/firebase_core.dart';

@@ -22,44 +22,47 @@ class Body extends StatelessWidget {
               padding: const EdgeInsets.symmetric(vertical: 10),
               child: GridView(
                 children: [
-                  InkWell(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => farmersScreen() //HomePage()
-                              ));
-                    },
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Expanded(
-                          child: Container(
-                              padding: EdgeInsets.all(5),
-                              // decoration: BoxDecoration(
-                              //     borderRadius: BorderRadius.circular(50),),
-                              child: Container(
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(30),
-                                    image: DecorationImage(
-                                      image: AssetImage(
-                                          'assets/images/landhealth.webp'),
-                                      fit: BoxFit.cover,
-                                    )),
-                              )),
-                        ),
-                        // out putting required information
-                        Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 20),
-                          child: Center(
-                            child: Text(
-                              'Farmer',
-                              style: TextStyle(
-                                  fontSize: 15, fontWeight: FontWeight.w600),
+                  SizedBox(
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    farmersScreen() //HomePage()
+                                ));
+                      },
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Expanded(
+                            child: Container(
+                                padding: EdgeInsets.all(5),
+                                // decoration: BoxDecoration(
+                                //     borderRadius: BorderRadius.circular(50),),
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(30),
+                                      image: DecorationImage(
+                                        image: AssetImage(
+                                            'assets/images/landhealth.webp'),
+                                        fit: BoxFit.cover,
+                                      )),
+                                )),
+                          ),
+                          // out putting required information
+                          Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 0),
+                            child: Center(
+                              child: Text(
+                                'Farmer',
+                                style: TextStyle(
+                                    fontSize: 15, fontWeight: FontWeight.w600),
+                              ),
                             ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                   InkWell(
@@ -89,7 +92,7 @@ class Body extends StatelessWidget {
                         ),
                         // out putting required information
                         Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 20),
+                          padding: const EdgeInsets.symmetric(vertical: 0),
                           child: Center(
                             child: Text(
                               'Harvest',
@@ -129,7 +132,7 @@ class Body extends StatelessWidget {
                         ),
                         // out putting required information
                         Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 20),
+                          padding: const EdgeInsets.symmetric(vertical: 0),
                           child: Center(
                             child: Text(
                               ' Coffee Well being',
@@ -169,7 +172,7 @@ class Body extends StatelessWidget {
                         ),
                         // out putting required information
                         Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 20),
+                          padding: const EdgeInsets.symmetric(vertical: 0),
                           child: Center(
                             child: Text(
                               ' Price Fructuation',
@@ -208,7 +211,7 @@ class Body extends StatelessWidget {
                         ),
                         // out putting required information
                         Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 20),
+                          padding: const EdgeInsets.symmetric(vertical: 0),
                           child: Center(
                             child: Text(
                               ' Start up ',
@@ -247,7 +250,7 @@ class Body extends StatelessWidget {
                         ),
                         // out putting required information
                         Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 20),
+                          padding: const EdgeInsets.symmetric(vertical: 0),
                           child: Center(
                             child: Text(
                               'Farm tools',
@@ -262,7 +265,7 @@ class Body extends StatelessWidget {
                 ],
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
-                    mainAxisSpacing: 10,
+                    mainAxisSpacing: 55,
                     crossAxisSpacing: 10),
               ),
             ),
@@ -288,7 +291,6 @@ class _CategoriesState extends State<Categories> {
     'Farmers',
     'Harvest',
     'Coffee well being',
-    'Processed coffee',
     'Prices',
     'start up',
     'farmtools',
@@ -298,7 +300,6 @@ class _CategoriesState extends State<Categories> {
     farmersScreen(),
     Dry_seeds(),
     coffee_well_being(),
-    proccessed_coffee(),
     price_fructuatations(),
     start_up(),
     farm_tools()
