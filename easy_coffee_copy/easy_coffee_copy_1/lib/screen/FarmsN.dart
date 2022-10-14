@@ -262,37 +262,27 @@ class _BeFarmState extends State<BeFarm> {
                                 SizedBox(
                                   height: 20,
                                 ),
-                                LayoutBuilder(builder: (context, Constraints) {
-                                  return SizedBox(
-                                    height: Constraints.maxHeight / 4,
-                                    child: TextField(
-                                      expands: true,
-                                      maxLines: null,
-                                      decoration: InputDecoration(
-                                          hintText: 'Biography'),
-                                      onChanged: (value) {
-                                        Bio = value;
-                                      },
-                                    ),
-                                  );
-                                }),
+                                TextField(
+                                  // expands: true,
+                                  // maxLines: null,
+                                  decoration:
+                                      InputDecoration(hintText: 'Biography'),
+                                  onChanged: (value) {
+                                    Bio = value;
+                                  },
+                                ),
                                 SizedBox(
                                   height: 20,
                                 ),
-                                LayoutBuilder(builder: (context, Constraints) {
-                                  return SizedBox(
-                                    height: Constraints.maxHeight / 4,
-                                    child: TextField(
-                                      expands: true,
-                                      maxLines: null,
-                                      decoration: InputDecoration(
-                                          hintText: 'Farm details'),
-                                      onChanged: (value) {
-                                        farmData = value;
-                                      },
-                                    ),
-                                  );
-                                }),
+                                TextField(
+                                  // expands: true,
+                                  // maxLines: null,
+                                  decoration:
+                                      InputDecoration(hintText: 'Farm details'),
+                                  onChanged: (value) {
+                                    farmData = value;
+                                  },
+                                ),
                                 SizedBox(
                                   height: 20,
                                 ),
