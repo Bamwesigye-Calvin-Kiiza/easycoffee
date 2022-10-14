@@ -1,21 +1,48 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:easy_coffee_copy_1/components/farmersProfile.dart';
 import 'package:flutter/material.dart';
 
-import '../screen/Profile.dart';
+// class farms extends StatelessWidget {
+//   // final Product product;
+//   // const DetailsScreen({key, this.product});
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       backgroundColor: Color.fromARGB(255, 132, 255, 136),
+//       appBar: buildappbar(context),
+//       body: farmersprofile_page(),
+//     );
+//   }
 
-class farms extends StatelessWidget {
-  // final Product product;
-  // const DetailsScreen({key, this.product});
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Color.fromARGB(255, 132, 255, 136),
-      appBar: buildappbar(context),
-      body: finalScreen(),
-    );
+//   AppBar buildappbar(BuildContext context) {
+//     return AppBar(
+//         backgroundColor: Colors.transparent,
+//         elevation: 0,
+//         leading: IconButton(
+//           icon: Icon(Icons.arrow_back),
+//           onPressed: () => Navigator.pop(context),
+//           color: Colors.black,
+//         ),
+//         actions: [
+//           IconButton(
+//               onPressed: () {},
+//               icon: Icon(Icons.menu, color: Colors.black),
+//               color: Colors.transparent),
+//           SizedBox(
+//             width: 10,
+//           )
+//         ]);
+//   }
+// }
+
+//calvo code for final screen
+class farmersprofile_page extends StatelessWidget {
+  farmersprofile_page(this.data, {Key key}) : super(key: key) {
+    _referencePosts = FirebaseFirestore.instance.collection('users');
+    _future = _referencePosts.get();
   }
-
+  CollectionReference _referencePosts;
+  Future<QuerySnapshot> _future;
+  Map data;
   AppBar buildappbar(BuildContext context) {
     return AppBar(
         backgroundColor: Colors.transparent,
@@ -35,235 +62,400 @@ class farms extends StatelessWidget {
           )
         ]);
   }
-}
 
-//calvo code for final screen
-class finalScreen extends StatelessWidget {
-  // final Product product;
-  // const finalScreen({key, this.product});
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return SingleChildScrollView(
-      child: Column(children: [
-        SizedBox(
-          height: size.height,
-          child: Stack(
-            children: [
-              Container(
-                padding: EdgeInsets.all(0),
-                decoration:
-                    BoxDecoration(borderRadius: BorderRadius.circular(50)),
-                child: Container(
-                  height: 250,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      image: DecorationImage(
-                          image: AssetImage('assets/images/fields.webp'),
-                          fit: BoxFit.cover)),
-                ),
-              ),
-              Container(
-                margin: EdgeInsets.only(top: size.height * 0.12),
-                height: 1000,
-                decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 255, 238, 232),
-                    //curving at the top
-                    borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(50),
-                        topRight: Radius.circular(50))),
-                child: farmersprofile_page(),
-                //content of the card_0n tap ui
-                // child: Column(
-                //   // crossAxisAlignment: CrossAxisAlignment.stretch,
-                //   children: <Widget>[
-                //     Expanded(
-                //         child: Padding(
-                //       padding: EdgeInsets.all(10),
-                //       child: StreamBuilder(
-                //           stream: FirebaseFirestore.instance
-                //               .collection('farms')
-                //               .snapshots(),
-                //           builder: (BuildContext context,
-                //               AsyncSnapshot<QuerySnapshot> snapshot) {
-                //             if (!snapshot.hasData) {
-                //               return Center(
-                //                 child: CircularProgressIndicator(),
-                //               );
-                //             }
-                //             return Container(
-                //               height: 730,
-                //               width: MediaQuery.of(context).size.width,
-                //               child: ListView(
-                //                 shrinkWrap: true,
-                //                 children: snapshot.data.docs.map((snap) {
-                //                   return Card(
-                //                     color: Color.fromARGB(255, 245, 249, 252),
-                //                     shape: RoundedRectangleBorder(
-                //                         borderRadius:
-                //                             BorderRadius.circular(30)),
-                //                     child: SizedBox(
-                //                       height: 270,
-                //                       child: Column(
-                //                         children: [
-                //                           ListTile(
-                //                             title: Container(
-                //                               height: 150,
-                //                               decoration: BoxDecoration(
-                //                                 borderRadius:
-                //                                     BorderRadius.circular(30),
-                //                                 image: DecorationImage(
-                //                                     image: NetworkImage(
-                //                                       snap['Url'],
-                //                                     ),
-                //                                     fit: BoxFit.fill
-
-                //                                     // height: 250,
-                //                                     ), // width: 100,
-                //                               ),
-                //                             ),
-                //                           ),
-                //                           // title: Center(
-                //                           //   child: Text(snap['farmerName']
-                //                           //       .toString()),
-                //                           // ),
-
-                //                           // subtitle: Center(
-                //                           //   child:
-                //                           //       Column(children: <Widget>[
-                //                           //     // Text(snap['District'].toString()),
-                //                           //     Text(snap['location']
-                //                           //         .toString()),
-                //                           //   ]),
-                //                           // ),
-
-                //                           //  trailing: Text(snap['image']),
-
-                //                           SizedBox(
-                //                             height: 100,
-                //                             child: Column(
-                //                               mainAxisAlignment:
-                //                                   MainAxisAlignment
-                //                                       .spaceEvenly,
-                //                               children: [
-                //                                 Row(
-                //                                   mainAxisAlignment:
-                //                                       MainAxisAlignment
-                //                                           .spaceAround,
-                //                                   children: [
-                //                                     Text(
-                //                                       'Farm Name: ',
-                //                                       style: TextStyle(
-                //                                           fontWeight:
-                //                                               FontWeight
-                //                                                   .bold),
-                //                                     ),
-                //                                     Text(
-                //                                         snap['Farm_Name']
-                //                                             .toString(),
-                //                                         style: TextStyle(
-                //                                             color:
-                //                                                 Colors.green,
-                //                                             fontSize: 19))
-                //                                   ],
-                //                                 ),
-                //                                 Row(
-                //                                   mainAxisAlignment:
-                //                                       MainAxisAlignment
-                //                                           .spaceAround,
-                //                                   children: [
-                //                                     Text(
-                //                                       'Type of coffee: ',
-                //                                       style: TextStyle(
-                //                                           fontWeight:
-                //                                               FontWeight
-                //                                                   .bold),
-                //                                     ),
-                //                                     Text(
-                //                                         snap['Type']
-                //                                             .toString(),
-                //                                         style: TextStyle(
-                //                                             color:
-                //                                                 Colors.green,
-                //                                             fontSize: 19))
-                //                                   ],
-                //                                 ),
-                //                                 Row(
-                //                                   mainAxisAlignment:
-                //                                       MainAxisAlignment
-                //                                           .spaceAround,
-                //                                   children: [
-                //                                     Text(
-                //                                       'Location: ',
-                //                                       style: TextStyle(
-                //                                           fontWeight:
-                //                                               FontWeight
-                //                                                   .bold),
-                //                                     ),
-                //                                     Text(
-                //                                         snap['location']
-                //                                             .toString(),
-                //                                         style: TextStyle(
-                //                                             color:
-                //                                                 Colors.green,
-                //                                             fontSize: 19)),
-                //                                   ],
-                //                                 )
-                //                               ],
-                //                             ),
-                //                           ),
-                //                         ],
-                //                       ),
-                //                     ),
-                //                   );
-                //                 }).toList(),
-                //               ),
-                //             );
-                //           }),
-                //     ))
-                //     //code here
-                //   ],
-                // )
-
-                //desighn of the background
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(''),
-                    Center(
-                      child: Text('ABOUT FARMER',
-                          style: Theme.of(context)
-                              .textTheme
-                              .headline4
-                              ?.copyWith(
-                                  color: Colors.brown,
-                                  fontWeight: FontWeight.bold)),
+    return Scaffold(
+        backgroundColor: Color.fromARGB(255, 243, 220, 171),
+        appBar: buildappbar(context),
+        body: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+          Container(
+              // color: Colors.black12,
+              // padding: EdgeInsets.all(18),
+              child: SingleChildScrollView(
+                  child: Column(children: [
+            SizedBox(
+              height: size.height,
+              child: Stack(
+                children: [
+                  Container(
+                    padding: EdgeInsets.all(0),
+                    decoration:
+                        BoxDecoration(borderRadius: BorderRadius.circular(50)),
+                    child: Container(
+                      height: 250,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          image: DecorationImage(
+                              image: AssetImage('assets/images/fields.webp'),
+                              fit: BoxFit.cover)),
                     ),
-                    Row(
+                  ),
+                  Container(
+                      margin: EdgeInsets.only(top: size.height * 0.12),
+                      height: 1000,
+                      decoration: BoxDecoration(
+                          color: Color.fromARGB(255, 255, 238, 232),
+                          //curving at the top
+                          borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(50),
+                              topRight: Radius.circular(50))),
+                      child: SingleChildScrollView(
+                          child: Stack(children: [
+                        Padding(
+                          padding: const EdgeInsets.only(top: 8),
+                          child: Container(
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(30),
+                                    topRight: Radius.circular(30))),
+                            child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    children: [
+                                      SizedBox(
+                                        width: 150,
+                                        height: 200,
+                                        child: Padding(
+                                          padding:
+                                              const EdgeInsets.only(left: 10),
+                                          child: Container(
+                                            decoration: BoxDecoration(
+                                                borderRadius:
+                                                    BorderRadius.circular(30),
+                                                image: DecorationImage(
+                                                    image: NetworkImage(
+                                                      data['imgUrl'],
+                                                    ),
+                                                    fit: BoxFit.cover)),
+                                          ),
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        width: 10,
+                                      ),
+                                      SizedBox(
+                                        width: 250,
+                                        height: 250,
+                                        child: Container(
+                                          color: Colors.white,
+                                          child: Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Padding(
+                                                padding:
+                                                    const EdgeInsets.all(3.0),
+                                                child: Row(
+                                                  children: [
+                                                    Text('NAME:'),
+                                                    SizedBox(
+                                                      width: 10,
+                                                    ),
+                                                    Text(data['farmerName'],
+                                                        style: TextStyle(
+                                                            color: Colors.green,
+                                                            fontSize: 15))
+                                                  ],
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                height: 5,
+                                              ),
+                                              Padding(
+                                                padding:
+                                                    const EdgeInsets.all(3.0),
+                                                child: Row(
+                                                  children: [
+                                                    Text('AGE:'),
+                                                    SizedBox(
+                                                      width: 10,
+                                                    ),
+                                                    Text(data['Age'],
+                                                        style: TextStyle(
+                                                            color: Colors.green,
+                                                            fontSize: 19))
+                                                  ],
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                height: 5,
+                                              ),
+                                              Padding(
+                                                padding:
+                                                    const EdgeInsets.all(3.0),
+                                                child: Row(
+                                                  children: [
+                                                    Text('FARM NAME:'),
+                                                    SizedBox(
+                                                      width: 10,
+                                                    ),
+                                                    Text(data['Farm_Name'],
+                                                        style: TextStyle(
+                                                            color: Colors.green,
+                                                            fontSize: 19))
+                                                  ],
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                height: 5,
+                                              ),
+                                              Padding(
+                                                padding:
+                                                    const EdgeInsets.all(3.0),
+                                                child: Row(
+                                                  children: [
+                                                    Text('LOCATION:'),
+                                                    SizedBox(
+                                                      width: 10,
+                                                    ),
+                                                    Text(data['location'],
+                                                        style: TextStyle(
+                                                            color: Colors.green,
+                                                            fontSize: 19))
+                                                  ],
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                height: 5,
+                                              ),
+                                              Padding(
+                                                padding:
+                                                    const EdgeInsets.all(3.0),
+                                                child: Row(
+                                                  children: [
+                                                    Text('COFFEE TYPE:'),
+                                                    SizedBox(
+                                                      width: 10,
+                                                    ),
+                                                    Text(data['Type'],
+                                                        style: TextStyle(
+                                                            color: Colors.green,
+                                                            fontSize: 19))
+                                                  ],
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                height: 5,
+                                              ),
+                                              Padding(
+                                                padding:
+                                                    const EdgeInsets.all(3.0),
+                                                child: Row(
+                                                  children: [
+                                                    Text('PHONE NO.:'),
+                                                    SizedBox(
+                                                      width: 10,
+                                                    ),
+                                                    Text(data['Contact'],
+                                                        style: TextStyle(
+                                                            color: Colors.green,
+                                                            fontSize: 19))
+                                                  ],
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                height: 5,
+                                              ),
+                                              Padding(
+                                                padding:
+                                                    const EdgeInsets.all(3.0),
+                                                child: Row(
+                                                  children: [
+                                                    Text('Email:'),
+                                                    SizedBox(
+                                                      width: 10,
+                                                    ),
+                                                    Text(data['email'],
+                                                        style: TextStyle(
+                                                            color: Colors.green,
+                                                            fontSize: 13,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .bold))
+                                                  ],
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    height: 5,
+                                  ),
+                                  Divider(
+                                    height: 1,
+                                  ),
+                                  SizedBox(
+                                    height: 10,
+                                  ),
+                                  Container(
+                                    child: Center(
+                                        child: Text(
+                                      'BRIEF BACKGROUND',
+                                      style: TextStyle(
+                                          fontSize: 25,
+                                          fontWeight: FontWeight.bold),
+                                    )),
+                                  ),
+                                  SizedBox(
+                                    height: 15,
+                                  ),
+                                  Row(
+                                    children: [
+                                      Container(
+                                        width:
+                                            MediaQuery.of(context).size.width,
+                                        color:
+                                            Color.fromARGB(255, 255, 230, 220),
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Text(
+                                              data['Biography'].toString(),
+                                              style: TextStyle(
+                                                  color: Color.fromARGB(
+                                                      255, 10, 10, 10),
+                                                  fontSize: 19)),
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    height: 15,
+                                  ),
+                                  Divider(
+                                    height: 1,
+                                  ),
+                                  Container(
+                                    child: Center(
+                                        child: Text(
+                                      'FARM ',
+                                      style: TextStyle(
+                                          fontSize: 25,
+                                          fontWeight: FontWeight.bold),
+                                    )),
+                                  ),
+                                  Divider(
+                                    height: 1,
+                                  ),
+                                  SizedBox(
+                                    height: 15,
+                                  ),
+                                  Row(
+                                    children: [
+                                      SizedBox(
+                                        width:
+                                            MediaQuery.of(context).size.width,
+                                        height: 300,
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(30),
+                                              image: DecorationImage(
+                                                  image: NetworkImage(
+                                                    data['Url'],
+                                                  ),
+                                                  fit: BoxFit.cover)),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    height: 15,
+                                  ),
+                                  Row(
+                                    children: [
+                                      Container(
+                                        width:
+                                            MediaQuery.of(context).size.width,
+                                        color:
+                                            Color.fromARGB(255, 255, 230, 220),
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Text(
+                                              data['About farm'].toString(),
+                                              style: TextStyle(
+                                                  color: Color.fromARGB(
+                                                      255, 5, 5, 5),
+                                                  fontSize: 19)),
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    height: 15,
+                                  ),
+                                  SizedBox(
+                                    width: MediaQuery.of(context).size.width,
+                                    child: Center(
+                                      child: ElevatedButton(
+                                        child: Text(
+                                          'Message farmer',
+                                        ),
+                                        onPressed: () {},
+                                        style: ElevatedButton.styleFrom(
+                                          foregroundColor: Colors.white,
+                                          backgroundColor:
+                                              Colors.orange.shade300,
+                                          // shape:BeveledRectangleBorder(
+                                          //     borderRadius:
+                                          //         BorderRadius.all(Radius.circular(0))),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 0,
+                                  )
+                                ]),
+                          ),
+                        ),
+                      ]))
+                      //content of the card_0n tap ui
+
+                      //desighn of the background
+                      ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        RichText(
-                            text: TextSpan(children: [
-                          TextSpan(
+                        Text(''),
+                        Center(
+                          child: Text('ABOUT FARMER',
                               style: Theme.of(context)
                                   .textTheme
                                   .headline4
                                   ?.copyWith(
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.bold))
-                        ])),
+                                      color: Colors.brown,
+                                      fontWeight: FontWeight.bold)),
+                        ),
+                        Row(
+                          children: [
+                            RichText(
+                                text: TextSpan(children: [
+                              TextSpan(
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .headline4
+                                      ?.copyWith(
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold))
+                            ])),
+                          ],
+                        ) //headlining word
                       ],
-                    ) //headlining word
-                  ],
-                ),
-              )
-            ],
-          ),
-        ),
-      ]),
-    );
+                    ),
+                  )
+                ],
+              ),
+            ),
+          ])))
+        ]));
   }
 }
 

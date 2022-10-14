@@ -1,12 +1,19 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:easy_coffee_copy_1/components/farmersProfile.dart';
-import 'package:easy_coffee_copy_1/components/farmersprofiledesign.dart';
+
 import 'package:flutter/material.dart';
+
+import 'farmersprofiledesign.dart';
 
 class farmersScreen extends StatelessWidget {
   // final Product product;
   // const DetailsScreen({key, this.product});
-  @override
+  // farmersScreen({Key key}) : super(key: key) {
+  //   _referencePosts = FirebaseFirestore.instance.collection('users');
+  //   _future = _referencePosts.get();
+  // }
+  // CollectionReference _referencePosts;
+  // Future<QuerySnapshot> _future;
+  // @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.amber,
@@ -38,6 +45,12 @@ class farmersScreen extends StatelessWidget {
 
 //calvo code for final screen
 class finalScreen extends StatelessWidget {
+  finalScreen({Key key}) : super(key: key) {
+    _referencePosts = FirebaseFirestore.instance.collection('users');
+    _future = _referencePosts.get();
+  }
+  CollectionReference _referencePosts;
+  Future<QuerySnapshot> _future;
   // final Product product;
   // const finalScreen({key, this.product});
   @override
@@ -73,114 +86,126 @@ class finalScreen extends StatelessWidget {
                           topRight: Radius.circular(50))),
 
                   //content of the card_0n tap ui
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      Padding(
-                          padding: EdgeInsets.all(20),
-                          child: StreamBuilder(
-                              stream: FirebaseFirestore.instance
-                                  .collection('users')
-                                  .snapshots(),
-                              builder: (BuildContext context,
-                                  AsyncSnapshot<QuerySnapshot> snapshot) {
-                                if (!snapshot.hasData) {
-                                  return Center(
-                                    child: CircularProgressIndicator(),
-                                  );
-                                }
-                                return Container(
-                                  height: 600,
-                                  width: MediaQuery.of(context).size.width,
-                                  child: ListView(
-                                    shrinkWrap: true,
-                                    children: snapshot.data.docs.map((snap) {
-                                      return InkWell(
-                                        onTap: () {
-                                          Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      farms() //HomePage()
-                                                  ));
-                                        },
-                                        child: Card(
-                                          shape: RoundedRectangleBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(30)),
-                                          child: SizedBox(
-                                            height: 270,
-                                            child: Column(
-                                              children: [
-                                                ListTile(
-                                                  title: Container(
-                                                    height: 150,
-                                                    decoration: BoxDecoration(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              30),
-                                                      image: DecorationImage(
-                                                          image: NetworkImage(
-                                                            snap['imgUrl'],
-                                                          ),
-                                                          fit: BoxFit.fill
+                  child: FutureBuilder<QuerySnapshot>(
+                    future: _future,
+                    builder: (context, snapshot) {
+                      if (snapshot.hasError) {
+                        return Center(child: Text('Error:${snapshot.error}'));
+                      }
 
-                                                          // height: 250,
-                                                          ), // width: 100,
-                                                    ),
+                      if (snapshot.hasData) {
+                        QuerySnapshot data = snapshot.data;
+                        List<QueryDocumentSnapshot> documents = data.docs;
+                        List<Map> items = documents
+                            .map((e) => {
+                                  'id': e.id,
+                                  'Farm_Name': e['Farm_Name'],
+                                  'farmerName': e['farmerName'],
+                                  'imgUrl': e['imgUrl'],
+                                  'location': e['location'],
+                                  'Url': e['Url'],
+                                  'About farm': e['About farm'],
+                                  'Age': e['Age'],
+                                  // 'farm': e['farm'],
+                                  'Biography': e['Biography'],
+                                  'Contact': e['Contact'],
+                                  'Type': e['Type'],
+                                  'email': e['email'],
+                                })
+                            .toList();
+
+                        return ListView.builder(
+                            itemCount: documents.length,
+                            itemBuilder: (context, index) {
+                              Map thisItem = items[index];
+                              return InkWell(
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              farmersprofile_page(
+                                                  thisItem) //HomePage()
+                                          ));
+                                },
+                                child: Card(
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(30)),
+                                  child: SizedBox(
+                                    height: 270,
+                                    child: Column(
+                                      children: [
+                                        ListTile(
+                                          title: Container(
+                                            height: 150,
+                                            decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(30),
+                                              image: DecorationImage(
+                                                  image: NetworkImage(
+                                                    thisItem['imgUrl'],
                                                   ),
-                                                ),
-                                                SizedBox(
-                                                  height: 100,
-                                                  child: Row(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceEvenly,
-                                                    children: [
-                                                      Row(
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .spaceEvenly,
-                                                        children: [
-                                                          Text('Name: '),
-                                                          Text(
-                                                              snap['farmerName']
-                                                                  .toString(),
-                                                              style: TextStyle(
-                                                                  color: Colors
-                                                                      .green,
-                                                                  fontSize: 19))
-                                                        ],
-                                                      ),
-                                                      Row(
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .spaceBetween,
-                                                        children: [
-                                                          Text('Address: '),
-                                                          Text(
-                                                              snap['location']
-                                                                  .toString(),
-                                                              style: TextStyle(
-                                                                  color: Colors
-                                                                      .green,
-                                                                  fontSize:
-                                                                      19)),
-                                                        ],
-                                                      )
-                                                    ],
-                                                  ),
-                                                ),
-                                              ],
+                                                  fit: BoxFit.fill
+
+                                                  // height: 250,
+                                                  ), // width: 100,
                                             ),
                                           ),
                                         ),
-                                      );
-                                    }).toList(),
+                                        SizedBox(
+                                          height: 100,
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceEvenly,
+                                            children: [
+                                              Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceEvenly,
+                                                children: [
+                                                  Text('Name: '),
+                                                  Text(
+                                                      thisItem['farmerName']
+                                                          .toString(),
+                                                      style: TextStyle(
+                                                          color: Colors.green,
+                                                          fontSize: 19))
+                                                ],
+                                              ),
+                                              Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  Text('Address: '),
+                                                  Text(
+                                                      thisItem['location']
+                                                          .toString(),
+                                                      style: TextStyle(
+                                                          color: Colors.green,
+                                                          fontSize: 19)),
+                                                ],
+                                              )
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ),
                                   ),
-                                );
-                              })) //code here
-                    ],
+                                ),
+                              );
+                              // ListTile(
+                              //   onTap: () {
+                              //     Navigator.of(context).push(MaterialPageRoute(
+                              //         builder: (context) => Detail(thisItem)));
+                              //   },
+                              //   title: Text(thisItem['Farm_Name']),
+                              // );
+                            });
+                      }
+
+                      return Center(child: CircularProgressIndicator());
+                    },
                   )
 
                   //desighn of the background
