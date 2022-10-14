@@ -1,39 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
-// class farms extends StatelessWidget {
-//   // final Product product;
-//   // const DetailsScreen({key, this.product});
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       backgroundColor: Color.fromARGB(255, 132, 255, 136),
-//       appBar: buildappbar(context),
-//       body: farmersprofile_page(),
-//     );
-//   }
-
-//   AppBar buildappbar(BuildContext context) {
-//     return AppBar(
-//         backgroundColor: Colors.transparent,
-//         elevation: 0,
-//         leading: IconButton(
-//           icon: Icon(Icons.arrow_back),
-//           onPressed: () => Navigator.pop(context),
-//           color: Colors.black,
-//         ),
-//         actions: [
-//           IconButton(
-//               onPressed: () {},
-//               icon: Icon(Icons.menu, color: Colors.black),
-//               color: Colors.transparent),
-//           SizedBox(
-//             width: 10,
-//           )
-//         ]);
-//   }
-// }
-
 //calvo code for final screen
 class farmersprofile_page extends StatelessWidget {
   farmersprofile_page(this.data, {Key key}) : super(key: key) {
@@ -94,13 +61,13 @@ class farmersprofile_page extends StatelessWidget {
                   ),
                   Container(
                       margin: EdgeInsets.only(top: size.height * 0.12),
-                      height: 1000,
+                      // height:1000,
                       decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 255, 238, 232),
-                          //curving at the top
-                          borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(50),
-                              topRight: Radius.circular(50))),
+                          color: Color.fromARGB(255, 255, 238, 232)),
+                      //curving at the top
+                      // borderRadius: BorderRadius.only(
+                      //     topLeft: Radius.circular(50),
+                      //     topRight: Radius.circular(50))),
                       child: SingleChildScrollView(
                           child: Stack(children: [
                         Padding(
@@ -140,7 +107,8 @@ class farmersprofile_page extends StatelessWidget {
                                         width: 250,
                                         height: 250,
                                         child: Container(
-                                          color: Colors.white,
+                                          color: Color.fromARGB(
+                                              255, 255, 238, 232),
                                           child: Column(
                                             mainAxisAlignment:
                                                 MainAxisAlignment.center,
@@ -409,7 +377,7 @@ class farmersprofile_page extends StatelessWidget {
                                     ),
                                   ),
                                   SizedBox(
-                                    height: 0,
+                                    height: 500,
                                   )
                                 ]),
                           ),

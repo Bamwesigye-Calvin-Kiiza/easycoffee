@@ -1,4 +1,8 @@
+import 'dart:html';
+
 import 'package:easy_coffee_copy_1/farm_locations_list.dart';
+import 'package:fab_circular_menu/fab_circular_menu.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:easy_coffee_copy_1/directions_model.dart';
 import 'package:easy_coffee_copy_1/directions_repository.dart';
@@ -8,6 +12,7 @@ import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:flutter_google_places/flutter_google_places.dart';
 import 'package:google_maps_webservice/places.dart';
 import 'package:google_api_headers/google_api_headers.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 // void main() {
 //   runApp(MyApp());
 // }
@@ -40,33 +45,54 @@ class _MapScreenState extends State<MapScreen> {
     zoom: 13.5,
   );
 
+  var clients = [];
+
   GoogleMapController _googleMapController;
   Marker _origin;
   Marker _destination;
   Directions _info;
-
+  var currentlocation;
+  bool mapToggle;
   Set<Marker> _markers = {};
 
   @override
   void dispose() {
     _googleMapController.dispose();
     super.dispose();
+
+    // void initState() {
+    //   super.initState();
+    //   Geolocator.getCurrentPosition().then((currloc) {
+    //     setState(() {
+    //       currentlocation = currloc;
+    //       mapToggle = true;
+    //     });
+    //   });
+    // }
   }
+
+  // populateClients() {
+  //   clients = [];
+  //   FirebaseFirestore.instance.collection('markers').get().then((docs) {
+  //     if (docs.docs.isEmpty) {
+  //       for (int i = 0; i < docs.docs.length; ++i) {
+  //         clients.add(docs.docs[i].data());
+  //         initMarker(docs.docs[i].data());
+  //       }
+  //     }
+  //   });
+  // }
+
+  // initMarker(Clients){
+  //   _googleMapController.c
+  // }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        centerTitle: true,
-        backgroundColor: Color.fromARGB(255, 112, 253, 114),
-        title: const Text('search places'),
-        leading: IconButton(
-            onPressed: _handlePressButton,
-            icon: Icon(
-              Icons.search,
-              size: 30,
-              color: Colors.black,
-            )),
+        toolbarHeight: 30,
+        backgroundColor: Colors.transparent,
         actions: [
           if (_origin != null)
             TextButton(
@@ -113,6 +139,7 @@ class _MapScreenState extends State<MapScreen> {
             zoomControlsEnabled: false,
             mapType: MapType.normal,
             initialCameraPosition: _initialCameraPosition,
+            // initialCameraPosition: CameraPosition(target: LatLng(currentlocation.latitude, currentlocation.longitude),zoom: 17.0,bearing: 60,),
             onMapCreated: (controller) => _googleMapController = controller,
             markers: {
               lumumba,
@@ -165,17 +192,24 @@ class _MapScreenState extends State<MapScreen> {
             ),
         ],
       ),
-      floatingActionButton: Column(
-        mainAxisAlignment: MainAxisAlignment.end,
+      floatingActionButton: FabCircularMenu(
+        alignment: Alignment.bottomRight,
+        fabColor: Colors.amber.shade100,
+        fabOpenColor: Colors.red.shade100,
+        ringDiameter: 300.0,
+        ringWidth: 60.0,
+        ringColor: Colors.orange.shade300,
+        fabSize: 60.0,
         children: [
-          FloatingActionButton.extended(
+          IconButton(
             onPressed: () async {
               Position _position = await _determinePosition();
 
               _googleMapController.animateCamera(CameraUpdate.newCameraPosition(
                   CameraPosition(
                       target: LatLng(_position.latitude, _position.longitude),
-                      zoom: 18)));
+                      zoom: 18,
+                      bearing: 60)));
 
               _markers.clear();
 
@@ -185,12 +219,20 @@ class _MapScreenState extends State<MapScreen> {
 
               setState(() {});
             },
-            label: const Text(""),
+            // label: const Text(""),
             icon: const Icon(
               Icons.location_pin,
               color: Colors.black,
             ),
           ),
+          IconButton(
+            onPressed: _handlePressButton,
+            icon: Icon(
+              Icons.search,
+              size: 30,
+              color: Colors.black,
+            ),
+          )
         ],
       ),
     );
@@ -198,7 +240,7 @@ class _MapScreenState extends State<MapScreen> {
 
   // _location() {
   //   for (int i = 0; i < farmlocation.length; i++) {
-      
+
   //   }
   // }
   // Marker lumumba = Marker(
@@ -212,18 +254,17 @@ class _MapScreenState extends State<MapScreen> {
         context: context,
         apiKey: kGoogleApiKey,
         onError: onError,
+
         // mode: _mode,
         language: 'en',
         strictbounds: false,
         types: [""],
         decoration: InputDecoration(
-            hintText: 'Search',
-            focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(20),
-                borderSide: BorderSide(color: Colors.white))),
+          hintText: ' Search',
+        ),
         components: [
           Component(Component.country, "ug"),
-          Component(Component.country, "usa")
+          Component(Component.country, "usa"),
         ]);
 
     displayPrediction(p, homeScaffoldKey.currentState);

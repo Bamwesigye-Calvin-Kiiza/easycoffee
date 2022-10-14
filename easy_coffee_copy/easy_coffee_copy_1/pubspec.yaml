@@ -24,6 +24,7 @@ dependencies:
   font_awesome_flutter: ^8.8.1
   path_provider: ^2.0.11
   flutterwave: ^1.0.3
+  fab_circular_menu: ^1.0.2
   
   image_picker: ^0.8.5+3
   cloud_firestore: ^3.4.8
