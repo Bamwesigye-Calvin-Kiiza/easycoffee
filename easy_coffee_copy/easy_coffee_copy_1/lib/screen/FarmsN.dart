@@ -4,6 +4,7 @@ import 'package:easy_coffee_copy_1/screen/crud.dart';
 import 'package:easy_coffee_copy_1/screens/home/home_screen.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:random_string/random_string.dart';
 
@@ -261,23 +262,37 @@ class _BeFarmState extends State<BeFarm> {
                                 SizedBox(
                                   height: 20,
                                 ),
-                                TextField(
-                                  decoration:
-                                      InputDecoration(hintText: 'Biography'),
-                                  onChanged: (value) {
-                                    Bio = value;
-                                  },
-                                ),
+                                LayoutBuilder(builder: (context, Constraints) {
+                                  return SizedBox(
+                                    height: Constraints.maxHeight / 4,
+                                    child: TextField(
+                                      expands: true,
+                                      maxLines: null,
+                                      decoration: InputDecoration(
+                                          hintText: 'Biography'),
+                                      onChanged: (value) {
+                                        Bio = value;
+                                      },
+                                    ),
+                                  );
+                                }),
                                 SizedBox(
                                   height: 20,
                                 ),
-                                TextField(
-                                  decoration:
-                                      InputDecoration(hintText: 'Farm details'),
-                                  onChanged: (value) {
-                                    farmData = value;
-                                  },
-                                ),
+                                LayoutBuilder(builder: (context, Constraints) {
+                                  return SizedBox(
+                                    height: Constraints.maxHeight / 4,
+                                    child: TextField(
+                                      expands: true,
+                                      maxLines: null,
+                                      decoration: InputDecoration(
+                                          hintText: 'Farm details'),
+                                      onChanged: (value) {
+                                        farmData = value;
+                                      },
+                                    ),
+                                  );
+                                }),
                                 SizedBox(
                                   height: 20,
                                 ),
