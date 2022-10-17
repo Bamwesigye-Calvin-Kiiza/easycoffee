@@ -1,10 +1,14 @@
 import 'dart:io';
 import 'dart:ui';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:easy_coffee_copy_1/models/user_model.dart';
 import 'package:easy_coffee_copy_1/screen/crud.dart';
 import 'package:easy_coffee_copy_1/screens/home/home_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:random_string/random_string.dart';
 
@@ -291,6 +295,7 @@ class _BeFarmState extends State<BeFarm> {
                                   onPressed: (() {
                                     Uploadpic();
                                     UploadPic();
+                                    postDetailsToFirestore();
                                   }),
                                   style: ElevatedButton.styleFrom(
                                       backgroundColor: Colors.green),
@@ -306,5 +311,34 @@ class _BeFarmState extends State<BeFarm> {
               ),
       ),
     ));
+  }
+
+  final _auth = FirebaseAuth.instance;
+  postDetailsToFirestore() async {
+    // calling our firestore
+    // calling our user model
+    // sedning these values
+
+    FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
+    User user = _auth.currentUser;
+
+    UserModel userModel = UserModel();
+
+    // writing all the values
+    userModel.email = user.email;
+    userModel.uid = user.uid;
+    // userModel.name = nameEditingController.text;
+    // userModel.Location = LocationEditingController.text;
+
+    await firebaseFirestore
+        .collection("users")
+        .doc(user.uid)
+        .set(userModel.toMap());
+    Fluttertoast.showToast(msg: "Account updated successfully :) ");
+
+    Navigator.pushAndRemoveUntil(
+        (context),
+        MaterialPageRoute(builder: (context) => HomeScreen()),
+        (route) => false);
   }
 }

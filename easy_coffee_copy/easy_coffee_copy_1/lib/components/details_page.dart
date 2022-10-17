@@ -147,18 +147,27 @@ class DetailsPage extends StatelessWidget {
             ),
             Align(
               alignment: Alignment.bottomCenter,
-               child:Padding(
-                 padding: const EdgeInsets.all(20.0),
-                 child: SizedBox(
+              child: Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: SizedBox(
                   height: 40,
                   width: 100,
-                   child: ElevatedButton(onPressed:(){Navigator.push(context,
-                     MaterialPageRoute(builder: (context) => farm_tools_screen(),)
-                    );}, child: Text('BUY'), style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.orange.shade300)),
-                   ),
-                 ),
-               ),) //code here
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => farm_tools_screen(),
+                          ));
+                    },
+                    child: Text('BUY'),
+                    style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStateProperty.all(Colors.orange.shade300)),
+                  ),
+                ),
+              ),
+            ) //code here
           ],
         ),
       ),

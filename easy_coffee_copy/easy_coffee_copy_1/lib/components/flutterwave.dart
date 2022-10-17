@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'dart:math';
 
+import 'package:easy_coffee_copy_1/models/farmtools_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterwave/core/flutterwave.dart';
 import 'package:flutterwave/models/responses/charge_response.dart';
@@ -22,7 +23,7 @@ import 'package:flutterwave/models/responses/charge_response.dart';
 // }
 
 class farm_tools_screen extends StatefulWidget {
-  const farm_tools_screen({key});
+  const farm_tools_screen({key, farmtool});
 
   @override
   State<farm_tools_screen> createState() => _farm_tools_screenState();
@@ -120,7 +121,11 @@ class _farm_tools_screenState extends State<farm_tools_screen> {
                   final fullname = _fullname.text;
                   final phone_number = _contact.text;
 
-                  if (email.isEmpty || amount.isEmpty||currency.isEmpty||phone_number.isEmpty||fullname.isEmpty) {
+                  if (email.isEmpty ||
+                      amount.isEmpty ||
+                      currency.isEmpty ||
+                      phone_number.isEmpty ||
+                      fullname.isEmpty) {
                     ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(content: Text('Please fill all fields')));
                   } else {
