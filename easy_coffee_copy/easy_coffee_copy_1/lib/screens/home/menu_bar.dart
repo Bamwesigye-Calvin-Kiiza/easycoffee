@@ -5,6 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:easy_coffee_copy_1/map.dart';
 
+import '../../chat_system/people.dart';
 import '../../models/user_model.dart';
 import '../../screen/pic.dart';
 
@@ -55,6 +56,15 @@ class _NavBarState extends State<NavBar> {
                   onTap: () => Navigator.of(context).push(
                     MaterialPageRoute(builder: (BuildContext context) {
                       return BeFarm();
+                    }),
+                  ),
+                ),
+                ListTile(
+                  leading: Icon(Icons.contact_phone),
+                  title: Text('Chats'),
+                  onTap: () => Navigator.of(context).push(
+                    MaterialPageRoute(builder: (BuildContext context) {
+                      return People();
                     }),
                   ),
                 ),
