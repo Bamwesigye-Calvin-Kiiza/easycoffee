@@ -1,7 +1,6 @@
 import 'dart:io';
 import 'dart:math';
 
-import 'package:easy_coffee_copy_1/models/farmtools_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterwave/core/flutterwave.dart';
 import 'package:flutterwave/models/responses/charge_response.dart';
