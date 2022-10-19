@@ -40,85 +40,88 @@ class _NavBarState extends State<NavBar> {
           child: Drawer(
             backgroundColor: Color.fromARGB(255, 245, 217, 206),
             width: MediaQuery.of(context).size.width - 150,
-            child: Column(
-              children: [
-                Builder(
-                  builder: (context) => GestureDetector(
-                    onTap: () {
-                      Scaffold.of(context).closeEndDrawer();
-                    },
-                    child: Icon(Icons.clear),
+            child: SizedBox(
+              height: MediaQuery.of(context).size.height / 0.95,
+              child: ListView(
+                children: [
+                  Builder(
+                    builder: (context) => GestureDetector(
+                      onTap: () {
+                        Scaffold.of(context).closeEndDrawer();
+                      },
+                      child: Icon(Icons.clear),
+                    ),
                   ),
-                ),
-                ListTile(
-                  leading: Icon(Icons.contact_mail),
-                  title: Text('Develop farmer card'),
-                  onTap: () => Navigator.of(context).push(
-                    MaterialPageRoute(builder: (BuildContext context) {
-                      return BeFarm();
-                    }),
+                  ListTile(
+                    leading: Icon(Icons.contact_mail),
+                    title: Text('Develop farmer card'),
+                    onTap: () => Navigator.of(context).push(
+                      MaterialPageRoute(builder: (BuildContext context) {
+                        return BeFarm();
+                      }),
+                    ),
                   ),
-                ),
-                ListTile(
-                  leading: Icon(Icons.contact_phone),
-                  title: Text('Chats'),
-                  onTap: () => Navigator.of(context).push(
-                    MaterialPageRoute(builder: (BuildContext context) {
-                      return People();
-                    }),
+                  ListTile(
+                    leading: Icon(Icons.contact_phone),
+                    title: Text('Chats'),
+                    onTap: () => Navigator.of(context).push(
+                      MaterialPageRoute(builder: (BuildContext context) {
+                        return People();
+                      }),
+                    ),
                   ),
-                ),
-                ListTile(
-                  leading: Icon(Icons.location_on),
-                  title: Text('Locate farms'),
-                  onTap: () => Navigator.of(context).push(
-                    MaterialPageRoute(builder: (BuildContext context) {
-                      return MapScreen();
-                    }),
+                  ListTile(
+                    leading: Icon(Icons.location_on),
+                    title: Text('Locate farms'),
+                    onTap: () => Navigator.of(context).push(
+                      MaterialPageRoute(builder: (BuildContext context) {
+                        return MapScreen();
+                      }),
+                    ),
                   ),
-                ),
-                // ListTile(
-                //   leading: Icon(Icons.share),
-                //   title: Text(''),
-                //   onTap: () => null,
-                // ),
-                Divider(),
-                ListTile(
-                  leading: Icon(Icons.landscape),
-                  title: Text('Develop farm card'),
-                  onTap: () => Navigator.of(context).push(
-                    MaterialPageRoute(builder: (BuildContext context) {
-                      return BeFarm();
-                    }),
+                  // ListTile(
+                  //   leading: Icon(Icons.share),
+                  //   title: Text(''),
+                  //   onTap: () => null,
+                  // ),
+                  Divider(),
+                  ListTile(
+                    leading: Icon(Icons.landscape),
+                    title: Text('Develop farm card'),
+                    onTap: () => Navigator.of(context).push(
+                      MaterialPageRoute(builder: (BuildContext context) {
+                        return BeFarm();
+                      }),
+                    ),
                   ),
-                ),
-                ListTile(
-                  leading: Icon(Icons.person_add),
-                  title: Text('Create Profile'),
-                  onTap: () => Navigator.of(context).push(
-                    MaterialPageRoute(builder: (BuildContext context) {
-                      return UserProfile(
-                        Userid: loggedInUser.uid,
-                      );
-                    }),
+                  ListTile(
+                    leading: Icon(Icons.person_add),
+                    title: Text('Create Profile'),
+                    onTap: () => Navigator.of(context).push(
+                      MaterialPageRoute(builder: (BuildContext context) {
+                        return UserProfile(
+                          Userid: loggedInUser.uid,
+                        );
+                      }),
+                    ),
                   ),
-                ),
-                ListTile(
-                  leading: Icon(Icons.info),
-                  title: Text('About us'),
-                  onTap: () => null,
-                ),
-                Divider(),
-                ListTile(
-                  leading: Icon(Icons.exit_to_app),
-                  title: Text('Log out'),
-                  onTap: () => Navigator.of(context).push(
-                    MaterialPageRoute(builder: (BuildContext context) {
-                      return LoginScreen();
-                    }),
+                  ListTile(
+                    leading: Icon(Icons.info),
+                    title: Text('About us'),
+                    onTap: () => null,
                   ),
-                )
-              ],
+                  Divider(),
+                  ListTile(
+                    leading: Icon(Icons.exit_to_app),
+                    title: Text('Log out'),
+                    onTap: () => Navigator.of(context).push(
+                      MaterialPageRoute(builder: (BuildContext context) {
+                        return LoginScreen();
+                      }),
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
         ));
