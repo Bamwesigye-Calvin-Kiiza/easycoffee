@@ -1,6 +1,8 @@
-/*import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
+import 'package:flutter/material.dart';
 
+//import 'sample3.dart';
 
 class start_up extends StatelessWidget {
   // final Product product;
@@ -16,22 +18,14 @@ class start_up extends StatelessWidget {
 
   AppBar buildappbar(BuildContext context) {
     return AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back),
-          onPressed: () => Navigator.pop(context),
-          color: Colors.black,
-        ),
-        actions: [
-          IconButton(
-              onPressed: () {},
-              icon: Icon(Icons.menu, color: Colors.black),
-              color: Colors.transparent),
-          SizedBox(
-            width: 10,
-          )
-        ]);
+      backgroundColor: Colors.transparent,
+      elevation: 0,
+      leading: IconButton(
+        icon: Icon(Icons.arrow_back),
+        onPressed: () => Navigator.pop(context),
+        color: Colors.black,
+      ),
+    );
   }
 }
 
@@ -112,30 +106,204 @@ class finalScreen extends StatelessWidget {
 }
 
 class startup2 extends StatelessWidget {
+  startup2({Key key}) : super(key: key) {
+    _referencePosts = FirebaseFirestore.instance.collection('startups');
+    _future = _referencePosts.get();
+  }
+  CollectionReference _referencePosts;
+  Future<QuerySnapshot> _future;
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      padding: EdgeInsets.all(20),
-      children: <Widget>[
-        //Image.asset('assets/images/Bizzy-Coffee-logo.webp'),
+    return FutureBuilder<QuerySnapshot>(
+      future: _future,
+      builder: ((context, snapshot) {
+        if (snapshot.hasError) {
+          return Text('something went wrong! ${snapshot.error}');
+        } else if (snapshot.hasData) {
+          QuerySnapshot data = snapshot.data;
+          List<QueryDocumentSnapshot> documents = data.docs;
+          List<Map> items = documents
+              .map((e) => {
+                    'id': e.id,
+                    'title': e['title'],
+                    'content': e['content'],
+                    'Url': e['Url'],
+                  })
+              .toList();
 
-        Center(
-          child: Text(
-            " Land Preparation ",
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontWeight: FontWeight.w600,
-              fontSize: 20,
+          return PageView.builder(
+              itemCount: documents.length,
+              itemBuilder: (context, index) {
+                Map thisItem = items[index];
+                return Padding(
+                  padding: EdgeInsets.all(20),
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        //Image.asset('assets/images/Bizzy-Coffee-logo.webp'),
+
+                        Center(
+                          child: Text(
+                            //" Land Preparation ",
+                            thisItem['title'].toString(),
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontWeight: FontWeight.w600,
+                              fontSize: 28,
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+
+                        Container(
+                          padding: EdgeInsets.all(0),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(50)),
+                          child: Container(
+                            height: 200,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                image: DecorationImage(
+                                    image: NetworkImage(thisItem['Url']),
+                                    fit: BoxFit.fill)),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          thisItem['content'].toString(),
+                          // "\t First of all, divide the land into blocks of convenient size with footpaths and roads laid out in between. In the slopy area, you can adopt terracing and contour planting. Spacing for arabica and robusta coffee is 2-2.5m and 2.5 to 4m respectively on either way. \n\n  Usually, you can open pits of 45cm after the first few summer shower. You can plant the seedlings of 16 to 18months old during June or September-October. Place the seedling in the hole with its taproot and lateral roots spread out in the proper position. \n\n  Then, pack the soil around the seedling firmly and evenly in such a way that 3-cm high above the ground to prevent stagnation of water around the collar. Finally, provide the seedlings cross stakes to prevent wind damage.\n \n",
+                          style: TextStyle(
+                            fontSize: 19,
+                          ),
+                          textAlign: TextAlign.justify,
+                        ),
+                      ],
+                    ),
+                  ),
+                );
+                /*Container(
+                                
+                                child: Card(
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(30)),
+                                  child: SizedBox(
+                                    height: 270,
+                                    child: Column(
+                                      children: [
+                                        ListTile(
+                                          title: Container(
+                                            height: 150,
+                                            decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(30),
+                                              image: DecorationImage(
+                                                  image: NetworkImage(
+                                                    thisItem['Url'],
+                                                  ),
+                                                  fit: BoxFit.fill
+
+                                                  // height: 250,
+                                                  ), // width: 100,
+                                            ),
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          height: 100,
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceEvenly,
+                                            children: [
+                                              Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceEvenly,
+                                                children: [
+                                                  Text('Name: '),
+                                                  Text(
+                                                      thisItem['farmerName']
+                                                          .toString(),
+                                                      style: TextStyle(
+                                                          color: Colors.green,
+                                                          fontSize: 19))
+                                                ],
+                                              ),
+                                              Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  Text('Address: '),
+                                                  Text(
+                                                      thisItem['location']
+                                                          .toString(),
+                                                      style: TextStyle(
+                                                          color: Colors.green,
+                                                          fontSize: 19)),
+                                                ],
+                                              )
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              );*/
+                // ListTile(
+                //   onTap: () {
+                //     Navigator.of(context).push(MaterialPageRoute(
+                //         builder: (context) => Detail(thisItem)));
+                //   },
+                //   title: Text(thisItem['Farm_Name']),
+                // );
+              });
+        } else {
+          return Center(
+            child: CircularProgressIndicator(),
+          );
+        }
+      }),
+    );
+  }
+}
+
+  /* @override
+  Widget buildStartup(Startup startup) {
+    return Padding(
+      padding: EdgeInsets.all(20),
+      child: Column(
+        children: [
+          //Image.asset('assets/images/Bizzy-Coffee-logo.webp'),
+
+          Center(
+            child: Text(
+              //" Land Preparation ",
+              startup.title,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontWeight: FontWeight.w600,
+                fontSize: 20,
+              ),
             ),
           ),
-        ),
-        Text(
-          "\t First of all, divide the land into blocks of convenient size with footpaths and roads laid out in between. In the slopy area, you can adopt terracing and contour planting. Spacing for arabica and robusta coffee is 2-2.5m and 2.5 to 4m respectively on either way. \n\n  Usually, you can open pits of 45cm after the first few summer shower. You can plant the seedlings of 16 to 18months old during June or September-October. Place the seedling in the hole with its taproot and lateral roots spread out in the proper position. \n\n  Then, pack the soil around the seedling firmly and evenly in such a way that 3-cm high above the ground to prevent stagnation of water around the collar. Finally, provide the seedlings cross stakes to prevent wind damage.\n \n",
-          style: TextStyle(
-            fontSize: 16,
+          Text(
+            startup.content,
+            // "\t First of all, divide the land into blocks of convenient size with footpaths and roads laid out in between. In the slopy area, you can adopt terracing and contour planting. Spacing for arabica and robusta coffee is 2-2.5m and 2.5 to 4m respectively on either way. \n\n  Usually, you can open pits of 45cm after the first few summer shower. You can plant the seedlings of 16 to 18months old during June or September-October. Place the seedling in the hole with its taproot and lateral roots spread out in the proper position. \n\n  Then, pack the soil around the seedling firmly and evenly in such a way that 3-cm high above the ground to prevent stagnation of water around the collar. Finally, provide the seedlings cross stakes to prevent wind damage.\n \n",
+            style: TextStyle(
+              fontSize: 16,
+            ),
+            textAlign: TextAlign.justify,
           ),
-        ),
-        Center(
+        ],
+      ),
+    );
+  }
+}
+       /* Center(
           child: Text(
             "Nursery Practice ",
             textAlign: TextAlign.center,
@@ -305,5 +473,5 @@ class startup2 extends StatelessWidget {
       ],
     );
   }
-}
+}*/
 */

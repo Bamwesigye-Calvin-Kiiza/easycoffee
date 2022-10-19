@@ -22,7 +22,7 @@ import 'package:flutterwave/models/responses/charge_response.dart';
 // }
 
 class farm_tools_screen extends StatefulWidget {
-  const farm_tools_screen(thisdata, {key, farmtool});
+  const farm_tools_screen({key, farmtool});
 
   @override
   State<farm_tools_screen> createState() => _farm_tools_screenState();
@@ -30,11 +30,10 @@ class farm_tools_screen extends StatefulWidget {
 
 class _farm_tools_screenState extends State<farm_tools_screen> {
   TextEditingController _email = TextEditingController();
-  // TextEditingController _amount = TextEditingController();
+  TextEditingController _amount = TextEditingController();
   TextEditingController _currency = TextEditingController();
   TextEditingController _fullname = TextEditingController();
   TextEditingController _contact = TextEditingController();
-  Map thisdata;
 
   String _ref;
 
@@ -101,13 +100,12 @@ class _farm_tools_screenState extends State<farm_tools_screen> {
                             labelText: 'Enter currency (UGX,USD,NGN)'),
                       )),
                   Container(
-                      margin: EdgeInsets.only(bottom: 10),
-                      child: Text(thisdata['price'])
-                      //  TextFormField(
-                      //   controller: _amount,
-                      //   decoration: InputDecoration(labelText: 'Enter Amount'),
-                      // ),
-                      ),
+                    margin: EdgeInsets.only(bottom: 10),
+                    child: TextFormField(
+                      controller: _amount,
+                      decoration: InputDecoration(labelText: 'Enter Amount'),
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -117,7 +115,7 @@ class _farm_tools_screenState extends State<farm_tools_screen> {
               child: GestureDetector(
                 onTap: () {
                   final email = _email.text;
-                  final amount = thisdata['price'];
+                  final amount = _amount.text;
                   final currency = _currency.text;
                   final fullname = _fullname.text;
                   final phone_number = _contact.text;

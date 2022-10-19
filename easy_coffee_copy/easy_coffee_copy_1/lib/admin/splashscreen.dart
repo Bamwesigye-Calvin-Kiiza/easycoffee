@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:easy_coffee_copy_1/components/startups.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -36,7 +37,7 @@ class _SplashScreenState extends State<SplashScreen> {
     } else if (role == 'admin') {
       navigateNext(AdminScreen());
     } else if (role == 'extension_worker') {
-      navigateNext(extension_worker());
+      navigateNext(StartPage());
     }
   }
 
