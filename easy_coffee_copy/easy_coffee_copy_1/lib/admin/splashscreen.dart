@@ -51,7 +51,9 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('Welcome'),
+            Text('Welcome',
+                style: Theme.of(context).textTheme.headline4?.copyWith(
+                    color: Colors.brown, fontWeight: FontWeight.bold)),
           ],
         ),
       ),
