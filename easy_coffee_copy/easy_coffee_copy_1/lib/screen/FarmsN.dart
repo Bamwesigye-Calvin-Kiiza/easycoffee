@@ -327,8 +327,8 @@ class _BeFarmState extends State<BeFarm> {
     // writing all the values
     userModel.email = user.email;
     userModel.uid = user.uid;
-    // userModel.name = nameEditingController.text;
-    // userModel.Location = LocationEditingController.text;
+    userModel.name = farmerName;
+    userModel.Location = location;
 
     await firebaseFirestore
         .collection("users")
