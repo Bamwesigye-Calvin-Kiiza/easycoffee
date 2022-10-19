@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
+import '../chat_system/people.dart';
+
 //calvo code for final screen
 class farmersprofile_page extends StatelessWidget {
   farmersprofile_page(this.data, {Key key}) : super(key: key) {
@@ -367,7 +369,11 @@ class farmersprofile_page extends StatelessWidget {
                                           child: Text(
                                             'Message farmer',
                                           ),
-                                          onPressed: () {},
+                                          onPressed: () => Navigator.of(context)
+                                              .push(MaterialPageRoute(builder:
+                                                  (BuildContext context) {
+                                            return People();
+                                          })),
                                           style: ElevatedButton.styleFrom(
                                             foregroundColor: Colors.white,
                                             backgroundColor:

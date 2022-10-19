@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       title: 'easy coffee app',
       debugShowCheckedModeBanner: false,
       color: Color.fromARGB(255, 182, 125, 100),
-      theme: ThemeData(),
+      theme: ThemeData(primarySwatch: Colors.orange),
       home: SplashScreen(),
     );
   }
