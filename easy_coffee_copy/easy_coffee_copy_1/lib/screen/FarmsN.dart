@@ -295,6 +295,7 @@ class _BeFarmState extends State<BeFarm> {
                                   onPressed: (() {
                                     Uploadpic();
                                     UploadPic();
+                                    postallDetailsToFirestore();
                                     postDetailsToFirestore();
                                   }),
                                   style: ElevatedButton.styleFrom(
@@ -335,6 +336,34 @@ class _BeFarmState extends State<BeFarm> {
         .doc(user.uid)
         .set(userModel.toMap());
     Fluttertoast.showToast(msg: "Account updated successfully :) ");
+
+    Navigator.pushAndRemoveUntil(
+        (context),
+        MaterialPageRoute(builder: (context) => HomeScreen()),
+        (route) => false);
+  }
+
+  postallDetailsToFirestore() async {
+    // calling our firestore
+    // calling our user model
+    // sedning these values
+
+    FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
+    User user = _auth.currentUser;
+
+    UserModel userModel = UserModel();
+
+    // writing all the values
+    userModel.email = user.email;
+    userModel.uid = user.uid;
+    userModel.name = farmerName;
+    userModel.Location = location;
+
+    await firebaseFirestore
+        .collection("All")
+        .doc(user.uid)
+        .set(userModel.toMap());
+    Fluttertoast.showToast(msg: "Account created successfully :) ");
 
     Navigator.pushAndRemoveUntil(
         (context),
