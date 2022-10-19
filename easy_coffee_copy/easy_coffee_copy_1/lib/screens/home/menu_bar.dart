@@ -50,7 +50,7 @@ class _NavBarState extends State<NavBar> {
                   ),
                 ),
                 ListTile(
-                  leading: Icon(Icons.notifications),
+                  leading: Icon(Icons.contact_mail),
                   title: Text('Develop farmer card'),
                   onTap: () => Navigator.of(context).push(
                     MaterialPageRoute(builder: (BuildContext context) {
@@ -74,8 +74,8 @@ class _NavBarState extends State<NavBar> {
                 // ),
                 Divider(),
                 ListTile(
-                  leading: Icon(Icons.settings),
-                  title: Text('Develope farm card'),
+                  leading: Icon(Icons.landscape),
+                  title: Text('Develop farm card'),
                   onTap: () => Navigator.of(context).push(
                     MaterialPageRoute(builder: (BuildContext context) {
                       return BeFarm();
@@ -83,7 +83,7 @@ class _NavBarState extends State<NavBar> {
                   ),
                 ),
                 ListTile(
-                  leading: Icon(Icons.description),
+                  leading: Icon(Icons.person_add),
                   title: Text('Create Profile'),
                   onTap: () => Navigator.of(context).push(
                     MaterialPageRoute(builder: (BuildContext context) {

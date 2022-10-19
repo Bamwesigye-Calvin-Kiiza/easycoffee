@@ -41,8 +41,6 @@ class farmersprofile_page extends StatelessWidget {
           child: Container(
             height: MediaQuery.of(context).size.height,
             child: Container(
-                // color: Colors.black12,
-                // padding: EdgeInsets.all(18),
                 child: SingleChildScrollView(
                     child: Column(children: [
               SizedBox(
@@ -64,13 +62,8 @@ class farmersprofile_page extends StatelessWidget {
                     ),
                     Container(
                         margin: EdgeInsets.only(top: size.height * 0.12),
-                        // height:1000,
                         decoration: BoxDecoration(
                             color: Color.fromARGB(255, 255, 238, 232)),
-                        //curving at the top
-                        // borderRadius: BorderRadius.only(
-                        //     topLeft: Radius.circular(50),
-                        //     topRight: Radius.circular(50))),
                         child: SingleChildScrollView(
                             child: Stack(children: [
                           Padding(
@@ -437,70 +430,3 @@ class farmersprofile_page extends StatelessWidget {
         ));
   }
 }
-
-// //copyright code and social media handles
-// class DetailContentMenu extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//       child: Column(
-//         children: [
-//           Text(
-//             "© All rights reserved. e_coffee Limited",
-//             style: TextStyle(
-//                 fontSize: 15.0,
-//                 color: Colors.black87,
-//                 fontWeight: FontWeight.w400,
-//                 height: 1.50),
-//             textAlign: TextAlign.justify,
-//           ),
-//           Row(
-//             mainAxisAlignment: MainAxisAlignment.center,
-//             children: [
-//               Padding(
-//                 padding: const EdgeInsets.all(6.0),
-//                 child: IconButton(
-//                   onPressed: null,
-//                   icon: Icon(
-//                     Icons.facebook,
-//                     color: Colors.black,
-//                   ),
-//                 ),
-//               ),
-//               Padding(
-//                 padding: const EdgeInsets.all(6.0),
-//                 child: IconButton(
-//                   onPressed: null,
-//                   icon: Icon(
-//                     Icons.whatsapp,
-//                     color: Colors.black,
-//                   ),
-//                 ),
-//               ),
-//               Padding(
-//                 padding: const EdgeInsets.all(6.0),
-//                 child: IconButton(
-//                   onPressed: null,
-//                   icon: Icon(
-//                     Icons.telegram,
-//                     color: Colors.black,
-//                   ),
-//                 ),
-//               ),
-//               Padding(
-//                 padding: const EdgeInsets.all(6.0),
-//                 child: IconButton(
-//                   onPressed: null,
-//                   icon: Icon(
-//                     Icons.tiktok,
-//                     color: Colors.black,
-//                   ),
-//                 ),
-//               ),
-//             ],
-//           ),
-//         ],
-//       ),
-//     );
-//   }
-// }

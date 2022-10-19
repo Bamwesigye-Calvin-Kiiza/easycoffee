@@ -57,7 +57,7 @@ class Detail extends StatelessWidget {
                                   ),
                                 ),
                                 TextSpan(
-                                  text: '             \t${data['category']}',
+                                  text: '             \t${data['price']}',
                                   style: TextStyle(
                                     color: Colors.black.withOpacity(0.5),
                                     fontSize: 18.0,
@@ -155,7 +155,7 @@ class Detail extends StatelessWidget {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => farm_tools_screen(),
+                            builder: (context) => farm_tools_screen(data),
                           ));
                     },
                     child: Text('BUY'),
