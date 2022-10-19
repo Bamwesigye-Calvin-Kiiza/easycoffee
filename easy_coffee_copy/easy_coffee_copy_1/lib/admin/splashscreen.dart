@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 
 import '../../screens/home/home_screen.dart';
 import 'adminscreen.dart';
+import 'extension_worker.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -34,6 +35,8 @@ class _SplashScreenState extends State<SplashScreen> {
       navigateNext(HomeScreen());
     } else if (role == 'admin') {
       navigateNext(AdminScreen());
+    } else if (role == 'extension_worker') {
+      navigateNext(extension_worker());
     }
   }
 
