@@ -174,7 +174,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           minWidth: MediaQuery.of(context).size.width,
           onPressed: () {
             signUps(
-                emailEditingController.text, passwordEditingController.text);
+                //where to specialize the login ins
+                emailEditingController.text,
+                passwordEditingController.text);
           },
           child: Text(
             "SignUp",
@@ -262,8 +264,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       try {
         await _auth
             .createUserWithEmailAndPassword(email: email, password: password)
-            .then((value) => { Navigator.pushAndRemoveUntil((context),
-        MaterialPageRoute(builder: (context) => BeFarm()), (route) => false)})
+            .then((value) => {postDetailsToFirestore()})
             .catchError((e) {
           Fluttertoast.showToast(msg: e.message);
         });
@@ -302,10 +303,11 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
         await _auth
             .createUserWithEmailAndPassword(email: email, password: password)
             .then((value) => {
-                  Navigator.pushAndRemoveUntil(
-                      (context),
-                      MaterialPageRoute(builder: (context) => HomeScreen()),
-                      (route) => false)
+                  postallDetailsToFirestore()
+                  // Navigator.pushAndRemoveUntil(
+                  //     (context),
+                  //     MaterialPageRoute(builder: (context) => HomeScreen()),
+                  //     (route) => false)
                 })
             .catchError((e) {
           Fluttertoast.showToast(msg: e.message);
@@ -363,5 +365,33 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
 
     Navigator.pushAndRemoveUntil((context),
         MaterialPageRoute(builder: (context) => BeFarm()), (route) => false);
+  }
+
+  postallDetailsToFirestore() async {
+    // calling our firestore
+    // calling our user model
+    // sedning these values
+
+    FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
+    User user = _auth.currentUser;
+
+    UserModel userModel = UserModel();
+
+    // writing all the values
+    userModel.email = user.email;
+    userModel.uid = user.uid;
+    userModel.name = nameEditingController.text;
+    userModel.Location = LocationEditingController.text;
+
+    await firebaseFirestore
+        .collection("All")
+        .doc(user.uid)
+        .set(userModel.toMap());
+    Fluttertoast.showToast(msg: "Account created successfully :) ");
+
+    Navigator.pushAndRemoveUntil(
+        (context),
+        MaterialPageRoute(builder: (context) => HomeScreen()),
+        (route) => false);
   }
 }
