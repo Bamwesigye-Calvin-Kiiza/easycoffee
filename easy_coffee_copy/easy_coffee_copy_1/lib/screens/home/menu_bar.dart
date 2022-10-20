@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:easy_coffee_copy_1/components/price_Fructuations.dart';
 import 'package:easy_coffee_copy_1/screen/FarmsN.dart';
 import 'package:easy_coffee_copy_1/screen/login_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -57,7 +58,7 @@ class _NavBarState extends State<NavBar> {
                     title: Text('Develop farmer card'),
                     onTap: () => Navigator.of(context).push(
                       MaterialPageRoute(builder: (BuildContext context) {
-                        return BeFarm();
+                        return pricing();
                       }),
                     ),
                   ),

@@ -1,29 +1,28 @@
 import 'dart:io';
 
-import 'package:easy_coffee_copy_1/admin/harvestSample.dart';
+import 'package:easy_coffee_copy_1/admin/extension_worker.dart';
 import 'package:easy_coffee_copy_1/admin/sample1.dart';
 import 'package:easy_coffee_copy_1/admin/welsample.dart';
+import 'package:easy_coffee_copy_1/components/dry_seeds.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 
 import 'package:image_picker/image_picker.dart';
 import 'package:random_string/random_string.dart';
 
-import '../components/startups.dart';
-
-class StartPage extends StatefulWidget {
-  const StartPage({Key key}) : super(key: key);
+class Harvest extends StatefulWidget {
+  const Harvest({Key key}) : super(key: key);
 
   @override
-  State<StartPage> createState() => _StartPageState();
+  State<Harvest> createState() => _HarvestState();
 }
 
-class _StartPageState extends State<StartPage> {
+class _HarvestState extends State<Harvest> {
   String title, content;
   bool _isloading = false;
 
   File GotImage;
-  Crudstart cruds = new Crudstart();
+  CrudHarvest cruds = new CrudHarvest();
   // Crud crud = new Crud();
 
   Future pickImage() async {
@@ -41,7 +40,7 @@ class _StartPageState extends State<StartPage> {
       });
       Reference firebaseStorageRef = FirebaseStorage.instance
           .ref()
-          .child('startups')
+          .child('harvest')
           .child('${randomAlphaNumeric(8)}.jpg');
       final UploadTask uploadTask = firebaseStorageRef.putFile(GotImage);
       var Url = await (await uploadTask).ref.getDownloadURL();
@@ -53,7 +52,7 @@ class _StartPageState extends State<StartPage> {
       };
 
       cruds.addData(blogMap).then((value) => Navigator.push(
-          context, MaterialPageRoute(builder: (context) => start_up())));
+          context, MaterialPageRoute(builder: (context) => Dry_seeds())));
     } else {}
   }
 
@@ -69,7 +68,7 @@ class _StartPageState extends State<StartPage> {
           color: Colors.black,
         ),
         title: Text(
-          'Add startup information',
+          'Coffee Harvest',
           style: TextStyle(fontSize: 15),
         ),
         centerTitle: true,
@@ -190,13 +189,13 @@ class _StartPageState extends State<StartPage> {
                                 width: 20,
                               ),
                               ElevatedButton(
-                                child: Text('harvest'),
+                                child: Text('startups'),
                                 onPressed: (() {
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(
                                           builder: (context) =>
-                                              Harvest() //HomePage()
+                                              StartPage() //HomePage()
                                           ));
                                 }),
                                 style: ElevatedButton.styleFrom(

@@ -1,6 +1,7 @@
+import 'package:easy_coffee_copy_1/components/farm_tools.dart';
+import 'package:easy_coffee_copy_1/screen/crud.dart';
 import 'package:flutter/material.dart';
 import 'dart:io';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 
 import 'package:image_picker/image_picker.dart';
@@ -49,7 +50,8 @@ class _AdminScreenState extends State<AdminScreen> {
         };
       }
 
-      crudtools.addData(toMap());
+      crudtools.addData(toMap()).then((value) => Navigator.push(
+          context, MaterialPageRoute(builder: (context) => farm_tools())));
     } else {}
   }
 
@@ -68,7 +70,7 @@ class _AdminScreenState extends State<AdminScreen> {
     return Scaffold(
         backgroundColor: Color.fromARGB(255, 166, 209, 168),
         appBar: AppBar(
-          title: Text('Admin'),
+          title: Text('Add Farm tools'),
           backgroundColor: Colors.green,
         ),
         body: SingleChildScrollView(
@@ -162,16 +164,6 @@ class _AdminScreenState extends State<AdminScreen> {
                                     ),
                                     TextField(
                                       decoration:
-                                          InputDecoration(hintText: 'Id'),
-                                      onChanged: (value) {
-                                        uid = value as int;
-                                      },
-                                    ),
-                                    SizedBox(
-                                      height: 20,
-                                    ),
-                                    TextField(
-                                      decoration:
                                           InputDecoration(hintText: 'Price'),
                                       onChanged: (value) {
                                         price = value;
@@ -180,12 +172,19 @@ class _AdminScreenState extends State<AdminScreen> {
                                     SizedBox(
                                       height: 20,
                                     ),
-                                    TextField(
-                                      decoration: InputDecoration(
-                                          hintText: 'Description'),
-                                      onChanged: (value) {
-                                        description = value;
-                                      },
+                                    Container(
+                                      margin: EdgeInsets.all(4),
+                                      height: 240,
+                                      child: TextField(
+                                        maxLines: 10,
+                                        decoration: const InputDecoration(
+                                          border: OutlineInputBorder(),
+                                          labelText: 'Description',
+                                        ),
+                                        onChanged: (value) {
+                                          description = value;
+                                        },
+                                      ),
                                     ),
                                     SizedBox(
                                       height: 20,
@@ -301,17 +300,5 @@ class _AdminScreenState extends State<AdminScreen> {
     //     ],
     //   ),
     // );
-  }
-}
-
-class Crudtools {
-  Future<void> addData(Data) async {
-    FirebaseFirestore.instance.collection('tools').add(Data).catchError((e) {
-      print(e);
-    });
-  }
-
-  getData() async {
-    return await FirebaseFirestore.instance.collection('tools').snapshots();
   }
 }

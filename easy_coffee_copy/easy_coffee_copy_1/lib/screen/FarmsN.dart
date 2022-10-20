@@ -266,26 +266,36 @@ class _BeFarmState extends State<BeFarm> {
                                 SizedBox(
                                   height: 20,
                                 ),
-                                TextField(
-                                  // expands: true,
-                                  // maxLines: null,
-                                  decoration:
-                                      InputDecoration(hintText: 'Biography'),
-                                  onChanged: (value) {
-                                    Bio = value;
-                                  },
+                                Container(
+                                  margin: EdgeInsets.all(4),
+                                  height: 240,
+                                  child: TextField(
+                                    maxLines: 10,
+                                    decoration: const InputDecoration(
+                                      border: OutlineInputBorder(),
+                                      labelText: 'Biography',
+                                    ),
+                                    onChanged: (value) {
+                                      Bio = value;
+                                    },
+                                  ),
                                 ),
                                 SizedBox(
                                   height: 20,
                                 ),
-                                TextField(
-                                  // expands: true,
-                                  // maxLines: null,
-                                  decoration:
-                                      InputDecoration(hintText: 'Farm details'),
-                                  onChanged: (value) {
-                                    farmData = value;
-                                  },
+                                Container(
+                                  margin: EdgeInsets.all(4),
+                                  height: 240,
+                                  child: TextField(
+                                    maxLines: 10,
+                                    decoration: const InputDecoration(
+                                      border: OutlineInputBorder(),
+                                      labelText: 'Farm Details',
+                                    ),
+                                    onChanged: (value) {
+                                      farmData = value;
+                                    },
+                                  ),
                                 ),
                                 SizedBox(
                                   height: 20,

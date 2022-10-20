@@ -29,3 +29,18 @@ class Crudwell {
     return await FirebaseFirestore.instance.collection('wellbeing').snapshots();
   }
 }
+
+class CrudHarvest {
+  Future<void> addData(blogData) async {
+    FirebaseFirestore.instance
+        .collection('harvest')
+        .add(blogData)
+        .catchError((e) {
+      print(e);
+    });
+  }
+
+  getData() async {
+    return await FirebaseFirestore.instance.collection('harvest').snapshots();
+  }
+}

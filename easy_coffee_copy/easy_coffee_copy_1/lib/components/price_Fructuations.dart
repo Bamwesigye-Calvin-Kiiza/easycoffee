@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class price_fructuatations extends StatelessWidget {
@@ -68,159 +69,131 @@ class finalScreen extends StatelessWidget {
                       borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(20),
                           topRight: Radius.circular(20))),
-                  child: ListView(children: <Widget>[
-                    Center(
-                      child: Text('Kiboko',
-                          style: Theme.of(context)
-                              .textTheme
-                              .headline3
-                              ?.copyWith(
-                                  color: Colors.brown,
-                                  fontWeight: FontWeight.bold)),
-                    ),
-                    DataTable(
-                      columns: [
-                        DataColumn(
-                            label: Text('Catergories',
-                                style: TextStyle(
-                                    fontSize: 24,
-                                    fontWeight: FontWeight.bold))),
-                        DataColumn(
-                            label: Text('Price in UGX',
-                                style: TextStyle(
-                                    fontSize: 24,
-                                    fontWeight: FontWeight.bold))),
-                      ],
-                      rows: [
-                        // DataRow(cells: [
-                        //   DataCell(Text('',
-                        //       style: TextStyle(
-                        //           fontSize: 18, fontWeight: FontWeight.bold))),
-                        //   DataCell(Text('2,500/= -\n3,000/=',
-                        //       style: TextStyle(
-                        //           fontSize: 17, fontWeight: FontWeight.bold))),
-                        // ]),
-                        DataRow(cells: [
-                          DataCell(Text('Cherry',
-                              style: TextStyle(
-                                  fontSize: 17, fontWeight: FontWeight.bold))),
-                          DataCell(Text('3,000/= - 4,000/=',
-                              style: TextStyle(
-                                  fontSize: 17, fontWeight: FontWeight.bold))),
-                        ]),
-                        DataRow(cells: [
-                          DataCell(Text('Bean',
-                              style: TextStyle(
-                                  fontSize: 17, fontWeight: FontWeight.bold))),
-                          DataCell(Text('5,000/= - 7,000/=',
-                              style: TextStyle(
-                                  fontSize: 17, fontWeight: FontWeight.bold))),
-                        ]),
-                        DataRow(cells: [
-                          DataCell(Text('Dry beans',
-                              style: TextStyle(
-                                  fontSize: 17, fontWeight: FontWeight.bold))),
-                          DataCell(Text('8,800/= - 7,300/=',
-                              style: TextStyle(
-                                  fontSize: 17, fontWeight: FontWeight.bold))),
-                        ]),
-                        DataRow(cells: [
-                          DataCell(Text('Husks',
-                              style: TextStyle(
-                                  fontSize: 17, fontWeight: FontWeight.bold))),
-                          DataCell(Text('6,400/= - 7,000/=',
-                              style: TextStyle(
-                                  fontSize: 17, fontWeight: FontWeight.bold))),
-                        ]),
-
-                        DataRow(cells: [
-                          DataCell(Text('Powder',
-                              style: TextStyle(
-                                  fontSize: 17, fontWeight: FontWeight.bold))),
-                          DataCell(Text('8,900/= - 10,000/=',
-                              style: TextStyle(
-                                  fontSize: 17, fontWeight: FontWeight.bold))),
-                        ]),
-                      ],
-                    ),
-                    Center(
-                      child: Text('Seedlings',
-                          style: Theme.of(context)
-                              .textTheme
-                              .headline3
-                              ?.copyWith(
-                                  color: Colors.brown,
-                                  fontWeight: FontWeight.bold)),
-                    ),
-                    DataTable(
-                      columns: [
-                        DataColumn(
-                            label: Text('Age',
-                                style: TextStyle(
-                                    fontSize: 24,
-                                    fontWeight: FontWeight.bold))),
-                        DataColumn(
-                            label: Text('Price in UGX',
-                                style: TextStyle(
-                                    fontSize: 24,
-                                    fontWeight: FontWeight.bold))),
-                      ],
-                      rows: [
-                        DataRow(cells: [
-                          DataCell(Text('3 Months',
-                              style: TextStyle(
-                                  fontSize: 17, fontWeight: FontWeight.bold))),
-                          DataCell(Text('3,210/= - 4,300/=',
-                              style: TextStyle(
-                                  fontSize: 17, fontWeight: FontWeight.bold))),
-                        ]),
-                        DataRow(cells: [
-                          DataCell(Text('6 Months',
-                              style: TextStyle(
-                                  fontSize: 17, fontWeight: FontWeight.bold))),
-                          DataCell(Text('4,250/= - 5,200/=',
-                              style: TextStyle(
-                                  fontSize: 17, fontWeight: FontWeight.bold))),
-                        ]),
-                        DataRow(cells: [
-                          DataCell(Text('9 Months',
-                              style: TextStyle(
-                                  fontSize: 17, fontWeight: FontWeight.bold))),
-                          DataCell(Text('5,200/= - 6,150/=',
-                              style: TextStyle(
-                                  fontSize: 17, fontWeight: FontWeight.bold))),
-                        ]),
-                        DataRow(cells: [
-                          DataCell(Text('12 Months',
-                              style: TextStyle(
-                                  fontSize: 17, fontWeight: FontWeight.bold))),
-                          DataCell(Text('6,800/= - 7,300/=',
-                              style: TextStyle(
-                                  fontSize: 17, fontWeight: FontWeight.bold))),
-                        ]),
-                        // DataRow(cells: [
-                        //   DataCell(Text('Arabica –\n Bugisu A')),
-                        //   DataCell(Text('\$214.70')),
-                        // ]),
-                        // DataRow(cells: [
-                        //   DataCell(Text('Arabica –\n Bugisu PB')),
-                        //   DataCell(Text('\$214.70')),
-                        // ]),
-                        // DataRow(cells: [
-                        //   DataCell(Text('Arabica –\n Bugisu B')),
-                        //   DataCell(Text('\$212.70')),
-                        // ]),
-                        // DataRow(cells: [
-                        //   DataCell(Text('Arabica –\n  Wugar')),
-                        //   DataCell(Text('\$213.70')),
-                        // ]),
-                        // DataRow(cells: [
-                        //   DataCell(Text('Arabica –  Drugar')),
-                        //   DataCell(Text('\$194.70')),
-                        // ]),
-                      ],
-                    ),
-                  ])
+                  child: pricing()
+                  //  ListView(children: <Widget>[
+                  //   Center(
+                  //     child: Text('Kiboko',
+                  //         style: Theme.of(context)
+                  //             .textTheme
+                  //             .headline3
+                  //             ?.copyWith(
+                  //                 color: Colors.brown,
+                  //                 fontWeight: FontWeight.bold)),
+                  //   ),
+                  //   DataTable(
+                  //     columns: [
+                  //       DataColumn(
+                  //           label: Text('Catergories',
+                  //               style: TextStyle(
+                  //                   fontSize: 24,
+                  //                   fontWeight: FontWeight.bold))),
+                  //       DataColumn(
+                  //           label: Text('Price in UGX',
+                  //               style: TextStyle(
+                  //                   fontSize: 24,
+                  //                   fontWeight: FontWeight.bold))),
+                  //     ],
+                  //     rows: [
+                  //       DataRow(cells: [
+                  //         DataCell(Text('Cherry',
+                  //             style: TextStyle(
+                  //                 fontSize: 17, fontWeight: FontWeight.bold))),
+                  //         DataCell(Text('3,000/= - 4,000/=',
+                  //             style: TextStyle(
+                  //                 fontSize: 17, fontWeight: FontWeight.bold))),
+                  //       ]),
+                  //       DataRow(cells: [
+                  //         DataCell(Text('Bean',
+                  //             style: TextStyle(
+                  //                 fontSize: 17, fontWeight: FontWeight.bold))),
+                  //         DataCell(Text('5,000/= - 7,000/=',
+                  //             style: TextStyle(
+                  //                 fontSize: 17, fontWeight: FontWeight.bold))),
+                  //       ]),
+                  //       DataRow(cells: [
+                  //         DataCell(Text('Dry beans',
+                  //             style: TextStyle(
+                  //                 fontSize: 17, fontWeight: FontWeight.bold))),
+                  //         DataCell(Text('8,800/= - 7,300/=',
+                  //             style: TextStyle(
+                  //                 fontSize: 17, fontWeight: FontWeight.bold))),
+                  //       ]),
+                  //       DataRow(cells: [
+                  //         DataCell(Text('Husks',
+                  //             style: TextStyle(
+                  //                 fontSize: 17, fontWeight: FontWeight.bold))),
+                  //         DataCell(Text('6,400/= - 7,000/=',
+                  //             style: TextStyle(
+                  //                 fontSize: 17, fontWeight: FontWeight.bold))),
+                  //       ]),
+                  //       DataRow(cells: [
+                  //         DataCell(Text('Powder',
+                  //             style: TextStyle(
+                  //                 fontSize: 17, fontWeight: FontWeight.bold))),
+                  //         DataCell(Text('8,900/= - 10,000/=',
+                  //             style: TextStyle(
+                  //                 fontSize: 17, fontWeight: FontWeight.bold))),
+                  //       ]),
+                  //     ],
+                  //   ),
+                  //   Center(
+                  //     child: Text('Seedlings',
+                  //         style: Theme.of(context)
+                  //             .textTheme
+                  //             .headline3
+                  //             ?.copyWith(
+                  //                 color: Colors.brown,
+                  //                 fontWeight: FontWeight.bold)),
+                  //   ),
+                  //   DataTable(
+                  //     columns: [
+                  //       DataColumn(
+                  //           label: Text('Age',
+                  //               style: TextStyle(
+                  //                   fontSize: 24,
+                  //                   fontWeight: FontWeight.bold))),
+                  //       DataColumn(
+                  //           label: Text('Price in UGX',
+                  //               style: TextStyle(
+                  //                   fontSize: 24,
+                  //                   fontWeight: FontWeight.bold))),
+                  //     ],
+                  //     rows: [
+                  //       DataRow(cells: [
+                  //         DataCell(Text('3 Months',
+                  //             style: TextStyle(
+                  //                 fontSize: 17, fontWeight: FontWeight.bold))),
+                  //         DataCell(Text('3,210/= - 4,300/=',
+                  //             style: TextStyle(
+                  //                 fontSize: 17, fontWeight: FontWeight.bold))),
+                  //       ]),
+                  //       DataRow(cells: [
+                  //         DataCell(Text('6 Months',
+                  //             style: TextStyle(
+                  //                 fontSize: 17, fontWeight: FontWeight.bold))),
+                  //         DataCell(Text('4,250/= - 5,200/=',
+                  //             style: TextStyle(
+                  //                 fontSize: 17, fontWeight: FontWeight.bold))),
+                  //       ]),
+                  //       DataRow(cells: [
+                  //         DataCell(Text('9 Months',
+                  //             style: TextStyle(
+                  //                 fontSize: 17, fontWeight: FontWeight.bold))),
+                  //         DataCell(Text('5,200/= - 6,150/=',
+                  //             style: TextStyle(
+                  //                 fontSize: 17, fontWeight: FontWeight.bold))),
+                  //       ]),
+                  //       DataRow(cells: [
+                  //         DataCell(Text('12 Months',
+                  //             style: TextStyle(
+                  //                 fontSize: 17, fontWeight: FontWeight.bold))),
+                  //         DataCell(Text('6,800/= - 7,300/=',
+                  //             style: TextStyle(
+                  //                 fontSize: 17, fontWeight: FontWeight.bold))),
+                  //       ]),
+                  //     ],
+                  //   ),
+                  // ])
                   //content of the card_0n tap ui
                   // child: Column(
                   //   crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -338,56 +311,222 @@ class DetailContentMenu extends StatelessWidget {
   }
 }
 
-// //price bar and chart code
-// class BarChartModel {
-//   String year;
-//   int financial;
-//   final color;
+class pricing extends StatelessWidget {
+  pricing({Key key}) : super(key: key) {
+    _referencePosts = FirebaseFirestore.instance.collection('Prices');
+    _future = _referencePosts.get();
+  }
+  CollectionReference _referencePosts;
+  Future<QuerySnapshot> _future;
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder<QuerySnapshot>(
+      future: _future,
+      builder: ((context, snapshot) {
+        if (snapshot.hasError) {
+          return Text('something went wrong! ${snapshot.error}');
+        } else if (snapshot.hasData) {
+          QuerySnapshot data = snapshot.data;
+          List<QueryDocumentSnapshot> documents = data.docs;
+          List<Map> items = documents
+              .map((e) => {
+                    'id': e.id,
+                    'title': e['title'],
+                    'cherry': e['cherry'],
+                    'bean': e['bean'],
+                    'Dry': e['Dry'],
+                    'husk': e['husk'],
+                    'Processed': e['Processed'],
+                    '3 Months': e['3 Months'],
+                    '6 Months': e['6 Months'],
+                    '9 Months': e['9 Months'],
+                    '12 Months': e['12 Months'],
+                  })
+              .toList();
 
-//   BarChartModel({
-//     this.year,
-//     this.financial,
-//     this.color,
-//   });
-// }
-
-// class Prices extends StatelessWidget {
-//   Prices({Key key}) : super(key: key);
-//   final List<BarChartModel> data = [
-//     BarChartModel(
-//       year: "2014",
-//       financial: 250,
-//       color: (Colors.blueGrey),
-//     ),
-//     BarChartModel(
-//       year: "2015",
-//       financial: 300,
-//       color: (Colors.red),
-//     ),
-//     BarChartModel(
-//       year: "2016",
-//       financial: 100,
-//       color: (Colors.green),
-//     ),
-//     BarChartModel(
-//       year: "2017",
-//       financial: 450,
-//       color: (Colors.yellow),
-//     ),
-//     BarChartModel(
-//       year: "2018",
-//       financial: 630,
-//       color: (Colors.lightBlueAccent),
-//     ),
-//     BarChartModel(
-//       year: "2019",
-//       financial: 950,
-//       color: (Colors.pink),
-//     ),
-//     BarChartModel(
-//       year: "2020",
-//       financial: 400,
-//       color: (Colors.purple),
-//     ),
-//   ];
-
+          return PageView.builder(
+              itemCount: documents.length,
+              itemBuilder: (context, index) {
+                Map thisItem = items[index];
+                return ListView(
+                  children: [
+                    //],)
+                    Padding(
+                      padding: EdgeInsets.all(5),
+                      child: SingleChildScrollView(
+                        child: Stack(
+                          children: [
+                            // Center(
+                            //   child: Text(thisItem['title'],
+                            //       style: Theme.of(context)
+                            //           .textTheme
+                            //           .headline3
+                            //           ?.copyWith(
+                            //               color: Colors.brown,
+                            //               fontWeight: FontWeight.bold)),
+                            // ),
+                            DataTable(
+                              columns: [
+                                DataColumn(
+                                    label: Text('Catergories',
+                                        style: TextStyle(
+                                            fontSize: 24,
+                                            fontWeight: FontWeight.bold))),
+                                DataColumn(
+                                    label: Text('Price in UGX',
+                                        style: TextStyle(
+                                            fontSize: 24,
+                                            fontWeight: FontWeight.bold))),
+                              ],
+                              rows: [
+                                DataRow(cells: [
+                                  DataCell(Text('Cherry',
+                                      style: TextStyle(
+                                          fontSize: 17,
+                                          fontWeight: FontWeight.bold))),
+                                  DataCell(Text('${thisItem['cherry']}/=',
+                                      style: TextStyle(
+                                          fontSize: 17,
+                                          fontWeight: FontWeight.bold))),
+                                ]),
+                                DataRow(cells: [
+                                  DataCell(Text('Bean',
+                                      style: TextStyle(
+                                          fontSize: 17,
+                                          fontWeight: FontWeight.bold))),
+                                  DataCell(Text('${thisItem['bean']}/=',
+                                      style: TextStyle(
+                                          fontSize: 17,
+                                          fontWeight: FontWeight.bold))),
+                                ]),
+                                DataRow(cells: [
+                                  DataCell(Text('Dry beans',
+                                      style: TextStyle(
+                                          fontSize: 17,
+                                          fontWeight: FontWeight.bold))),
+                                  DataCell(Text('${thisItem['Dry']}/=',
+                                      style: TextStyle(
+                                          fontSize: 17,
+                                          fontWeight: FontWeight.bold))),
+                                ]),
+                                DataRow(cells: [
+                                  DataCell(Text('Husked coffee',
+                                      style: TextStyle(
+                                          fontSize: 17,
+                                          fontWeight: FontWeight.bold))),
+                                  DataCell(Text('${thisItem['husks']}/=',
+                                      style: TextStyle(
+                                          fontSize: 17,
+                                          fontWeight: FontWeight.bold))),
+                                ]),
+                                DataRow(cells: [
+                                  DataCell(Text('Processed',
+                                      style: TextStyle(
+                                          fontSize: 17,
+                                          fontWeight: FontWeight.bold))),
+                                  DataCell(Text('${thisItem['Processed']}/=',
+                                      style: TextStyle(
+                                          fontSize: 17,
+                                          fontWeight: FontWeight.bold))),
+                                ]),
+                              ],
+                            ),
+                            // Center(
+                            //   child: Text('Seedlings',
+                            //       style: Theme.of(context)
+                            //           .textTheme
+                            //           .headline3
+                            //           ?.copyWith(
+                            //               color: Colors.brown,
+                            //               fontWeight: FontWeight.bold)),
+                            // ),
+                            // DataTable(
+                            //   columns: [
+                            //     DataColumn(
+                            //         label: Text('Age',
+                            //             style: TextStyle(
+                            //                 fontSize: 24,
+                            //                 fontWeight: FontWeight.bold))),
+                            //     DataColumn(
+                            //         label: Text('Price in UGX',
+                            //             style: TextStyle(
+                            //                 fontSize: 24,
+                            //                 fontWeight: FontWeight.bold))),
+                            //   ],
+                            //   rows: [
+                            //     DataRow(cells: [
+                            //       DataCell(Text('3 Months',
+                            //           style: TextStyle(
+                            //               fontSize: 17,
+                            //               fontWeight: FontWeight.bold))),
+                            //       DataCell(Text('${thisItem['3 Months']}/=',
+                            //           style: TextStyle(
+                            //               fontSize: 17,
+                            //               fontWeight: FontWeight.bold))),
+                            //     ]),
+                            //     DataRow(cells: [
+                            //       DataCell(Text('6 Months',
+                            //           style: TextStyle(
+                            //               fontSize: 17,
+                            //               fontWeight: FontWeight.bold))),
+                            //       DataCell(Text('${thisItem['6 Months']}/=',
+                            //           style: TextStyle(
+                            //               fontSize: 17,
+                            //               fontWeight: FontWeight.bold))),
+                            //     ]),
+                            //     DataRow(cells: [
+                            //       DataCell(Text('9 Months',
+                            //           style: TextStyle(
+                            //               fontSize: 17,
+                            //               fontWeight: FontWeight.bold))),
+                            //       DataCell(Text('${thisItem['9 Months']}/=',
+                            //           style: TextStyle(
+                            //               fontSize: 17,
+                            //               fontWeight: FontWeight.bold))),
+                            //     ]),
+                            //     DataRow(cells: [
+                            //       DataCell(Text('12 Months',
+                            //           style: TextStyle(
+                            //               fontSize: 17,
+                            //               fontWeight: FontWeight.bold))),
+                            //       DataCell(Text('${thisItem['12 Months']}/=',
+                            //           style: TextStyle(
+                            //               fontSize: 17,
+                            //               fontWeight: FontWeight.bold))),
+                            //     ]),
+                            //   ],
+                            // ),
+                            // Container(
+                            //   height: 200,
+                            //   decoration: BoxDecoration(
+                            //       borderRadius: BorderRadius.circular(20),
+                            //       image: DecorationImage(
+                            //           image: NetworkImage(thisItem['Url']),
+                            //           fit: BoxFit.cover)),
+                            // ),
+                            // Container(
+                            //   alignment: Alignment.centerLeft,
+                            //   child: Text(
+                            //     '\n\n\n\n\t${thisItem['title'].toString()}',
+                            //     style: TextStyle(
+                            //         color: Colors.white,
+                            //         fontSize: 35,
+                            //         fontWeight: FontWeight.bold),
+                            //   ),
+                            // ),
+                          ],
+                        ),
+                      ),
+                    )
+                  ],
+                );
+              });
+        } else {
+          return Center(
+            child: CircularProgressIndicator(),
+          );
+        }
+      }),
+    );
+  }
+}

@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:easy_coffee_copy_1/admin/extension_worker.dart';
 import 'package:easy_coffee_copy_1/admin/sample1.dart';
 import 'package:easy_coffee_copy_1/components/coffee_well_being.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -7,6 +8,9 @@ import 'package:flutter/material.dart';
 
 import 'package:image_picker/image_picker.dart';
 import 'package:random_string/random_string.dart';
+
+import 'Prices.dart';
+import 'harvestSample.dart';
 
 class Wellbeing extends StatefulWidget {
   const Wellbeing({Key key}) : super(key: key);
@@ -69,6 +73,7 @@ class _WellbeingState extends State<Wellbeing> {
           'Coffee wellbeing',
           style: TextStyle(fontSize: 15),
         ),
+        centerTitle: true,
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -156,13 +161,62 @@ class _WellbeingState extends State<Wellbeing> {
                               },
                             ),
                           ),
-                          ElevatedButton(
-                            child: Text('add info'),
-                            onPressed: (() {
-                              Uploadpic();
-                            }),
-                            style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.brown),
+                          Row(
+                            children: [
+                              ElevatedButton(
+                                child: Text('add info'),
+                                onPressed: (() {
+                                  Uploadpic();
+                                }),
+                                style: ElevatedButton.styleFrom(
+                                    backgroundColor: Colors.brown),
+                              ),
+                              SizedBox(
+                                width: 20,
+                              ),
+                              ElevatedButton(
+                                child: Text('startups'),
+                                onPressed: (() {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              StartPage() //HomePage()
+                                          ));
+                                }),
+                                style: ElevatedButton.styleFrom(
+                                    backgroundColor: Colors.brown),
+                              ),
+                              SizedBox(
+                                width: 20,
+                              ),
+                              ElevatedButton(
+                                child: Text('harvest'),
+                                onPressed: (() {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              Harvest() //HomePage()
+                                          ));
+                                }),
+                                style: ElevatedButton.styleFrom(
+                                    backgroundColor: Colors.brown),
+                              ),
+                              ElevatedButton(
+                                child: Text('Prices'),
+                                onPressed: (() {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              PricePage() //HomePage()
+                                          ));
+                                }),
+                                style: ElevatedButton.styleFrom(
+                                    backgroundColor: Colors.brown),
+                              ),
+                            ],
                           ),
                         ],
                       ),

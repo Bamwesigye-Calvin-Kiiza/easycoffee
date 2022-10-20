@@ -61,3 +61,27 @@ class CrudMethodes {
     return await FirebaseFirestore.instance.collection('farmers').snapshots();
   }
 }
+
+class Crudtools {
+  Future<void> addData(Data) async {
+    FirebaseFirestore.instance.collection('tools').add(Data).catchError((e) {
+      print(e);
+    });
+  }
+
+  getData() async {
+    return await FirebaseFirestore.instance.collection('tools').snapshots();
+  }
+}
+
+class Crudprices {
+  Future<void> addData(Data) async {
+    FirebaseFirestore.instance.collection('Prices').add(Data).catchError((e) {
+      print(e);
+    });
+  }
+
+  getData() async {
+    return await FirebaseFirestore.instance.collection('Prices').snapshots();
+  }
+}
