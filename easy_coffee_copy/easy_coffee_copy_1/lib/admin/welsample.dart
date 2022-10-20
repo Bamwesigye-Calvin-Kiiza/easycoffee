@@ -1,28 +1,26 @@
 import 'dart:io';
 
 import 'package:easy_coffee_copy_1/admin/sample1.dart';
-import 'package:easy_coffee_copy_1/admin/welsample.dart';
+import 'package:easy_coffee_copy_1/components/coffee_well_being.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 
 import 'package:image_picker/image_picker.dart';
 import 'package:random_string/random_string.dart';
 
-import '../components/startups.dart';
-
-class StartPage extends StatefulWidget {
-  const StartPage({Key key}) : super(key: key);
+class Wellbeing extends StatefulWidget {
+  const Wellbeing({Key key}) : super(key: key);
 
   @override
-  State<StartPage> createState() => _StartPageState();
+  State<Wellbeing> createState() => _WellbeingState();
 }
 
-class _StartPageState extends State<StartPage> {
+class _WellbeingState extends State<Wellbeing> {
   String title, content;
   bool _isloading = false;
 
   File GotImage;
-  Crudstart cruds = new Crudstart();
+  Crudwell cruds = new Crudwell();
   // Crud crud = new Crud();
 
   Future pickImage() async {
@@ -40,7 +38,7 @@ class _StartPageState extends State<StartPage> {
       });
       Reference firebaseStorageRef = FirebaseStorage.instance
           .ref()
-          .child('startups')
+          .child('wellbeing')
           .child('${randomAlphaNumeric(8)}.jpg');
       final UploadTask uploadTask = firebaseStorageRef.putFile(GotImage);
       var Url = await (await uploadTask).ref.getDownloadURL();
@@ -51,8 +49,8 @@ class _StartPageState extends State<StartPage> {
         if (content != null) 'content': content,
       };
 
-      cruds.addData(blogMap).then((value) => Navigator.push(
-          context, MaterialPageRoute(builder: (context) => start_up())));
+      cruds.addData(blogMap).then((value) => Navigator.push(context,
+          MaterialPageRoute(builder: (context) => coffee_well_being())));
     } else {}
   }
 
@@ -68,7 +66,7 @@ class _StartPageState extends State<StartPage> {
           color: Colors.black,
         ),
         title: Text(
-          'Add startup information',
+          'Coffee wellbeing',
           style: TextStyle(fontSize: 15),
         ),
       ),
@@ -158,38 +156,13 @@ class _StartPageState extends State<StartPage> {
                               },
                             ),
                           ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              Row(
-                                children: [
-                                  ElevatedButton(
-                                    child: Text('add info'),
-                                    onPressed: (() {
-                                      Uploadpic();
-                                    }),
-                                    style: ElevatedButton.styleFrom(
-                                        backgroundColor: Colors.brown),
-                                  ),
-                                  SizedBox(
-                                    width: 20,
-                                  ),
-                                  ElevatedButton(
-                                    child: Text('wellbeing'),
-                                    onPressed: (() {
-                                      Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  Wellbeing() //HomePage()
-                                              ));
-                                    }),
-                                    style: ElevatedButton.styleFrom(
-                                        backgroundColor: Colors.brown),
-                                  ),
-                                ],
-                              ),
-                            ],
+                          ElevatedButton(
+                            child: Text('add info'),
+                            onPressed: (() {
+                              Uploadpic();
+                            }),
+                            style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.brown),
                           ),
                         ],
                       ),

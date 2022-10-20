@@ -155,7 +155,7 @@ class Detail extends StatelessWidget {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => farm_tools_screen(data),
+                            builder: (context) => farm_tools_screen(),
                           ));
                     },
                     child: Text('BUY'),

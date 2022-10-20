@@ -5,6 +5,7 @@ import 'package:easy_coffee_copy_1/components/farm_tools.dart';
 import 'package:easy_coffee_copy_1/components/price_Fructuations.dart';
 import 'package:easy_coffee_copy_1/components/proccessed_coffee.dart';
 import 'package:easy_coffee_copy_1/components/start_up.dart';
+import 'package:easy_coffee_copy_1/components/startups.dart';
 import 'package:flutter/material.dart';
 import 'farmers.dart';
 
