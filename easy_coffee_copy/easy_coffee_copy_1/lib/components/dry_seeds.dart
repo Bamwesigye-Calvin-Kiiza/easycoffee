@@ -78,14 +78,14 @@ class finalScreen extends StatelessWidget {
                             padding: EdgeInsets.all(20),
                             child: Container(
                               padding: EdgeInsets.only(bottom: 50),
-                              height: 649,
+                              height: 800,
                               child: SingleChildScrollView(
                                 child: Column(children: <Widget>[
                                   //
                                   Stack(
                                     children: [
                                       Container(
-                                        height: 150,
+                                        height: 180,
                                         decoration: BoxDecoration(
                                             borderRadius:
                                                 BorderRadius.circular(10),
@@ -107,7 +107,7 @@ class finalScreen extends StatelessWidget {
                                     ],
                                   ),
                                   Text(
-                                    'Depending on the variety, it will take approximately 3 to 4 years for the newly planted coffee trees to bear fruit. The fruit, called the coffee cherry, turns a bright, deep red when it is ripe and ready to be harvested. ',
+                                    'Depending on the variety, it will take approximately 3 to 4 years for the newly planted coffee trees to bear fruit. The fruit, called the coffee cherry, turns a bright, deep red when it is ripe and ready to be harvested.\n\nThe three main advantages that mechanical dryers have over drying coffee in the sun are;\n-Removing uncontrolled environmental variables which may affect coffee quality\n-Improving accuracy\n-Minimising delays.\n\nOne of the most important features of many modern rotary coffee dryers are drying control systems. These systems offer producers the ability to manage the temperature through three separate variables: the heat source, the air, and the coffee.\nBy doing so, drying control systems offer producers more control throughout the drying process. Some systems even allow producers to create “drying curves” that interrupt the dryer before it reaches a maximum designated temperature. ',
                                     style: TextStyle(fontSize: 19),
                                   ),
                                   SizedBox(
