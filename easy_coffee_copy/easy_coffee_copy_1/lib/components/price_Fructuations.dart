@@ -348,177 +348,176 @@ class pricing extends StatelessWidget {
               itemCount: documents.length,
               itemBuilder: (context, index) {
                 Map thisItem = items[index];
-                return ListView(
-                  children: [
-                    //],)
-                    Padding(
-                      padding: EdgeInsets.all(5),
-                      child: SingleChildScrollView(
-                        child: Stack(
-                          children: [
-                            // Center(
-                            //   child: Text(thisItem['title'],
-                            //       style: Theme.of(context)
-                            //           .textTheme
-                            //           .headline3
-                            //           ?.copyWith(
-                            //               color: Colors.brown,
-                            //               fontWeight: FontWeight.bold)),
-                            // ),
-                            DataTable(
-                              columns: [
-                                DataColumn(
-                                    label: Text('Catergories',
-                                        style: TextStyle(
-                                            fontSize: 24,
-                                            fontWeight: FontWeight.bold))),
-                                DataColumn(
-                                    label: Text('Price in UGX',
-                                        style: TextStyle(
-                                            fontSize: 24,
-                                            fontWeight: FontWeight.bold))),
-                              ],
-                              rows: [
-                                DataRow(cells: [
-                                  DataCell(Text('Cherry',
+                return Padding(
+                  padding: EdgeInsets.all(5),
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        Container(
+                          child: Center(
+                            child: Text(thisItem['title'],
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .headline3
+                                    ?.copyWith(
+                                        color: Colors.brown,
+                                        fontWeight: FontWeight.bold)),
+                          ),
+                        ),
+                        Container(
+                          child: DataTable(
+                            columns: [
+                              DataColumn(
+                                  label: Text('Catergories',
                                       style: TextStyle(
-                                          fontSize: 17,
+                                          fontSize: 24,
                                           fontWeight: FontWeight.bold))),
-                                  DataCell(Text('${thisItem['cherry']}/=',
+                              DataColumn(
+                                  label: Text('Price in UGX',
                                       style: TextStyle(
-                                          fontSize: 17,
+                                          fontSize: 24,
                                           fontWeight: FontWeight.bold))),
-                                ]),
-                                DataRow(cells: [
-                                  DataCell(Text('Bean',
-                                      style: TextStyle(
-                                          fontSize: 17,
-                                          fontWeight: FontWeight.bold))),
-                                  DataCell(Text('${thisItem['bean']}/=',
-                                      style: TextStyle(
-                                          fontSize: 17,
-                                          fontWeight: FontWeight.bold))),
-                                ]),
-                                DataRow(cells: [
-                                  DataCell(Text('Dry beans',
-                                      style: TextStyle(
-                                          fontSize: 17,
-                                          fontWeight: FontWeight.bold))),
-                                  DataCell(Text('${thisItem['Dry']}/=',
-                                      style: TextStyle(
-                                          fontSize: 17,
-                                          fontWeight: FontWeight.bold))),
-                                ]),
-                                DataRow(cells: [
-                                  DataCell(Text('Husked coffee',
-                                      style: TextStyle(
-                                          fontSize: 17,
-                                          fontWeight: FontWeight.bold))),
-                                  DataCell(Text('${thisItem['husks']}/=',
-                                      style: TextStyle(
-                                          fontSize: 17,
-                                          fontWeight: FontWeight.bold))),
-                                ]),
-                                DataRow(cells: [
-                                  DataCell(Text('Processed',
-                                      style: TextStyle(
-                                          fontSize: 17,
-                                          fontWeight: FontWeight.bold))),
-                                  DataCell(Text('${thisItem['Processed']}/=',
-                                      style: TextStyle(
-                                          fontSize: 17,
-                                          fontWeight: FontWeight.bold))),
-                                ]),
-                              ],
-                            ),
-                            // Center(
-                            //   child: Text('Seedlings',
-                            //       style: Theme.of(context)
-                            //           .textTheme
-                            //           .headline3
-                            //           ?.copyWith(
-                            //               color: Colors.brown,
-                            //               fontWeight: FontWeight.bold)),
-                            // ),
-                            // DataTable(
-                            //   columns: [
-                            //     DataColumn(
-                            //         label: Text('Age',
-                            //             style: TextStyle(
-                            //                 fontSize: 24,
-                            //                 fontWeight: FontWeight.bold))),
-                            //     DataColumn(
-                            //         label: Text('Price in UGX',
-                            //             style: TextStyle(
-                            //                 fontSize: 24,
-                            //                 fontWeight: FontWeight.bold))),
-                            //   ],
-                            //   rows: [
-                            //     DataRow(cells: [
-                            //       DataCell(Text('3 Months',
-                            //           style: TextStyle(
-                            //               fontSize: 17,
-                            //               fontWeight: FontWeight.bold))),
-                            //       DataCell(Text('${thisItem['3 Months']}/=',
-                            //           style: TextStyle(
-                            //               fontSize: 17,
-                            //               fontWeight: FontWeight.bold))),
-                            //     ]),
-                            //     DataRow(cells: [
-                            //       DataCell(Text('6 Months',
-                            //           style: TextStyle(
-                            //               fontSize: 17,
-                            //               fontWeight: FontWeight.bold))),
-                            //       DataCell(Text('${thisItem['6 Months']}/=',
-                            //           style: TextStyle(
-                            //               fontSize: 17,
-                            //               fontWeight: FontWeight.bold))),
-                            //     ]),
-                            //     DataRow(cells: [
-                            //       DataCell(Text('9 Months',
-                            //           style: TextStyle(
-                            //               fontSize: 17,
-                            //               fontWeight: FontWeight.bold))),
-                            //       DataCell(Text('${thisItem['9 Months']}/=',
-                            //           style: TextStyle(
-                            //               fontSize: 17,
-                            //               fontWeight: FontWeight.bold))),
-                            //     ]),
-                            //     DataRow(cells: [
-                            //       DataCell(Text('12 Months',
-                            //           style: TextStyle(
-                            //               fontSize: 17,
-                            //               fontWeight: FontWeight.bold))),
-                            //       DataCell(Text('${thisItem['12 Months']}/=',
-                            //           style: TextStyle(
-                            //               fontSize: 17,
-                            //               fontWeight: FontWeight.bold))),
-                            //     ]),
-                            //   ],
-                            // ),
-                            // Container(
-                            //   height: 200,
-                            //   decoration: BoxDecoration(
-                            //       borderRadius: BorderRadius.circular(20),
-                            //       image: DecorationImage(
-                            //           image: NetworkImage(thisItem['Url']),
-                            //           fit: BoxFit.cover)),
-                            // ),
-                            // Container(
-                            //   alignment: Alignment.centerLeft,
-                            //   child: Text(
-                            //     '\n\n\n\n\t${thisItem['title'].toString()}',
-                            //     style: TextStyle(
-                            //         color: Colors.white,
-                            //         fontSize: 35,
-                            //         fontWeight: FontWeight.bold),
-                            //   ),
-                            // ),
+                            ],
+                            rows: [
+                              DataRow(cells: [
+                                DataCell(Text('Cherry',
+                                    style: TextStyle(
+                                        fontSize: 17,
+                                        fontWeight: FontWeight.bold))),
+                                DataCell(Text('${thisItem['cherry']}/=',
+                                    style: TextStyle(
+                                        fontSize: 17,
+                                        fontWeight: FontWeight.bold))),
+                              ]),
+                              DataRow(cells: [
+                                DataCell(Text('Bean',
+                                    style: TextStyle(
+                                        fontSize: 17,
+                                        fontWeight: FontWeight.bold))),
+                                DataCell(Text('${thisItem['bean']}/=',
+                                    style: TextStyle(
+                                        fontSize: 17,
+                                        fontWeight: FontWeight.bold))),
+                              ]),
+                              DataRow(cells: [
+                                DataCell(Text('Dry beans',
+                                    style: TextStyle(
+                                        fontSize: 17,
+                                        fontWeight: FontWeight.bold))),
+                                DataCell(Text('${thisItem['Dry']}/=',
+                                    style: TextStyle(
+                                        fontSize: 17,
+                                        fontWeight: FontWeight.bold))),
+                              ]),
+                              DataRow(cells: [
+                                DataCell(Text('Husked coffee',
+                                    style: TextStyle(
+                                        fontSize: 17,
+                                        fontWeight: FontWeight.bold))),
+                                DataCell(Text('${thisItem['husks']}/=',
+                                    style: TextStyle(
+                                        fontSize: 17,
+                                        fontWeight: FontWeight.bold))),
+                              ]),
+                              DataRow(cells: [
+                                DataCell(Text('Processed',
+                                    style: TextStyle(
+                                        fontSize: 17,
+                                        fontWeight: FontWeight.bold))),
+                                DataCell(Text('${thisItem['Processed']}/=',
+                                    style: TextStyle(
+                                        fontSize: 17,
+                                        fontWeight: FontWeight.bold))),
+                              ]),
+                            ],
+                          ),
+                        ),
+                        Center(
+                          child: Text('Seedlings',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .headline3
+                                  ?.copyWith(
+                                      color: Colors.brown,
+                                      fontWeight: FontWeight.bold)),
+                        ),
+                        DataTable(
+                          columns: [
+                            DataColumn(
+                                label: Text('Age',
+                                    style: TextStyle(
+                                        fontSize: 24,
+                                        fontWeight: FontWeight.bold))),
+                            DataColumn(
+                                label: Text('Price in UGX',
+                                    style: TextStyle(
+                                        fontSize: 24,
+                                        fontWeight: FontWeight.bold))),
+                          ],
+                          rows: [
+                            DataRow(cells: [
+                              DataCell(Text('3 Months',
+                                  style: TextStyle(
+                                      fontSize: 17,
+                                      fontWeight: FontWeight.bold))),
+                              DataCell(Text('${thisItem['3 Months']}/=',
+                                  style: TextStyle(
+                                      fontSize: 17,
+                                      fontWeight: FontWeight.bold))),
+                            ]),
+                            DataRow(cells: [
+                              DataCell(Text('6 Months',
+                                  style: TextStyle(
+                                      fontSize: 17,
+                                      fontWeight: FontWeight.bold))),
+                              DataCell(Text('${thisItem['6 Months']}/=',
+                                  style: TextStyle(
+                                      fontSize: 17,
+                                      fontWeight: FontWeight.bold))),
+                            ]),
+                            DataRow(cells: [
+                              DataCell(Text('9 Months',
+                                  style: TextStyle(
+                                      fontSize: 17,
+                                      fontWeight: FontWeight.bold))),
+                              DataCell(Text('${thisItem['9 Months']}/=',
+                                  style: TextStyle(
+                                      fontSize: 17,
+                                      fontWeight: FontWeight.bold))),
+                            ]),
+                            DataRow(cells: [
+                              DataCell(Text('12 Months',
+                                  style: TextStyle(
+                                      fontSize: 17,
+                                      fontWeight: FontWeight.bold))),
+                              DataCell(Text('${thisItem['12 Months']}/=',
+                                  style: TextStyle(
+                                      fontSize: 17,
+                                      fontWeight: FontWeight.bold))),
+                            ]),
                           ],
                         ),
-                      ),
-                    )
-                  ],
+                        // Container(
+                        //   height: 200,
+                        //   decoration: BoxDecoration(
+                        //       borderRadius: BorderRadius.circular(20),
+                        //       image: DecorationImage(
+                        //           image: NetworkImage(thisItem['Url']),
+                        //           fit: BoxFit.cover)),
+                        // ),
+                        // Container(
+                        //   alignment: Alignment.centerLeft,
+                        //   child: Text(
+                        //     '\n\n\n\n\t${thisItem['title'].toString()}',
+                        //     style: TextStyle(
+                        //         color: Colors.white,
+                        //         fontSize: 35,
+                        //         fontWeight: FontWeight.bold),
+                        //   ),
+                        // ),
+                      ],
+                    ),
+                  ),
                 );
               });
         } else {
