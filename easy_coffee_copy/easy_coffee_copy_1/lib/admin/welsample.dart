@@ -8,9 +8,6 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:random_string/random_string.dart';
 
-import '../components/startups.dart';
-import '../screen/crud.dart';
-
 class Wellbeing extends StatefulWidget {
   const Wellbeing({Key key}) : super(key: key);
 

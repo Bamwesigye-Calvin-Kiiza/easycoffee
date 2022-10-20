@@ -12,7 +12,7 @@ class AdminScreen extends StatefulWidget {
 }
 
 class _AdminScreenState extends State<AdminScreen> {
-  String name, imagePath, category, description, price;
+  String name, imagepath, category, description, price;
   int uid;
 
   File toolImages;
@@ -41,7 +41,7 @@ class _AdminScreenState extends State<AdminScreen> {
       Map<String, dynamic> toMap() {
         return {
           if (uid != null) 'uid': uid,
-          if (imagePath != null) 'imagePath': imagePath,
+          'imagePath': imagepath,
           if (price != null) 'price': price,
           if (description != null) 'description': description,
           if (category != null) 'category': category,

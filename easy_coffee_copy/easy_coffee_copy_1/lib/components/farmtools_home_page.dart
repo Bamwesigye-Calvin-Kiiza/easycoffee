@@ -37,7 +37,6 @@ class _HomePageState extends State<HomePage> {
             List<Map> items = documents
                 .map((e) => {
                       'id': e.id,
-                      'uid': e['uid'],
                       'imagePath': e['imagePath'],
                       'price': e['price'],
                       'description': e['description'],
