@@ -414,7 +414,7 @@ class pricing extends StatelessWidget {
                                       style: TextStyle(
                                           fontSize: 17,
                                           fontWeight: FontWeight.bold))),
-                                  DataCell(Text('${thisItem['husks']}/=',
+                                  DataCell(Text('${thisItem['husk']}/=',
                                       style: TextStyle(
                                           fontSize: 17,
                                           fontWeight: FontWeight.bold))),
