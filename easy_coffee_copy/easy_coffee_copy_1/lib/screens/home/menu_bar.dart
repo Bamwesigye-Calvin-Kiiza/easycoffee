@@ -53,15 +53,15 @@ class _NavBarState extends State<NavBar> {
                       child: Icon(Icons.clear),
                     ),
                   ),
-                  ListTile(
-                    leading: Icon(Icons.contact_mail),
-                    title: Text('Develop farmer card'),
-                    onTap: () => Navigator.of(context).push(
-                      MaterialPageRoute(builder: (BuildContext context) {
-                        return pricing();
-                      }),
-                    ),
-                  ),
+                  // ListTile(
+                  //   leading: Icon(Icons.contact_mail),
+                  //   title: Text('Develop farmer card'),
+                  //   onTap: () => Navigator.of(context).push(
+                  //     MaterialPageRoute(builder: (BuildContext context) {
+                  //       return pricing();
+                  //     }),
+                  //   ),
+                  // ),
                   ListTile(
                     leading: Icon(Icons.contact_phone),
                     title: Text('Chats'),
@@ -86,26 +86,26 @@ class _NavBarState extends State<NavBar> {
                   //   onTap: () => null,
                   // ),
                   Divider(),
-                  ListTile(
-                    leading: Icon(Icons.landscape),
-                    title: Text('Develop farm card'),
-                    onTap: () => Navigator.of(context).push(
-                      MaterialPageRoute(builder: (BuildContext context) {
-                        return BeFarm();
-                      }),
-                    ),
-                  ),
-                  ListTile(
-                    leading: Icon(Icons.person_add),
-                    title: Text('Create Profile'),
-                    onTap: () => Navigator.of(context).push(
-                      MaterialPageRoute(builder: (BuildContext context) {
-                        return UserProfile(
-                          Userid: loggedInUser.uid,
-                        );
-                      }),
-                    ),
-                  ),
+                  // ListTile(
+                  //   leading: Icon(Icons.landscape),
+                  //   title: Text('Develop farm card'),
+                  //   onTap: () => Navigator.of(context).push(
+                  //     MaterialPageRoute(builder: (BuildContext context) {
+                  //       return BeFarm();
+                  //     }),
+                  //   ),
+                  // ),
+                  // ListTile(
+                  //   leading: Icon(Icons.person_add),
+                  //   title: Text('Create Profile'),
+                  //   onTap: () => Navigator.of(context).push(
+                  //     MaterialPageRoute(builder: (BuildContext context) {
+                  //       return UserProfile(
+                  //         Userid: loggedInUser.uid,
+                  //       );
+                  //     }),
+                  //   ),
+                  // ),
                   ListTile(
                     leading: Icon(Icons.info),
                     title: Text('About us'),
