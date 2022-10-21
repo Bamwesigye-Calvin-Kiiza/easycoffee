@@ -115,7 +115,7 @@ class _BeFarmState extends State<BeFarm> {
                     child: Column(
                       children: <Widget>[
                         Text(
-                          'The information below will be used to generate a card containing information enter which is displayed to your customers',
+                          'The information below will be used to generate a card containing information entered it will be displayed to your customers',
                           style: TextStyle(fontSize: 20, color: green),
                         ),
                         SizedBox(

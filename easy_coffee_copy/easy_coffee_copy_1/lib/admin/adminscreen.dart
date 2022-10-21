@@ -32,6 +32,15 @@ class _AdminScreenState extends State<AdminScreen> {
           ),
           centerTitle: true,
           backgroundColor: Color.fromARGB(255, 18, 211, 24),
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back),
+            onPressed: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => LoginScreen() //HomePage()
+                    )),
+            color: Colors.black,
+          ),
         ),
         body: SingleChildScrollView(
           child: Padding(

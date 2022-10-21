@@ -168,7 +168,7 @@ class _FarmerState extends State<Farmer> {
                                               color: Colors.black45,
                                               size: 30,
                                             ),
-                                            Text('Add your image')
+                                            Text("Add Farmer's image")
                                           ],
                                         ),
                                       ),
