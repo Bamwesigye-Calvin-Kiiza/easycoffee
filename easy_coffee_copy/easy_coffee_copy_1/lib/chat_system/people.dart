@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cupertino_list_tile/cupertino_list_tile.dart';
 import 'package:easy_coffee_copy_1/chat_system/chat_screen.dart';
+import 'package:easy_coffee_copy_1/chat_system/states/lib.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -46,10 +47,20 @@ class People extends StatelessWidget {
                 child: CustomScrollView(slivers: [
                   CupertinoSliverNavigationBar(
                     largeTitle: Text(
-                      "Chats",
+                      "Farmers",
                       style: TextStyle(color: Colors.white),
                     ),
                     backgroundColor: Colors.orange,
+                  ),
+                  SliverToBoxAdapter(
+                    key: UniqueKey(),
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 15),
+                      child: CupertinoSearchTextField(
+                        onChanged: (value) => usersState.setSearchTerm(value),
+                        onSubmitted: (value) => usersState.setSearchTerm(value),
+                      ),
+                    ),
                   ),
                   SliverList(
                     delegate: SliverChildListDelegate(
@@ -57,6 +68,12 @@ class People extends StatelessWidget {
                       Map<String, dynamic> data =
                           document.data() as Map<String, dynamic>;
                       return CupertinoListTile(
+                        leading: CircleAvatar(
+                          radius: 20,
+                          backgroundImage: NetworkImage(
+                            data['imgUrl'],
+                          ),
+                        ),
                         onTap: (() => CallChatScreen(
                             context, data['farmerName'], data['uid'])),
                         title: Text(

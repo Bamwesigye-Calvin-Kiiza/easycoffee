@@ -17,7 +17,7 @@ abstract class _ChatState with Store {
   void refreshChatForCurrentUser() {
     var chatDocuments = [];
     chats
-        .where('users.$currentUser', isNull: false)
+        .where('users.$currentUser', isNull: true)
         .snapshots()
         .listen((QuerySnapshot snapshot) {
       chatDocuments = snapshot.docs.map((DocumentSnapshot doc) {
@@ -36,10 +36,10 @@ abstract class _ChatState with Store {
             .snapshots()
             .listen((QuerySnapshot snapshot) {
           if (snapshot.docs.isNotEmpty) {
-            messages[doc['name']] = {
+            messages[doc['farmerName']] = {
               'msg': snapshot.docs.first['msg'],
               'time': snapshot.docs.first['createdOn'],
-              'friendName': doc['name'],
+              'friendName': doc['farmerName'],
               'friendUid': snapshot.docs.first['uid'],
             };
           }
