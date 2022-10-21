@@ -171,7 +171,7 @@ class _HomePageState extends State<HomePage> {
                                                   width: 10,
                                                 ),
                                                 Text(
-                                                  thisItem['price'],
+                                                  'UGX-${thisItem['price']}',
                                                   style: TextStyle(
                                                     color: Colors.green,
                                                     fontWeight: FontWeight.w600,
