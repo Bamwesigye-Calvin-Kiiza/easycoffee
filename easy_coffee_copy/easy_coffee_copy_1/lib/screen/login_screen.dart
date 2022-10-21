@@ -120,8 +120,10 @@ class _LoginScreenState extends State<LoginScreen> {
                   children: <Widget>[
                     Text(
                       'E_Coffee',
-                      style:
-                          TextStyle(fontSize: 35, fontStyle: FontStyle.italic),
+                      style: TextStyle(
+                          fontSize: 35,
+                          fontStyle: FontStyle.italic,
+                          color: Colors.brown),
                     ),
                     SizedBox(
                         height: 200,

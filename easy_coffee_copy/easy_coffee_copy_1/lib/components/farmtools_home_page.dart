@@ -94,7 +94,7 @@ class _HomePageState extends State<HomePage> {
                                             top: 10, left: 10),
                                         child: Container(
                                           height: 180,
-                                          width: 150,
+                                          width: 155,
                                           decoration: BoxDecoration(
                                             borderRadius:
                                                 BorderRadius.circular(10),
@@ -106,7 +106,7 @@ class _HomePageState extends State<HomePage> {
                                           ),
                                         ),
                                       ),
-                                      const SizedBox(width: 10.0),
+                                      const SizedBox(width: 5.0),
                                       SizedBox(
                                         height: 150,
                                         child: Column(
