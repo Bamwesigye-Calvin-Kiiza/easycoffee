@@ -68,9 +68,9 @@ class _HomePageState extends State<HomePage> {
                                 builder: (context) => Detail(thisItem)));
                           },
                           child: Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: const EdgeInsets.only(top: 10, bottom: 10),
                             child: Container(
-                              width: 200.0,
+                              width: 350.0,
                               height: 200.0,
                               margin:
                                   const EdgeInsets.only(right: 20, bottom: 10),
@@ -168,14 +168,14 @@ class _HomePageState extends State<HomePage> {
                                                       TextStyle(fontSize: 20),
                                                 ),
                                                 SizedBox(
-                                                  width: 10,
+                                                  width: 8,
                                                 ),
                                                 Text(
                                                   'UGX-${thisItem['price']}',
                                                   style: TextStyle(
                                                     color: Colors.green,
                                                     fontWeight: FontWeight.w600,
-                                                    fontSize: 16.0,
+                                                    fontSize: 15.5,
                                                   ),
                                                 ),
                                               ],
