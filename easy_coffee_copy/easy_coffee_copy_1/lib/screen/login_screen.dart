@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:easy_coffee_copy_1/screen/registration_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -116,6 +118,11 @@ class _LoginScreenState extends State<LoginScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
+                    Text(
+                      'E_Coffee',
+                      style:
+                          TextStyle(fontSize: 35, fontStyle: FontStyle.italic),
+                    ),
                     SizedBox(
                         height: 200,
                         child: Image.asset(
