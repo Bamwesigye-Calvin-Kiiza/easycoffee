@@ -57,7 +57,7 @@ class Detail extends StatelessWidget {
                                   ),
                                 ),
                                 TextSpan(
-                                  text: '             \t${data['price']}',
+                                  text: '             \tUGX-${data['price']}/=',
                                   style: TextStyle(
                                     color: Colors.black.withOpacity(0.5),
                                     fontSize: 18.0,
