@@ -343,7 +343,7 @@ class _FarmerState extends State<Farmer> {
                                       onPressed: (() {
                                         Uploadpic();
                                         UploadPic();
-                                        postallDetailsToFirestore();
+                                        // postallDetailsToFirestore();
                                         postDetailsToFirestore();
                                       }),
                                       style: ElevatedButton.styleFrom(
@@ -391,31 +391,31 @@ class _FarmerState extends State<Farmer> {
         (route) => false);
   }
 
-  postallDetailsToFirestore() async {
-    // calling our firestore
-    // calling our user model
-    // sedning these values
+  // postallDetailsToFirestore() async {
+  //   // calling our firestore
+  //   // calling our user model
+  //   // sedning these values
 
-    FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
-    User user = _auth.currentUser;
+  //   FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
+  //   User user = _auth.currentUser;
 
-    UserModel userModel = UserModel();
+  //   UserModel userModel = UserModel();
 
-    // writing all the values
-    userModel.email = email;
-    userModel.uid = user.uid;
-    userModel.name = farmerName;
-    userModel.Location = location;
+  //   // writing all the values
+  //   userModel.email = email;
+  //   userModel.uid = user.uid;
+  //   userModel.name = farmerName;
+  //   userModel.Location = location;
 
-    await firebaseFirestore
-        .collection("All")
-        .doc(user.uid)
-        .set(userModel.toMap());
-    Fluttertoast.showToast(msg: "Account created successfully :) ");
+  //   await firebaseFirestore
+  //       .collection("All")
+  //       .doc(user.uid)
+  //       .set(userModel.toMap());
+  //   Fluttertoast.showToast(msg: "Account created successfully :) ");
 
-    Navigator.pushAndRemoveUntil(
-        (context),
-        MaterialPageRoute(builder: (context) => AdminScreen()),
-        (route) => false);
-  }
+  //   Navigator.pushAndRemoveUntil(
+  //       (context),
+  //       MaterialPageRoute(builder: (context) => AdminScreen()),
+  //       (route) => false);
+  // }
 }
