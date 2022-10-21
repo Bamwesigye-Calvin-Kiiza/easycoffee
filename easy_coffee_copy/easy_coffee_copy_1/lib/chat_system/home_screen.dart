@@ -3,13 +3,14 @@ import 'package:easy_coffee_copy_1/chat_system/people.dart';
 import 'package:easy_coffee_copy_1/chat_system/states/lib.dart';
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatefulWidget {
-  HomeScreen({Key key}) : super(key: key);
+class HomeCScreen extends StatefulWidget {
+  HomeCScreen({Key key}) : super(key: key);
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<HomeCScreen> createState() => _HomeCScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
+class _HomeCScreenState extends State<HomeCScreen>
+    with TickerProviderStateMixin {
   int currentPage = 0;
   TabController _tabController;
   @override

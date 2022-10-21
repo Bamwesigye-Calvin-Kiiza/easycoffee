@@ -25,25 +25,24 @@ class _ChatsState extends State<Chats> {
 
   @override
   Widget build(BuildContext context) {
-    return Observer(
-        builder: (BuildContext context) => CustomScrollView(
-              slivers: [
-                SliverList(
-                  delegate: SliverChildListDelegate(
-                      chatState.messages.values.toList().map((data) {
-                    return Observer(
-                        builder: (_) => CupertinoListTile(
-                              leading: CircleAvatar(
-                                radius: 20,
-                              ),
-                              onTap: (() => CallChatScreen(
-                                  context, data['name'], data['uid'])),
-                              title: Text(data['friendName']),
-                              subtitle: Text(data['msg']),
-                            ));
-                  }).toList()),
+    return CustomScrollView(
+      slivers: [
+        SliverList(
+          delegate: SliverChildListDelegate(
+            chatState.messages.values.toList().map((data) {
+              return CupertinoListTile(
+                leading: CircleAvatar(
+                  radius: 20,
                 ),
-              ],
-            ));
+                onTap: (() =>
+                    CallChatScreen(context, data['farmerName'], data['uid'])),
+                title: Text(data['friendName']),
+                subtitle: Text(data['msg']),
+              );
+            }).toList(),
+          ),
+        ),
+      ],
+    );
   }
 }
