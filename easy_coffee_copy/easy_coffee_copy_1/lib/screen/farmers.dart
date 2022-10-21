@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:easy_coffee_copy_1/admin/adminscreen.dart';
 import 'package:easy_coffee_copy_1/models/user_model.dart';
 import 'package:easy_coffee_copy_1/screen/crud.dart';
 import 'package:easy_coffee_copy_1/screens/home/home_screen.dart';
@@ -386,7 +387,7 @@ class _FarmerState extends State<Farmer> {
 
     Navigator.pushAndRemoveUntil(
         (context),
-        MaterialPageRoute(builder: (context) => HomeScreen()),
+        MaterialPageRoute(builder: (context) => AdminScreen()),
         (route) => false);
   }
 
@@ -414,7 +415,7 @@ class _FarmerState extends State<Farmer> {
 
     Navigator.pushAndRemoveUntil(
         (context),
-        MaterialPageRoute(builder: (context) => HomeScreen()),
+        MaterialPageRoute(builder: (context) => AdminScreen()),
         (route) => false);
   }
 }
