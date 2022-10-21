@@ -3,6 +3,9 @@ import 'dart:io';
 import 'package:easy_coffee_copy_1/admin/harvestSample.dart';
 import 'package:easy_coffee_copy_1/admin/sample1.dart';
 import 'package:easy_coffee_copy_1/admin/welsample.dart';
+import 'package:easy_coffee_copy_1/components/price_Fructuations.dart';
+import 'package:easy_coffee_copy_1/components/start_up.dart';
+import 'package:easy_coffee_copy_1/screen/login_screen.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 
@@ -10,6 +13,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:random_string/random_string.dart';
 
 import '../components/startups.dart';
+import 'Prices.dart';
 
 class StartPage extends StatefulWidget {
   const StartPage({Key key}) : super(key: key);
@@ -60,17 +64,21 @@ class _StartPageState extends State<StartPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromARGB(255, 245, 205, 191),
       appBar: AppBar(
-        backgroundColor: Colors.brown,
+        backgroundColor: Color.fromARGB(255, 247, 165, 136),
         elevation: 0,
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
-          onPressed: () => Navigator.pop(context),
+          onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => LoginScreen() //HomePage()
+                  )),
           color: Colors.black,
         ),
         title: Text(
-          'Add startup information',
-          style: TextStyle(fontSize: 15),
+          'Extension Worker',
+          style: TextStyle(fontSize: 30),
         ),
         centerTitle: true,
       ),
@@ -88,121 +96,169 @@ class _StartPageState extends State<StartPage> {
                       padding: const EdgeInsets.all(8.0),
                       child: Column(
                         children: <Widget>[
-                          TextField(
-                            decoration: const InputDecoration(
-                              border: UnderlineInputBorder(),
-                              labelText: 'Enter title',
-                            ),
-                            onChanged: (value) {
-                              title = value;
-                            },
-                          ),
-                          SizedBox(
-                            height: 32,
-                          ),
-                          GestureDetector(
-                            onTap: () {
-                              pickImage();
-                            },
-                            child: GotImage != null
-                                ? Container(
-                                    margin:
-                                        EdgeInsets.symmetric(horizontal: 16),
-                                    height: 170,
-                                    width: 170,
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(80),
-                                      child: Image.file(
-                                        GotImage,
-                                        fit: BoxFit.cover,
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: InkWell(
+                                child: Column(
+                                  children: [
+                                    Container(
+                                      height: 150,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(30),
+                                        image: DecorationImage(
+                                            image: AssetImage(
+                                              'assets/images/farmstore.webp',
+                                            ),
+                                            fit: BoxFit.fill),
                                       ),
                                     ),
-                                  )
-                                : Container(
-                                    margin:
-                                        EdgeInsets.symmetric(horizontal: 16),
-                                    height: 170,
-                                    decoration: BoxDecoration(
-                                        color: Colors.black12,
-                                        borderRadius:
-                                            BorderRadius.circular(80)),
-                                    width: 170,
-                                    child: Center(
-                                      child: Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Icon(
-                                            Icons.add_a_photo,
-                                            color: Colors.black45,
-                                            size: 30,
-                                          ),
-                                          Text('Add image')
-                                        ],
-                                      ),
+                                    SizedBox(
+                                      height: 10,
                                     ),
-                                  ),
+                                    Container(
+                                      child: Center(
+                                        child: Text(
+                                          'How to start',
+                                          style: TextStyle(fontSize: 30),
+                                        ),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                                onTap: () {
+                                  Navigator.of(context).push(
+                                    MaterialPageRoute(
+                                        builder: (BuildContext context) {
+                                      return StartScreen();
+                                    }),
+                                  );
+                                }),
                           ),
                           SizedBox(
-                            height: 32,
+                            height: 15,
                           ),
-                          Container(
-                            margin: EdgeInsets.all(4),
-                            height: 240,
-                            child: TextField(
-                              maxLines: 10,
-                              decoration: const InputDecoration(
-                                border: OutlineInputBorder(),
-                                labelText: 'enter info',
-                              ),
-                              onChanged: (value) {
-                                content = value;
-                              },
-                            ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: InkWell(
+                                child: Column(
+                                  children: [
+                                    Container(
+                                      height: 150,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(30),
+                                        image: DecorationImage(
+                                            image: AssetImage(
+                                              'assets/images/coffee_well_being.webp',
+                                            ),
+                                            fit: BoxFit.fill),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 10,
+                                    ),
+                                    Container(
+                                      child: Center(
+                                        child: Text(
+                                          'How to take care',
+                                          style: TextStyle(fontSize: 30),
+                                        ),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                                onTap: () {
+                                  Navigator.of(context).push(
+                                    MaterialPageRoute(
+                                        builder: (BuildContext context) {
+                                      return Wellbeing();
+                                    }),
+                                  );
+                                }),
                           ),
-                          Row(
-                            children: [
-                              ElevatedButton(
-                                child: Text('add info'),
-                                onPressed: (() {
-                                  Uploadpic();
+                          SizedBox(
+                            height: 15,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: InkWell(
+                                child: Column(
+                                  children: [
+                                    Container(
+                                      height: 150,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(30),
+                                        image: DecorationImage(
+                                            image: AssetImage(
+                                              'assets/images/fields.webp',
+                                            ),
+                                            fit: BoxFit.fill),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 10,
+                                    ),
+                                    Container(
+                                      child: Center(
+                                        child: Text(
+                                          'Harvesting Processes',
+                                          style: TextStyle(fontSize: 30),
+                                        ),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                                onTap: () {
+                                  Navigator.of(context).push(
+                                    MaterialPageRoute(
+                                        builder: (BuildContext context) {
+                                      return Harvest();
+                                    }),
+                                  );
                                 }),
-                                style: ElevatedButton.styleFrom(
-                                    backgroundColor: Colors.brown),
-                              ),
-                              SizedBox(
-                                width: 20,
-                              ),
-                              ElevatedButton(
-                                child: Text('wellbeing'),
-                                onPressed: (() {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) =>
-                                              Wellbeing() //HomePage()
-                                          ));
+                          ),
+                          SizedBox(
+                            height: 15,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: InkWell(
+                                child: Column(
+                                  children: [
+                                    Container(
+                                      height: 150,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(30),
+                                        image: DecorationImage(
+                                            image: AssetImage(
+                                              'assets/images/graph.jpg',
+                                            ),
+                                            fit: BoxFit.fill),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 10,
+                                    ),
+                                    Container(
+                                      child: Center(
+                                        child: Text(
+                                          'Prices on Market',
+                                          style: TextStyle(fontSize: 30),
+                                        ),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                                onTap: () {
+                                  Navigator.of(context).push(
+                                    MaterialPageRoute(
+                                        builder: (BuildContext context) {
+                                      return PricePage();
+                                    }),
+                                  );
                                 }),
-                                style: ElevatedButton.styleFrom(
-                                    backgroundColor: Colors.brown),
-                              ),
-                              SizedBox(
-                                width: 20,
-                              ),
-                              ElevatedButton(
-                                child: Text('harvest'),
-                                onPressed: (() {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) =>
-                                              Harvest() //HomePage()
-                                          ));
-                                }),
-                                style: ElevatedButton.styleFrom(
-                                    backgroundColor: Colors.brown),
-                              ),
-                            ],
+                          ),
+                          SizedBox(
+                            height: 10,
                           ),
                         ],
                       ),

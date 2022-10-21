@@ -59,8 +59,9 @@ class _HarvestState extends State<Harvest> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromARGB(255, 248, 223, 214),
       appBar: AppBar(
-        backgroundColor: Colors.brown,
+        backgroundColor: Color.fromARGB(255, 153, 88, 64),
         elevation: 0,
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
@@ -69,7 +70,7 @@ class _HarvestState extends State<Harvest> {
         ),
         title: Text(
           'Coffee Harvest',
-          style: TextStyle(fontSize: 15),
+          style: TextStyle(fontSize: 25),
         ),
         centerTitle: true,
       ),
@@ -159,49 +160,17 @@ class _HarvestState extends State<Harvest> {
                               },
                             ),
                           ),
-                          Row(
-                            children: [
-                              ElevatedButton(
-                                child: Text('add info'),
-                                onPressed: (() {
-                                  Uploadpic();
-                                }),
-                                style: ElevatedButton.styleFrom(
-                                    backgroundColor: Colors.brown),
-                              ),
-                              SizedBox(
-                                width: 20,
-                              ),
-                              ElevatedButton(
-                                child: Text('wellbeing'),
-                                onPressed: (() {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) =>
-                                              Wellbeing() //HomePage()
-                                          ));
-                                }),
-                                style: ElevatedButton.styleFrom(
-                                    backgroundColor: Colors.brown),
-                              ),
-                              SizedBox(
-                                width: 20,
-                              ),
-                              ElevatedButton(
-                                child: Text('startups'),
-                                onPressed: (() {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) =>
-                                              StartPage() //HomePage()
-                                          ));
-                                }),
-                                style: ElevatedButton.styleFrom(
-                                    backgroundColor: Colors.brown),
-                              ),
-                            ],
+                          ElevatedButton(
+                            child: Text(
+                              'add info',
+                              style: TextStyle(fontSize: 25),
+                            ),
+                            onPressed: (() {
+                              Uploadpic();
+                            }),
+                            style: ElevatedButton.styleFrom(
+                                backgroundColor:
+                                    Color.fromARGB(255, 160, 98, 75)),
                           ),
                         ],
                       ),

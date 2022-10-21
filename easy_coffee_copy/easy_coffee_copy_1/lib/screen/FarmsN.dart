@@ -1,13 +1,13 @@
 import 'dart:io';
-import 'dart:ui';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:easy_coffee_copy_1/core/color.dart';
 import 'package:easy_coffee_copy_1/models/user_model.dart';
 import 'package:easy_coffee_copy_1/screen/crud.dart';
 import 'package:easy_coffee_copy_1/screens/home/home_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
+
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:random_string/random_string.dart';
@@ -114,48 +114,9 @@ class _BeFarmState extends State<BeFarm> {
                     padding: const EdgeInsets.all(8.0),
                     child: Column(
                       children: <Widget>[
-                        SizedBox(
-                          height: 20,
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            pickImage();
-                          },
-                          child: GotImage != null
-                              ? Container(
-                                  margin: EdgeInsets.symmetric(horizontal: 16),
-                                  height: 170,
-                                  width: MediaQuery.of(context).size.width,
-                                  child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(6),
-                                    child: Image.file(
-                                      GotImage,
-                                      fit: BoxFit.cover,
-                                    ),
-                                  ),
-                                )
-                              : Container(
-                                  margin: EdgeInsets.symmetric(horizontal: 16),
-                                  height: 170,
-                                  decoration: BoxDecoration(
-                                      color: Colors.black12,
-                                      borderRadius: BorderRadius.circular(6)),
-                                  width: MediaQuery.of(context).size.width,
-                                  child: Center(
-                                    child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Icon(
-                                          Icons.add_a_photo,
-                                          color: Colors.black45,
-                                          size: 30,
-                                        ),
-                                        Text('Add farm image')
-                                      ],
-                                    ),
-                                  ),
-                                ),
+                        Text(
+                          'The information below will be used to generate a card containing information enter which is displayed to your customers',
+                          style: TextStyle(fontSize: 20, color: green),
                         ),
                         SizedBox(
                           height: 20,
@@ -227,6 +188,82 @@ class _BeFarmState extends State<BeFarm> {
                                   height: 20,
                                 ),
                                 TextField(
+                                  decoration:
+                                      InputDecoration(hintText: 'Contact'),
+                                  onChanged: (value) {
+                                    Contact = value;
+                                  },
+                                ),
+                                SizedBox(
+                                  height: 20,
+                                ),
+                                Container(
+                                  margin: EdgeInsets.all(4),
+                                  height: 240,
+                                  child: TextField(
+                                    maxLines: 10,
+                                    decoration: const InputDecoration(
+                                      border: OutlineInputBorder(),
+                                      labelText: 'Biography',
+                                    ),
+                                    onChanged: (value) {
+                                      Bio = value;
+                                    },
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 20,
+                                ),
+                                GestureDetector(
+                                  onTap: () {
+                                    pickImage();
+                                  },
+                                  child: GotImage != null
+                                      ? Container(
+                                          margin: EdgeInsets.symmetric(
+                                              horizontal: 16),
+                                          height: 170,
+                                          width:
+                                              MediaQuery.of(context).size.width,
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(6),
+                                            child: Image.file(
+                                              GotImage,
+                                              fit: BoxFit.cover,
+                                            ),
+                                          ),
+                                        )
+                                      : Container(
+                                          margin: EdgeInsets.symmetric(
+                                              horizontal: 16),
+                                          height: 170,
+                                          decoration: BoxDecoration(
+                                              color: Colors.black12,
+                                              borderRadius:
+                                                  BorderRadius.circular(6)),
+                                          width:
+                                              MediaQuery.of(context).size.width,
+                                          child: Center(
+                                            child: Column(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                Icon(
+                                                  Icons.add_a_photo,
+                                                  color: Colors.black45,
+                                                  size: 30,
+                                                ),
+                                                Text('Add farm image')
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                ),
+                                SizedBox(
+                                  height: 20,
+                                ),
+                                TextField(
                                   decoration: InputDecoration(
                                       hintText: 'Farm location'),
                                   onChanged: (value) {
@@ -256,33 +293,6 @@ class _BeFarmState extends State<BeFarm> {
                                 SizedBox(
                                   height: 20,
                                 ),
-                                TextField(
-                                  decoration:
-                                      InputDecoration(hintText: 'Contact'),
-                                  onChanged: (value) {
-                                    Contact = value;
-                                  },
-                                ),
-                                SizedBox(
-                                  height: 20,
-                                ),
-                                Container(
-                                  margin: EdgeInsets.all(4),
-                                  height: 240,
-                                  child: TextField(
-                                    maxLines: 10,
-                                    decoration: const InputDecoration(
-                                      border: OutlineInputBorder(),
-                                      labelText: 'Biography',
-                                    ),
-                                    onChanged: (value) {
-                                      Bio = value;
-                                    },
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 20,
-                                ),
                                 Container(
                                   margin: EdgeInsets.all(4),
                                   height: 240,
@@ -301,7 +311,7 @@ class _BeFarmState extends State<BeFarm> {
                                   height: 20,
                                 ),
                                 ElevatedButton(
-                                  child: Text('Update Records'),
+                                  child: Text('Update data'),
                                   onPressed: (() {
                                     Uploadpic();
                                     UploadPic();

@@ -36,8 +36,9 @@ class _PricePageState extends State<PricePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromARGB(255, 248, 223, 214),
       appBar: AppBar(
-        backgroundColor: Colors.brown,
+        backgroundColor: Color.fromARGB(255, 146, 92, 72),
         elevation: 0,
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
@@ -46,7 +47,7 @@ class _PricePageState extends State<PricePage> {
         ),
         title: Text(
           'Price Fluctuation',
-          style: TextStyle(fontSize: 15),
+          style: TextStyle(fontSize: 25),
         ),
         centerTitle: true,
       ),
@@ -185,7 +186,10 @@ class _PricePageState extends State<PricePage> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               ElevatedButton(
-                                child: Text('Add Prices'),
+                                child: Text(
+                                  'Add Prices',
+                                  style: TextStyle(fontSize: 25),
+                                ),
                                 onPressed: (() {
                                   Uploadprices();
                                 }),
